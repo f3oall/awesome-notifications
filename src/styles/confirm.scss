@@ -1,0 +1,76 @@
+#awn-confirm {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $awn-confirm-wrapper-bg;
+  z-index: $awn-confirm-wrapper-z-index;
+  opacity: 0;
+  animation: awn-fade-in 0.3s ease-out;
+  animation-fill-mode: both;
+  &.awn-hiding {
+    animation: awn-fade-out 0.3s ease-out;
+  }
+  .awn-confirm-body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: $awn-confirm-bg;
+    padding: $awn-confirm-padding $awn-confirm-padding
+      (
+        $awn-confirm-padding + $awn-confirm-btn-height + ($awn-confirm-btn-space *
+              2)
+      ) $awn-confirm-padding;
+    min-width: $awn-confirm-min-width;
+    font-size: $awn-confirm-font-size;
+    .fa {
+      font-size: $awn-confirm-icon-size;
+      color: $awn-warning-color;
+    }
+  }
+  .awn-confirm-title {
+    font-size: $awn-confirm-font-size;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: $awn-confirm-padding * 0.5;
+    margin-top: 8px;
+  }
+  .awn-buttons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 0;
+    padding: $awn-confirm-btn-space;
+    .awn-btn {
+      cursor: pointer;
+      display: inline-block;
+      border: 0;
+      font-weight: bold;
+      transition: background 0.2s linear;
+      font-size: $awn-confirm-font-size;
+      width: calc(50% - #{$awn-confirm-btn-space / 2});
+      line-height: $awn-confirm-btn-height;
+      color: $awn-confirm-btn-color;
+    }
+    .awn-btn-success {
+      margin-right: $awn-confirm-btn-space / 2;
+      background: $awn-success-color;
+      &:hover {
+        background: darken($awn-success-color, 5%);
+      }
+    }
+    .awn-btn-cancel {
+      margin-left: $awn-confirm-btn-space / 2;
+      background: $awn-info-color;
+      &:hover {
+        background: darken($awn-info-color, 5%);
+      }
+    }
+  }
+}

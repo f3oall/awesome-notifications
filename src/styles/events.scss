@@ -1,0 +1,154 @@
+#awn-container {
+  position: fixed;
+  z-index: $awn-container-z-index;
+  bottom: $awn-container-padding;
+  right: $awn-container-padding;
+  &.awn-top {
+    top: $awn-container-padding;
+    bottom: auto;
+    .awn-event:first-child {
+      margin-top: $awn-event-margin;
+    }
+  }
+  &.awn-left {
+    left: $awn-container-padding;
+    right: auto;
+    .awn-event {
+      right: 100%;
+      animation: awn-slide-left 0.3s linear;
+      animation-fill-mode: both;
+      &.awn-hiding {
+        right: 0;
+      }
+    }
+  }
+  &:not(.awn-left) {
+    .awn-event {
+      left: 100%;
+      animation: awn-slide-right 0.3s linear;
+      animation-fill-mode: both;
+      &.awn-hiding {
+        left: 0;
+      }
+    }
+  }
+}
+
+.awn-event {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  opacity: 0;
+  width: $awn-event-width;
+  padding: $awn-progress-bar-height + $awn-event-padding 88px $awn-event-padding
+    $awn-event-padding;
+  margin-top: $awn-event-margin;
+  border: $awn-border;
+  color: $awn-primary-color;
+  background: $awn-primary-background;
+  font-size: $awn-event-font-size;
+  b {
+    display: block;
+    text-transform: uppercase;
+    color: $awn-primary-color;
+    font-size: $awn-event-title-font-size;
+  }
+  span {
+    position: absolute;
+    right: $awn-event-padding;
+    top: $awn-progress-bar-height;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .fa {
+      font-size: $awn-event-icon-size;
+      color: $awn-primary-color;
+    }
+  }
+  .awn-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $awn-progress-bar-height;
+    background: $awn-primary-bar-background;
+    &:after {
+      content: " ";
+      background: $awn-primary-color;
+      position: absolute;
+      width: 100%;
+      right: 100%;
+      top: 0;
+      height: $awn-progress-bar-height;
+      animation: awn-bar 5s linear;
+      animation-fill-mode: both;
+    }
+  }
+  &.awn-progress-bar-paused .awn-progress-bar:after {
+    animation-play-state: paused;
+  }
+  &.awn-hiding {
+    animation: awn-fade-out 0.3s linear !important;
+  }
+  &.awn-success {
+    border-color: $awn-success-border-color;
+    background: $awn-success-background;
+    color: $awn-success-color;
+    b,
+    .fa {
+      color: $awn-success-color;
+    }
+    .awn-progress-bar {
+      background: $awn-success-bar-background;
+      &:after {
+        background: $awn-success-color;
+      }
+    }
+  }
+  &.awn-info {
+    border-color: $awn-info-border-color;
+    background: $awn-info-background;
+    color: $awn-info-color;
+    b,
+    .fa {
+      color: $awn-info-color;
+    }
+    .awn-progress-bar {
+      background: $awn-info-bar-background;
+      &:after {
+        background: $awn-info-color;
+      }
+    }
+  }
+  &.awn-alert {
+    border-color: $awn-alert-border-color;
+    background: $awn-alert-background;
+    color: $awn-alert-color;
+    b,
+    .fa {
+      color: $awn-alert-color;
+    }
+    .awn-progress-bar {
+      background: $awn-alert-bar-background;
+      &:after {
+        background: $awn-alert-color;
+      }
+    }
+  }
+  &.awn-warning {
+    border-color: $awn-warning-border-color;
+    background: $awn-warning-background;
+    color: $awn-warning-color;
+    b,
+    .fa {
+      color: $awn-warning-color;
+    }
+    .awn-progress-bar {
+      background: $awn-warning-bar-background;
+      &:after {
+        background: $awn-warning-color;
+      }
+    }
+  }
+}
