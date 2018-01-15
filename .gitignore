@@ -6,3 +6,4 @@ docs/*
 !docs/assets
 !docs/dist
 !docs/_config.yml
+!docs/index.md
