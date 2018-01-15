@@ -1,0 +1,113 @@
+---
+---
+
+@import "{{ site.theme }}";
+$success-color: darken(#9BCEC2, 10%);
+
+.page-header {
+  background-color: #c2e59c;
+  background-image: linear-gradient(120deg, #c2e59c, #64b3f4);
+  margin-bottom: 64px;
+  .project-name {
+    text-shadow: 0 0 1px darken(#64b3f4, 20%);
+  }
+  .project-tagline{
+    margin-top: 0;
+    opacity: .7;
+  }
+  a {
+    color: #fff;
+    margin-bottom: 0;
+    border-radius: 0;
+    .fa {
+      margin-right: 8px;
+    }
+  }
+}
+
+
+.main-content {
+  padding-top: 0;
+  h2 {
+    color: #666;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ececec;
+    margin: 64px 0 32px;
+  }
+  .btn {
+    outline: none;
+    border-radius: 0;
+    background: #f9f9f9;
+    border-color: #ececec;
+    color: #999;
+    font-size: 14px;
+    font-weight: bold;
+    width: 200px;
+    padding: 16px 24px;
+    &:hover {
+      background: darken(#f9f9f9, 4%);
+    }
+    &.success {
+      color: #fff;
+      background:lighten(#71b73c, 15%);
+      border-color: lighten(#609c33, 15%);
+      &:hover {
+        background: lighten(#609c33, 7%);
+      }
+    }
+    &.info {
+      color: #fff;
+      background: lighten(#1d90ef, 15%);
+      border-color: lighten(#1d90ef, 15%);
+      &:hover {
+        background: lighten(#1d90ef, 7%);
+      }
+    }
+    &.warning {
+      color: #fff;
+      background: lighten(#e66c0e, 15%);
+      border-color: lighten(#e66c0e, 15%);
+      &:hover {
+        background: lighten(#e66c0e, 7%);
+      }
+    }
+    &.alert {
+      color: #fff;
+      background: lighten(#9d2c27, 15%);
+      border-color: lighten(#9d2c27, 15%);
+      &:hover {
+        background: lighten(#9d2c27, 7%);
+      }
+    }
+  }
+  .buttons {
+    column-count: 3;
+    .btn {
+      margin: 0;
+      width: 100%;
+      &:nth-child(even){
+        margin-top: 16px;
+      }
+    }
+  }
+}
+
+.site-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  font-size: 12px;
+  text-align: center;
+  border-top: none;
+  a {
+    color: lighten(#1d90ef, 15%);
+  }
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 64px;
+}
