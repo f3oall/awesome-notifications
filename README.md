@@ -88,4 +88,4 @@ confirm | `Object` | *See properties bellow* | confirmation window settings
 *confirm.cancelBtnLabel* | `String` | "Cancel" | confirm window cancel button label
 
 ## License
-This project is licensed under the terms of the [MIT license](LICENSE.txt).
+This project is licensed under the terms of the [MIT license](LICENSE).
