@@ -4,6 +4,9 @@ It's a lightweight, fully customizable JavaScript library without any dependenci
 **Demo:** https://f3oall.github.io/awesome-notifications/
 
 ## Install
+
+> **Attention!** This library uses FontAwesome icons, so you either need to make sure that [FontAwesome](http://fontawesome.io/get-started/) is connected to your project, either disable icons, passing the `noIcons:true` property to options.
+
 **Via NPM**
 ```
 npm install --save awesome-notification
@@ -89,6 +92,7 @@ confirm | `Object` | *See properties bellow* | confirmation window settings
 
 
 **Styles**
+
 Most comfortable and quick way to change styles is dowload [styles](src/styles) folder, which containts `.scss` files. Then you have to edit [variables.scss](src/styles/variables.scss), compile your `scss` to `css` and add new `css` file to your project.
 
 Also, you can just add default `style.css` to yout project, and override it in your styles file. To learn more about default styles, look at [styles](src/styles) folder.
