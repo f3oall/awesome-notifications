@@ -32,6 +32,14 @@ You can learn more in the Vue.js version repository: https://github.com/f3oall/v
 
 ## Usage
 
+**Node.js**
+
+```javascript
+import AWN from "awesome-notifications"
+
+let notifier = new AWN(options)
+```
+
 **In browser**
 
 ```html
