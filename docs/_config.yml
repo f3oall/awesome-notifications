@@ -18,7 +18,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Lightweight JavaScript library for beautifull and smooth notifications.
 show_downloads: true
 # Build settings
-theme: jekyll-theme-minimal
+theme: jekyll-theme-cayman
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
