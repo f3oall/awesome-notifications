@@ -22,7 +22,7 @@ Download [index.var.js](dist/index.var.js) and [style.css](dist/style.css), then
 ```html
 <head>
   <link rel="stylesheet" href="path/to/style.css"></link>
-  <script src="path/to/index.var.js></script>
+  <script src="path/to/index.var.js"></script>
 </head>
 ```
 
