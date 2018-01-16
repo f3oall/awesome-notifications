@@ -22,7 +22,7 @@ const defaults = {
       prefix: "<span><i class='fa fa-fw fa",
       suffix: "'></i></span>"
     },
-    disable: false
+    enabled: true
   },
   confirm: {
     successBtnLabel: "OK",
