@@ -109,7 +109,6 @@ All `labels` properties support HTML.
 | _icons.template_          | `Object`  | _See properties bellow_         | Determines icons template                                                  |
 | _icons.template.prefix_   | `String`  | `"<span><i class='fa fa-fw fa"` | HTML before any `icons[value]` (e.g. `icons.tip`)                          |
 | _icons.template.suffix_   | `String`  | `"'></i></span>"`               | HTML after any `icons[value]` (e.g. `icons.tip`)                           |
-| _icons.template_          | `Object`  | _See properties bellow_         | Determines icons template                                                  |
 | confirm                   | `Object`  | _See properties bellow_         | confirmation window settings                                               |
 | _confirm.successBtnLabel_ | `String`  | "OK"                            | confirm window success button label                                        |
 | _confirm.cancelBtnLabel_  | `String`  | "Cancel"                        | confirm window cancel button label                                         |
@@ -118,7 +117,7 @@ All `labels` properties support HTML.
 
 Most comfortable and quick way to change styles is dowload [styles](src/styles) folder, which containts `.scss` files. Then you have to edit [variables.scss](src/styles/variables.scss), compile your `scss` to `css` and add new `css` file to your project.
 
-Also, you can just add default `style.css` to yout project, and override it in your styles file. To learn more about default styles, look at [styles](src/styles) folder.
+Also, you can just add default `style.css` to your project, and override it in your styles file. To learn more about default styles, look at [styles](src/styles) folder.
 
 ## License
 
