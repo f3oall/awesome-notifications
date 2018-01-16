@@ -8,3 +8,4 @@ docs/*
 !docs/dist
 !docs/_config.yml
 !docs/index.md
+!docs/demo.gif
