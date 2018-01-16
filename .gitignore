@@ -1,6 +1,7 @@
 node_modules
 .eslint*
 .prettierrc
+npm-debug.log
 docs/*
 !docs/_layouts
 !docs/assets
