@@ -43,11 +43,12 @@ export default class Notifier {
   _showConfirm(msg, okFunc, cancelFunc) {
     let newEl = document.createElement("div")
     newEl.id = "awn-confirm"
+    let icon = this._getIcon(this.icons["confirm"])
     newEl.innerHTML = `
         <div class='awn-confirm-body'>
-          <i class='fa fa-fw fa-${this.options.confirm.icon}'></i>
+          ${icon}
           <div class='awn-confirm-title'>
-            ${this.options.confirm.title}
+            ${this.labels.confirm}
           </div>
           ${msg}
           <div class='awn-buttons'>
@@ -177,13 +178,11 @@ export default class Notifier {
     const id = `awn-${Math.floor(Date.now() - Math.random() * 100)}`
     let progressBar =
       type === "async" ? "" : `<div class='awn-progress-bar'></div>`
-
+    let icon = this._getIcon(this.icons[type])
     let newEl = document.createElement("div")
     newEl.className = `awn-event awn-${type}`
     newEl.id = id
-    newEl.innerHTML = `${progressBar}<b>${
-      this.labels[type]
-    }</b>${msg}<span><i class='fa fa-fw fa-${this.icons[type]}'></i></span>`
+    newEl.innerHTML = `${progressBar}<b>${this.labels[type]}</b>${msg}${icon}`
 
     return newEl
   }
@@ -237,5 +236,12 @@ export default class Notifier {
         container.className = "awn-top"
     }
     return document.body.appendChild(container)
+  }
+  _getIcon(value) {
+    return this.options.icons.enabled
+      ? this.options.icons.template.prefix +
+          value +
+          this.options.icons.template.suffix
+      : ""
   }
 }

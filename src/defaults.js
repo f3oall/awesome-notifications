@@ -7,7 +7,8 @@ const defaults = {
     success: "Success",
     warning: "Attention",
     alert: "Error",
-    async: "Loading"
+    async: "Loading",
+    confirm: "Confirmation required"
   },
   icons: {
     tip: "question-circle",
@@ -15,11 +16,15 @@ const defaults = {
     success: "check-circle",
     warning: "exclamation-circle",
     alert: "warning",
-    async: "cog fa-spin"
+    async: "cog fa-spin",
+    confirm: "warning",
+    template: {
+      prefix: "<span><i class='fa fa-fw fa",
+      postfix: "'></i></span>"
+    },
+    disable: false
   },
   confirm: {
-    title: "Confirmation required",
-    icon: "warning",
     successBtnLabel: "OK",
     cancelBtnLabel: "Cancel"
   },
