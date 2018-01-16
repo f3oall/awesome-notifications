@@ -20,7 +20,7 @@ const defaults = {
     confirm: "warning",
     template: {
       prefix: "<span><i class='fa fa-fw fa",
-      postfix: "'></i></span>"
+      suffix: "'></i></span>"
     },
     disable: false
   },
