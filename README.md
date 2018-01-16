@@ -87,5 +87,11 @@ confirm | `Object` | *See properties bellow* | confirmation window settings
 *confirm.successBtnLabel* | `String` | "OK" | confirm window success button label
 *confirm.cancelBtnLabel* | `String` | "Cancel" | confirm window cancel button label
 
+
+**Styles**
+Most comfortable and quick way to change styles is dowload [styles](src/styles) folder, which containts `.scss` files. Then you have to edit [variables.scss](src/styles/variables.scss), compile your `scss` to `css` and add new `css` file to your project.
+
+Also, you can just add default `style.css` to yout project, and override it in your styles file. To learn more about default styles, look at [styles](src/styles) folder.
+
 ## License
 This project is licensed under the terms of the [MIT license](LICENSE).
