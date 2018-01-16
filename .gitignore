@@ -1,9 +1,4 @@
 node_modules
 .eslint*
 .prettierrc
-docs/*
-!docs/_layouts
-!docs/assets
-!docs/dist
-!docs/_config.yml
-!docs/index.md
+docs
