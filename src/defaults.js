@@ -26,7 +26,8 @@ const defaults = {
   maxNotifications: 10,
   asyncDefaultMessage: "Please, wait...",
   animationDuration: 300,
-  position: "bottom-right"
+  position: "bottom-right",
+  duration: 5000
 }
 export default function(options) {
   return defaultsDeep(options, defaults)

@@ -120,7 +120,7 @@ export default class Notifier {
     // _addListeners adds event listeners and set a timer for self-destruction for the element.
     this.timers[el.id] = new Timer(() => {
       this._deleteEl(el)
-    }, 5000)
+    }, this.options.duration)
     el.addEventListener("click", () => {
       this._deleteEl(el)
     })
