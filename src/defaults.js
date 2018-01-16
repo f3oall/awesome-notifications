@@ -19,7 +19,7 @@ const defaults = {
     async: "cog fa-spin",
     confirm: "warning",
     template: {
-      prefix: "<span><i class='fa fa-fw fa",
+      prefix: "<span><i class='fa fa-fw fa-",
       suffix: "'></i></span>"
     },
     enabled: true
