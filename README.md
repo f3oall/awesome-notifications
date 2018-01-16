@@ -98,8 +98,8 @@ All `labels` properties support HTML.
 | _icons.confirm_           | `String`  | "warning"                     | FontAwesome icon classes for confirm window, first should be without `fa-` |
 | _icons.enabled_           | `Boolean` | True                          | Determines icons existence                                                 |
 | _icons.template_          | `Object`  | _See properties bellow_       | Determines icons template                                                  |
-| _icons.template.prefix_   | `String`  | "<span><i class='fa fa-fw fa" | HTML before any `icons[value]` (e.g. `icons.tip`)                          |
-| _icons.template.suffix_   | `String`  | "'></i></span>"               | HTML after any `icons[value]` (e.g. `icons.tip`)                           |
+| _icons.template.prefix_   | `String`  | `"<span><i class='fa fa-fw fa"` | HTML before any `icons[value]` (e.g. `icons.tip`)                          |
+| _icons.template.suffix_   | `String`  | `"'></i></span>"`               | HTML after any `icons[value]` (e.g. `icons.tip`)                           |
 | _icons.template_          | `Object`  | _See properties bellow_       | Determines icons template                                                  |
 | confirm                   | `Object`  | _See properties bellow_       | confirmation window settings                                               |
 | _confirm.successBtnLabel_ | `String`  | "OK"                          | confirm window success button label                                        |
