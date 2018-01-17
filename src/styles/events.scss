@@ -19,7 +19,7 @@
     right: auto;
     .awn-event {
       right: 100%;
-      animation: awn-slide-left 0.3s linear;
+      animation-name: awn-slide-left;
       animation-fill-mode: both;
       &.awn-hiding {
         right: 0;
@@ -29,7 +29,7 @@
   &:not(.awn-left) {
     .awn-event {
       left: 100%;
-      animation: awn-slide-right 0.3s linear;
+      animation-name: awn-slide-right;
       animation-fill-mode: both;
       &.awn-hiding {
         left: 0;
@@ -51,6 +51,7 @@
   color: $awn-primary-color;
   background: $awn-primary-background;
   font-size: $awn-event-font-size;
+  animation-timing-function: linear;
   b {
     display: block;
     text-transform: uppercase;
@@ -85,7 +86,9 @@
       right: 100%;
       top: 0;
       height: $awn-progress-bar-height;
-      animation: awn-bar 5s linear;
+      animation-name: awn-bar;
+      animation-duration: inherit;
+      animation-timing-function: linear;
       animation-fill-mode: both;
     }
   }
@@ -93,7 +96,7 @@
     animation-play-state: paused;
   }
   &.awn-hiding {
-    animation: awn-fade-out 0.3s linear !important;
+    animation-name: awn-fade-out !important;
   }
   &.awn-success {
     border-color: $awn-success-border-color;
