@@ -3,6 +3,10 @@
   z-index: $awn-container-z-index;
   bottom: $awn-container-padding;
   right: $awn-container-padding;
+  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
   &.awn-top {
     top: $awn-container-padding;
     bottom: auto;

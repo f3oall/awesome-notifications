@@ -12,6 +12,10 @@
   opacity: 0;
   animation: awn-fade-in 0.3s ease-out;
   animation-fill-mode: both;
+  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
   &.awn-hiding {
     animation: awn-fade-out 0.3s ease-out;
   }
