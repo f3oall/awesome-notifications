@@ -43,7 +43,7 @@ export default class Notifier {
   _showConfirm(msg, okFunc, cancelFunc) {
     let newEl = document.createElement("div")
     newEl.id = "awn-confirm"
-    newEl.style.animationDuration = this.options.animationDuration
+    newEl.style.animationDuration = this._msToS(this.options.animationDuration)
     let icon = this._getIcon(this.icons["confirm"])
     newEl.innerHTML = `
         <div class='awn-confirm-body'>
@@ -180,14 +180,14 @@ export default class Notifier {
     let progressBar =
       type === "async"
         ? ""
-        : `<div class='awn-progress-bar' style="animation-duration:${
+        : `<div class='awn-progress-bar' style="animation-duration:${this._msToS(
             this.options.duration
-          };"></div>`
+          )};"></div>`
     let icon = this._getIcon(this.icons[type])
     let newEl = document.createElement("div")
     newEl.className = `awn-event awn-${type}`
     newEl.id = id
-    newEl.style.animationDuration = this.options.animationDuration
+    newEl.style.animationDuration = this._msToS(this.options.animationDuration)
     newEl.innerHTML = `${progressBar}<b>${this.labels[type]}</b>${msg}${icon}`
 
     return newEl
@@ -249,5 +249,8 @@ export default class Notifier {
           value +
           this.options.icons.template.suffix
       : ""
+  }
+  _msToS(ms) {
+    return `${ms / 1000}s`
   }
 }
