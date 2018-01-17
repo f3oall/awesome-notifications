@@ -33,7 +33,13 @@ export default class Notifier {
 
   async(promise, onResolve, onReject, msg, successMsg) {
     msg = msg || this.options.asyncDefaultMessage
-    this._addAsyncNotification(promise, onResolve, onReject, msg, successMsg)
+    return this._addAsyncNotification(
+      promise,
+      onResolve,
+      onReject,
+      msg,
+      successMsg
+    )
   }
 
   confirm(msg, okFunc, cancelFunc) {
@@ -85,7 +91,7 @@ export default class Notifier {
 
   async _addAsyncNotification(promise, onResolve, onReject, msg, successMsg) {
     let asyncEl = await this._insertEl(msg, "async")
-    promise.then(
+    return promise.then(
       result => {
         if (successMsg) {
           this._addNotification(successMsg, "success", asyncEl)
@@ -93,13 +99,13 @@ export default class Notifier {
           this._deleteEl(asyncEl)
         }
         if (typeof onResolve === "function") {
-          onResolve(result)
+          return onResolve(result)
         }
       },
       err => {
         this._addNotification(err, "alert", asyncEl)
         if (typeof onReject === "function") {
-          onReject(err)
+          return onReject(err)
         }
       }
     )
