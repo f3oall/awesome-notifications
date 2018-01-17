@@ -10,15 +10,15 @@
   background: $awn-confirm-wrapper-bg;
   z-index: $awn-confirm-wrapper-z-index;
   opacity: 0;
-  animation-name: $confirm-show-animation;
-  animation-timing-function: $confirm-animation-timing;
+  animation-name: $awn-confirm-show-animation;
+  animation-timing-function: $awn-confirm-animation-timing;
   animation-fill-mode: both;
   box-sizing: border-box;
   * {
     box-sizing: border-box;
   }
   &.awn-hiding {
-    animation-name: $confirm-hide-animation;
+    animation-name: $awn-confirm-hide-animation;
   }
   .awn-confirm-body {
     position: relative;
