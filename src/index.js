@@ -6,33 +6,38 @@ export default class Notifier {
     this.options = setDefaults(options)
     this.labels = this.options.labels
     this.icons = this.options.icons
+    this.replacements = this.options.replacements
     this.maxNotifications = this.options.maxNotifications
     this.timers = {}
     this.deleted = {}
   }
 
   tip(msg) {
-    this._addNotification(msg, "tip")
+    this.notify(msg, "tip")
   }
 
   info(msg) {
-    this._addNotification(msg, "info")
+    this.notify(msg, "info")
   }
 
   success(msg) {
-    this._addNotification(msg, "success")
+    this.notify(msg, "success")
   }
 
   warning(msg) {
-    this._addNotification(msg, "warning")
+    this.notify(msg, "warning")
   }
 
   alert(msg) {
-    this._addNotification(msg, "alert")
+    this.notify(msg, "alert")
   }
-
+  notify(msg, type) {
+    msg = this._applyReplacements(msg, type)
+    this._addNotification(msg, type)
+  }
   async(promise, onResolve, onReject, msg, successMsg) {
     msg = msg || this.options.asyncDefaultMessage
+    msg = this._applyReplacements(msg)
     return this._addAsyncNotification(
       promise,
       onResolve,
@@ -41,8 +46,19 @@ export default class Notifier {
       successMsg
     )
   }
-
+  _applyReplacements(str, type) {
+    for (const k in this.replacements.general) {
+      str = str.replace(k, this.replacements.general[k])
+    }
+    if (this.replacements[type]) {
+      for (const k in this.replacements[type]) {
+        str = str.replace(k, this.replacements[type][k])
+      }
+    }
+    return str
+  }
   confirm(msg, okFunc, cancelFunc) {
+    msg = this._applyReplacements(msg)
     this._showConfirm(msg, okFunc, cancelFunc)
   }
 
@@ -94,6 +110,7 @@ export default class Notifier {
     return promise.then(
       result => {
         if (successMsg) {
+          successMsg = this._applyReplacements(successMsg, "success")
           this._addNotification(successMsg, "success", asyncEl)
         } else {
           this._deleteEl(asyncEl)

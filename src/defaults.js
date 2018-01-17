@@ -24,6 +24,16 @@ const defaults = {
     },
     enabled: true
   },
+  replacements: {
+    tip: null,
+    info: null,
+    success: null,
+    warning: null,
+    alert: null,
+    async: null,
+    confirm: null,
+    general: { "<script>": "", "</script>": "" }
+  },
   confirm: {
     successBtnLabel: "OK",
     cancelBtnLabel: "Cancel"
