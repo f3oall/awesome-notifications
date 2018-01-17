@@ -43,6 +43,7 @@ export default class Notifier {
   _showConfirm(msg, okFunc, cancelFunc) {
     let newEl = document.createElement("div")
     newEl.id = "awn-confirm"
+    newEl.style.animationDuration = this.options.animationDuration
     let icon = this._getIcon(this.icons["confirm"])
     newEl.innerHTML = `
         <div class='awn-confirm-body'>
