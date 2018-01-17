@@ -177,11 +177,16 @@ export default class Notifier {
     // _newEl creates a new element with specified message and type. It doesn't put element into the DOM.
     const id = `awn-${Math.floor(Date.now() - Math.random() * 100)}`
     let progressBar =
-      type === "async" ? "" : `<div class='awn-progress-bar'></div>`
+      type === "async"
+        ? ""
+        : `<div class='awn-progress-bar' style="animation-duration:${
+            this.options.duration
+          };"></div>`
     let icon = this._getIcon(this.icons[type])
     let newEl = document.createElement("div")
     newEl.className = `awn-event awn-${type}`
     newEl.id = id
+    newEl.style.animationDuration = this.options.animationDuration
     newEl.innerHTML = `${progressBar}<b>${this.labels[type]}</b>${msg}${icon}`
 
     return newEl
