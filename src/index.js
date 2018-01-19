@@ -116,24 +116,25 @@ export default class Notifier {
     return container.el
   }
   _runFunction(success, arg, param, oldEl) {
-    if (this.options.handlers.enabled) {
-      param = success
-        ? this.options.handlers.onResolve(param)
-        : this.options.handlers.onReject(param)
-    }
-    let alertMsg = param
+    let alertMsg = null
+
     switch (typeof arg) {
       case "function":
         return arg(param)
       case "string":
-        if (!success) {
-          alertMsg = arg
-        } else {
+        if (success) {
           this.notify(arg, "success", oldEl)
+          return param
+        } else {
+          alertMsg = arg
         }
-        return param
     }
-    if (oldEl) oldEl.delete()
-    if (!success) this.notify(param, "alert", oldEl)
+
+    if (success) {
+      if (oldEl) oldEl.delete()
+    } else {
+      this.notify(alertMsg || this.options.handleReject(param), "alert", oldEl)
+    }
+    return param
   }
 }

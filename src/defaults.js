@@ -42,16 +42,12 @@ const defaults = {
     async: "Please, wait...",
     "async-block": "Loading"
   },
-  handlers: {
-    enabled: false,
-    onResolve(param) {
-      return param
-    },
-    onReject(param) {
-      if (typeof param !== "String")
-        throw Error("promise return value should be a string")
-      return param
-    }
+  handleReject(value) {
+    if (typeof param !== "string")
+      throw Error(
+        `promise.reject() returning value should be a string, Given ${typeof param} ${param}`
+      )
+    return param
   },
   maxNotifications: 10,
   animationDuration: 300,

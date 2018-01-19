@@ -57,17 +57,68 @@ let notifier = new AWN(options)
 
 You can pass any valid HTML to `html` functions params.
 
-| Function                                         | Params                                                                                                                                                                                                                                                                                  | Description                                                                                                                                                                                                                                                                                                                 | Example                                                                                                   |
-| ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `tip(html)`                                      | _html_ - `String`, required                                                                                                                                                                                                                                                             | shows a gray toast with specified `html`                                                                                                                                                                                                                                                                                    | `tip('First line text<br>Second line text')`                                                              |
-| `info(html)`                                     | _html_ - `String`, required                                                                                                                                                                                                                                                             | shows a blue toast with specified `html`                                                                                                                                                                                                                                                                                    | `info('<b>You can put any HTML here</b>')`                                                                |
-| `success(html)`                                  | _html_ - `String`, required                                                                                                                                                                                                                                                             | shows a green toast with specified `html`                                                                                                                                                                                                                                                                                   | `success('Simple none-HTML message')`                                                                     |
-| `warning(html)`                                  | _html_ - `String`, required                                                                                                                                                                                                                                                             | shows an orange toast with specified `html`                                                                                                                                                                                                                                                                                 | `warning('Simple none HTML message')`                                                                     |
-| `alert(html)`                                    | _html_ - `String`, required                                                                                                                                                                                                                                                             | shows a red toast with specified `html`                                                                                                                                                                                                                                                                                     | `alert('Simple none HTML message')`                                                                       |
-| `async(promise, onResolve, onReject, html)`      | _promise_ - `Promise`, required; <br/> _onResolve_ - `Function`, `String`, optional, either callback or `html` for success toast; <br/> _onReject_ - `Function`, `String`, optional, either callback or `html` for alert toast; <br/> _html_ - `String`, optional, html for async toast | shows an async gray toast with specified `html` <br/><br/> On promise resolve will run `onResolve` if it's function, and show success toast if `onResolve` is a stirng<br/><br/> On promise reject will run `onReject` function and show alert toast, where `msg` is a promise error or `onReject`, if it's a `String`      | `async(somePromise, 'show me a green toast', 'custom message for alert toast' , 'Custom async msg')`      |
-| `asyncBlock(promise, onResolve, onReject, html)` | _promise_ - `Promise`, required; <br/> _onResolve_ - `Function`, `String`, optional, either callback or `html` for success toast; <br/> _onReject_ - `Function`, `String`, optional, either callback or `html` for alert toast; <br/> _html_ - `String`, optional, html for async toast | blocks the screen untill `promise` will be completed <br/><br/> On promise resolve will run `onResolve` if it's function, and show success toast if `onResolve` is a stirng<br/><br/> On promise reject will run `onReject` function and show alert toast, where `msg` is a promise error or `onReject`, if it's a `String` | `asyncBlock(somePromise, 'show me a green toast', 'custom message for alert toast' , 'Custom async msg')` |
-| `confirm(html, okFunc, cancelFunc)`              | _html_ - `String`, required <br/> _okFunc_ - `Function`, optional <br/> _cancelFunc_ - `Function`, optional                                                                                                                                                                             | shows a modal dialog, which is waiting for users confirmation <br/><br/> If user pressed 'OK' button, `okFunc` will be executed <br/><br/> If user pressed 'Cancel' button, `cancelFunc` will be executed. <br/><br/> Both buttons on click will close the window                                                           | `confirm('Are you sure?', runIfOkClicked, runIfCancelClicked)`                                            |
-| `modal(html, className)`                         | _html_ - `String`, required <br/> _className_ - `String`, required                                                                                                                                                                                                                      | shows a custom modal dialog which contains **only** value of `html` <br/> You can add styles for your custom modal by class `awn-modal-${className}`, <br/> where `className` is a param which was passed to the function                                                                                                   | `modal('<h2>Your custom title</h2><p>Your custom text</p>', 'custom-class-name')`                         |
+| Function                                         | Params                                                                                                                                                                                                                                                  | Description                                                                                                  | Example                                                                                           |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| `tip(html)`                                      | _html_ - `String`, required                                                                                                                                                                                                                             | shows a gray toast with specified `html`                                                                     | `tip('First line text<br>Second line text')`                                                      |
+| `info(html)`                                     | _html_ - `String`, required                                                                                                                                                                                                                             | shows a blue toast with specified `html`                                                                     | `info('<b>You can put any HTML here</b>')`                                                        |
+| `success(html)`                                  | _html_ - `String`, required                                                                                                                                                                                                                             | shows a green toast with specified `html`                                                                    | `success('Simple none-HTML message')`                                                             |
+| `warning(html)`                                  | _html_ - `String`, required                                                                                                                                                                                                                             | shows an orange toast with specified `html`                                                                  | `warning('Simple none HTML message')`                                                             |
+| `alert(html)`                                    | _html_ - `String`, required                                                                                                                                                                                                                             | shows a red toast with specified `html`                                                                      | `alert('Simple none HTML message')`                                                               |
+| `async(promise, onResolve, onReject, html)`      | _promise_ - `Promise`, required; <br/> _onResolve_ - `Function`, `String`, optional, either callback or message; <br/> _onReject_ - `Function`, `String`, optional, either callback or message; <br/> _html_ - `String`, optional, html for async toast | shows an async gray toast untill `promise` will be completed, then run a callback or show new toast          | `async(somePromise, 'success toast msg', rejectCallback , 'Custom async msg')`                    |
+| `asyncBlock(promise, onResolve, onReject, html)` | _promise_ - `Promise`, required; <br/> _onResolve_ - `Function`, `String`, optional, either callback or message; <br/> _onReject_ - `Function`, `String`, optional, either callback or message; <br/> _html_ - `String`, optional, html for async toast | shows loader and blocks the screen untill `promise` will be completed, then run a callback or show new toast | `asyncBlock(somePromise, resolveCallback, 'custom message for alert toast' , 'Custom async msg')` |
+| `confirm(html, okFunc, cancelFunc)`              | _html_ - `String`, required <br/> _okFunc_ - `Function`, optional <br/> _cancelFunc_ - `Function`, optional                                                                                                                                             | shows a modal dialog, which is waiting for users confirmation                                                | `confirm('Are you sure?', runIfOkClicked, runIfCancelClicked)`                                    |
+| `modal(html, className)`                         | _html_ - `String`, required <br/> _className_ - `String`, required                                                                                                                                                                                      | shows a custom modal dialog with which contains **only** value of `html`                                     | `modal('<h2>Your custom title</h2><p>Your custom text</p>', 'custom-class-name')`                 |
+
+**How to use async**
+
+There are two types of async functions in this library: `async` and `asyncBlock`. They differ in appearance but work with promises identically.
+
+If your promise was rejected, alert toast will be shown to the user. New toast message will contain error returned by promise. **Make sure that error returned by promise has type of `string`**
+
+Take a look on function behaviour after promise rejection:
+
+```javascript
+notifier.async(Promise.reject("some error")) // will show a new alert toast with message "some error"
+
+notifier.async(Promise.reject({message: "some error")) // will throw an error, because returned value is Object.
+
+notifier.async(Promise.reject("some error"), null, "custom error") // you can pass a string as `onResolve`, it will be used as message for alert toast
+
+notifier.async(Promise.reject("some error"), null, err => console.log(err)) // you can pass a function as `onResolve`, no new toast will be added
+notifier.async(Promise.reject("some error")).then(() => {},err => console.log(err)) // same as above, but alert toast will be created
+```
+
+If most of your promises returns similar objects, you can set `handleReject` function in options, to transform your objects to the strings:
+
+```javascript
+let notifier = new AWN({
+  handleReject(value) {
+    // value is returned value of your promises reject
+    if (typeof value === "string") return value // optional check to preserve values which are already strings
+    // any code which should be applied to all reject values
+    return value.errors.message //choose string property of object that should be shown as error
+  }
+})
+notifer.async(Promise.reject({ errors: { message: "custom message" } })) // there is no error anymore, alert toast will be shown.
+```
+
+If your promise was resolved, nothing will happen by default. Customization here is similar:
+
+```javascript
+notifier.async(Promise.resolve("all done")) // won't show anything after promise resolved
+
+notifier.async(Promise.resolve("all done"), "your custom message") // will show a new success toast with message "your custom message"
+notifier.async(Promise.resolve("all done"), result => {
+  notifier.success(`${result} and your custom message`)
+}) // will show a new success toast with message "all done and your custom message"
+notifier.async(Promise.resolve("all done")).then(result => {
+  notifier.success(`${result} and your custom message`)
+}) // same as above, written without callback
+```
+
+**\*How to use modal**
+
+`modal` function will create a new modal window with HTML that you provided. All your HTML will be put into the `div` with class `awn-modal-${className}`, where `className` is the second parameter in `modal` function.
 
 ## Customization
 
@@ -95,6 +146,7 @@ All `labels` properties support HTML.
 | animationDuration         | `Number`   | 300                                   | determines speed of animation, ms                                                                                                                                                                                                                                 |
 | asyncBlockMinDuration     | `Number`   | 500                                   | minimal time to show asyncBlock modal window, prevents blinking, when async function completes too fast                                                                                                                                                           |
 | maxNotifications          | `Number`   | 10                                    | max amount of notifications                                                                                                                                                                                                                                       |
+| handleReject              | `Function` | [see in source code](src/defaults.js) | handles returned value of promise in async functions if it was rejected; <br> By default will throw an error, if value type isn't a `String`                                                                                                                      |
 | labels                    | `Object`   | _See properties below_                | default labels for notifications                                                                                                                                                                                                                                  |
 | _labels.tip_              | `String`   | "Tip"                                 | default label for tip toast                                                                                                                                                                                                                                       |
 | _labels.info_             | `String`   | "Info"                                | default label for info toast                                                                                                                                                                                                                                      |
@@ -132,37 +184,6 @@ All `labels` properties support HTML.
 | _replacements.asyncBlock_ | `Object`   | `""`                                  | rules for asyncBlock modal window                                                                                                                                                                                                                                 |
 | _replacements.modal_      | `Object`   | `""`                                  | rules for custom modal window                                                                                                                                                                                                                                     |
 | _replacements.confirm_    | `Object`   | `""`                                  | rules for confirm window                                                                                                                                                                                                                                          |
-| handlers                  | `Object`   | _See properties below_                | handlers are functions which handle your promises' returning values, more info below                                                                                                                                                                              |
-| _handlers.enabled_        | `Boolean`  | `false`                               | enables or disables handling of promises' returning values                                                                                                                                                                                                        |
-| _handlers.onResolve_      | `Function` | [see in source code](src/defaults.js) | handler which handles resolve() value                                                                                                                                                                                                                             |
-| _handlers.onReject_       | `Function` | [see in source code](src/defaults.js) | handler which handles reject() value                                                                                                                                                                                                                              |
-
-**Handlers**
-
-If promise which you pass to the async function returns something other than `String`, you will get an error. The most easiest way is to edit promise in way it will send a `String` on reject.
-However sometimes you can't change your promise behaviour, therefore you can set default handlers. Look at example:
-
-```javascript
-function someAsyncFunc() {
-  // any function which returns a Promise and whoose behavior you can't change
-  return Promise((resolve, reject) => {
-    reject({ errorMessage: "Error has occurred" }) // it returns an Object at reject
-  })
-}
-let notifier = new AWN()
-notifier.async(someAsyncFunc()) // will return an error because reject returning value should be a String
-
-notifer = new AWN({
-  handlers: {
-    enabled: true, // to fix that you have to enable handlers on initializing
-    onReject(value) {
-      // and add a proper function which will solve your issue
-      return value.errorMessage // this will return errorMessage instead of object
-    }
-  }
-})
-notifier.async(someAsyncFunc()) // now it will show an alert toast with errorMessage
-```
 
 **Styles**
 
