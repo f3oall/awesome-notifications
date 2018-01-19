@@ -116,6 +116,11 @@ export default class Notifier {
     return container.el
   }
   _runFunction(success, arg, param, oldEl) {
+    if (this.options.handlers.enabled) {
+      param = success
+        ? this.options.handlers.onResolve(param)
+        : this.options.handlers.onReject(param)
+    }
     let alertMsg = param
     switch (typeof arg) {
       case "function":
