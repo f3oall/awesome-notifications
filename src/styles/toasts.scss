@@ -1,34 +1,31 @@
-#awn-container {
+#awn-toast-container {
   position: fixed;
   z-index: $awn-container-z-index;
   bottom: $awn-container-padding;
   right: $awn-container-padding;
   box-sizing: border-box;
-  * {
-    box-sizing: border-box;
-  }
   &.awn-top {
     top: $awn-container-padding;
     bottom: auto;
-    .awn-event:first-child {
-      margin-top: $awn-event-margin;
+    .awn-toast:first-child {
+      margin-top: $awn-toast-margin;
     }
   }
   &.awn-left {
     left: $awn-container-padding;
     right: auto;
-    .awn-event {
+    .awn-toast {
       right: 100%;
-      animation-name: $awn-event-left-show-animation;
+      animation-name: $awn-toast-left-show-animation;
       &.awn-hiding {
         right: 0;
       }
     }
   }
   &:not(.awn-left) {
-    .awn-event {
+    .awn-toast {
       left: 100%;
-      animation-name: $awn-event-right-show-animation;
+      animation-name: $awn-toast-right-show-animation;
       &.awn-hiding {
         left: 0;
       }
@@ -36,41 +33,41 @@
   }
 }
 
-.awn-event {
+.awn-toast {
   position: relative;
   cursor: pointer;
   overflow: hidden;
   opacity: 0;
-  width: $awn-event-width;
-  padding: $awn-progress-bar-height + $awn-event-padding 88px $awn-event-padding
-    $awn-event-padding;
-  margin-top: $awn-event-margin;
+  width: $awn-toast-width;
+  padding: $awn-progress-bar-height + $awn-toast-padding 88px $awn-toast-padding
+    $awn-toast-padding;
+  margin-top: $awn-toast-margin;
   border: $awn-border;
   color: $awn-primary-color;
   background: $awn-primary-background;
-  font-size: $awn-event-font-size;
-  animation-timing-function: $awn-event-animation-timing;
+  font-size: $awn-toast-font-size;
+  animation-timing-function: $awn-toast-animation-timing;
   animation-fill-mode: both;
-  b {
+  .awn-toast-label {
     display: block;
     text-transform: uppercase;
     color: $awn-primary-color;
-    font-size: $awn-event-title-font-size;
+    font-size: $awn-toast-title-font-size;
   }
-  span {
+  .awn-toast-icon {
     position: absolute;
-    right: $awn-event-padding;
+    right: $awn-toast-padding;
     top: $awn-progress-bar-height;
     bottom: 0;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     .fa {
-      font-size: $awn-event-icon-size;
+      font-size: $awn-toast-icon-size;
       color: $awn-primary-color;
     }
   }
-  .awn-progress-bar {
+  .awn-toast-progress-bar {
     position: absolute;
     top: 0;
     left: 0;
@@ -91,13 +88,13 @@
       animation-fill-mode: both;
     }
   }
-  &.awn-progress-bar-paused .awn-progress-bar:after {
+  &.awn-toast-progress-bar-paused .awn-toast-progress-bar:after {
     animation-play-state: paused;
   }
   &.awn-hiding {
-    animation-name: $awn-event-hide-animation !important;
+    animation-name: $awn-toast-hide-animation !important;
   }
-  &.awn-success {
+  &.awn-toast-success {
     border-color: $awn-success-border-color;
     background: $awn-success-background;
     color: $awn-success-color;
@@ -105,14 +102,14 @@
     .fa {
       color: $awn-success-color;
     }
-    .awn-progress-bar {
+    .awn-toast-progress-bar {
       background: $awn-success-bar-background;
       &:after {
         background: $awn-success-color;
       }
     }
   }
-  &.awn-info {
+  &.awn-toast-info {
     border-color: $awn-info-border-color;
     background: $awn-info-background;
     color: $awn-info-color;
@@ -120,14 +117,14 @@
     .fa {
       color: $awn-info-color;
     }
-    .awn-progress-bar {
+    .awn-toast-progress-bar {
       background: $awn-info-bar-background;
       &:after {
         background: $awn-info-color;
       }
     }
   }
-  &.awn-alert {
+  &.awn-toast-alert {
     border-color: $awn-alert-border-color;
     background: $awn-alert-background;
     color: $awn-alert-color;
@@ -135,14 +132,14 @@
     .fa {
       color: $awn-alert-color;
     }
-    .awn-progress-bar {
+    .awn-toast-progress-bar {
       background: $awn-alert-bar-background;
       &:after {
         background: $awn-alert-color;
       }
     }
   }
-  &.awn-warning {
+  &.awn-toast-warning {
     border-color: $awn-warning-border-color;
     background: $awn-warning-background;
     color: $awn-warning-color;
@@ -150,7 +147,7 @@
     .fa {
       color: $awn-warning-color;
     }
-    .awn-progress-bar {
+    .awn-toast-progress-bar {
       background: $awn-warning-bar-background;
       &:after {
         background: $awn-warning-color;

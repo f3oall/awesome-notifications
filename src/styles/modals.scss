@@ -1,0 +1,87 @@
+#awn-modal-wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $awn-modal-wrapper-bg;
+  z-index: $awn-modal-wrapper-z-index;
+  opacity: 0;
+  animation-name: $awn-modal-show-animation;
+  animation-timing-function: $awn-modal-animation-timing;
+  animation-fill-mode: both;
+
+  &.awn-hiding {
+    animation-name: $awn-modal-hide-animation;
+  }
+  .awn-modal-body {
+    position: relative;
+
+    background: $awn-modal-bg;
+    padding: $awn-modal-padding;
+    min-width: $awn-modal-min-width;
+    font-size: $awn-modal-font-size;
+    .fa {
+      font-size: $awn-modal-icon-size;
+      color: $awn-warning-color;
+    }
+    &.awn-modal-confirm {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: $awn-modal-padding+$awn-modal-btn-height+(
+          $awn-modal-btn-space * 2
+        );
+    }
+    &.awn-modal-async-block {
+      background: transparent;
+      font-size: 32px;
+      font-weight: bold;
+      color: #fff;
+      text-align: center;
+    }
+  }
+  .awn-modal-title {
+    font-size: $awn-modal-font-size;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: $awn-modal-padding * 0.5;
+    margin-top: 8px;
+  }
+  .awn-buttons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 0;
+    padding: $awn-modal-btn-space;
+    .awn-btn {
+      cursor: pointer;
+      display: inline-block;
+      border: 0;
+      font-weight: bold;
+      transition: background 0.2s linear;
+      font-size: $awn-modal-font-size;
+      width: calc(50% - #{$awn-modal-btn-space / 2});
+      line-height: $awn-modal-btn-height;
+      color: $awn-modal-btn-color;
+    }
+    .awn-btn-success {
+      margin-right: $awn-modal-btn-space / 2;
+      background: $awn-success-color;
+      &:hover {
+        background: darken($awn-success-color, 5%);
+      }
+    }
+    .awn-btn-cancel {
+      margin-left: $awn-modal-btn-space / 2;
+      background: $awn-info-color;
+      &:hover {
+        background: darken($awn-info-color, 5%);
+      }
+    }
+  }
+}

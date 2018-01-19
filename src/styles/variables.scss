@@ -3,18 +3,18 @@ $awn-container-z-index: 99998 !default;
 $awn-container-padding: 24px !default;
 
 // Notifications
-$awn-event-width: 320px !default;
-$awn-event-padding: 16px !default;
-$awn-event-margin: 16px !default;
-$awn-event-border-width: 1px !default;
-$awn-event-border-style: solid !default;
-$awn-event-border-color: #e0e0e0 !default;
-$awn-border: $awn-event-border-width $awn-event-border-style
-  $awn-event-border-color !default;
+$awn-toast-width: 320px !default;
+$awn-toast-padding: 16px !default;
+$awn-toast-margin: 16px !default;
+$awn-toast-border-width: 1px !default;
+$awn-toast-border-style: solid !default;
+$awn-toast-border-color: #e0e0e0 !default;
+$awn-border: $awn-toast-border-width $awn-toast-border-style
+  $awn-toast-border-color !default;
 $awn-progress-bar-height: 2px !default;
-$awn-event-font-size: 13px !default;
-$awn-event-title-font-size: 16px !default;
-$awn-event-icon-size: 44px !default;
+$awn-toast-font-size: 13px !default;
+$awn-toast-title-font-size: 16px !default;
+$awn-toast-icon-size: 44px !default;
 
 // Colors
 $awn-primary-color: #999 !default;
@@ -42,23 +42,23 @@ $awn-warning-bar-background: lighten($awn-warning-color, 42%) !default;
 $awn-warning-border-color: lighten($awn-warning-color, 25%) !default;
 
 // Modal Windows
-$awn-confirm-wrapper-bg: rgba(0, 0, 0, 0.7) !default;
-$awn-confirm-wrapper-z-index: 99999 !default;
-$awn-confirm-bg: #fff !default;
-$awn-confirm-min-width: 320px !default;
-$awn-confirm-font-size: 14px !default;
-$awn-confirm-icon-size: 44px !default;
-$awn-confirm-padding: 24px !default;
-$awn-confirm-btn-height: 32px !default;
-$awn-confirm-btn-color: #fff !default;
-$awn-confirm-btn-space: 8px !default;
+$awn-modal-wrapper-bg: rgba(0, 0, 0, 0.7) !default;
+$awn-modal-wrapper-z-index: 99999 !default;
+$awn-modal-bg: #fff !default;
+$awn-modal-min-width: 320px !default;
+$awn-modal-font-size: 14px !default;
+$awn-modal-icon-size: 44px !default;
+$awn-modal-padding: 24px !default;
+$awn-modal-btn-height: 32px !default;
+$awn-modal-btn-color: #fff !default;
+$awn-modal-btn-space: 8px !default;
 
 // Animations
-$awn-confirm-show-animation: awn-fade-in;
-$awn-confirm-hide-animation: awn-fade-out;
-$awn-confirm-animation-timing: ease-out;
+$awn-modal-show-animation: awn-fade-in;
+$awn-modal-hide-animation: awn-fade-out;
+$awn-modal-animation-timing: ease-out;
 
-$awn-event-left-show-animation: awn-slide-left;
-$awn-event-right-show-animation: awn-slide-right;
-$awn-event-hide-animation: awn-fade-out;
-$awn-event-animation-timing: linear;
+$awn-toast-left-show-animation: awn-slide-left;
+$awn-toast-right-show-animation: awn-slide-right;
+$awn-toast-hide-animation: awn-fade-out;
+$awn-toast-animation-timing: linear;

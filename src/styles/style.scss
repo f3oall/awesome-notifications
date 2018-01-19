@@ -1,4 +1,8 @@
 @import "variables";
 @import "animations";
-@import "events";
-@import "confirm";
+@import "modals";
+@import "toasts";
+
+[class^="awn-"] {
+  box-sizing: border-box;
+}
