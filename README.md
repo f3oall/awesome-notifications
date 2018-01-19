@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/awesome-notifications.svg)](https://badge.fury.io/js/awesome-notifications)
+
 # Awesome Notifications
 
 It's a lightweight, fully customizable JavaScript library for showing notifications.
