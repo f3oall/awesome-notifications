@@ -3,7 +3,11 @@ import Toast from "./toast"
 import Modal from "./modal"
 import Elem from "./elem"
 
-import { mConsts, eConsts, tConsts } from "./constants"
+import {
+  mConsts,
+  eConsts,
+  tConsts
+} from "./constants"
 
 export default class Notifier {
   constructor(options = {}) {
@@ -117,9 +121,9 @@ export default class Notifier {
   }
   _runFunction(success, arg, param, oldEl) {
     if (this.options.handlers.enabled) {
-      param = success
-        ? this.options.handlers.onResolve(param)
-        : this.options.handlers.onReject(param)
+      param = success ?
+        this.options.handlers.onResolve(param) :
+        this.options.handlers.onReject(param)
     }
     let alertMsg = param
     switch (typeof arg) {
@@ -133,6 +137,7 @@ export default class Notifier {
         }
         return param
     }
+    oldEl.delete()
     if (!success) this.notify(param, "alert", oldEl)
   }
 }
