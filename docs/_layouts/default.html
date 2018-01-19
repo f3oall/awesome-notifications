@@ -20,13 +20,15 @@
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     }).then(function () {
-      this.notifier = new AWN.default();
+      this.notifier = new AWN.default({
+        maxNotifications: 6
+      });
       this.asyncFunc = function () {
         return new Promise(function (resolve, reject) {
           console.log('Start');
           setTimeout(() => {
             resolve()
-          }, 3000);
+          }, 2000);
         })
       }
     })
@@ -50,7 +52,7 @@
     <h2>Notifications Demo</h2>
     <div class="buttons">
       <button class="btn" onclick="notifier.tip('This is an example of tip')">Show Tip</button>
-      <button class="btn" onclick="notifier.async(asyncFunc(), null, null, null, 'Async event has been completed')">Show Async</button>
+      <button class="btn" onclick="notifier.async(asyncFunc(), 'Async event has been completed', null, null)">Show Async</button>
       <button class="btn info" onclick="notifier.info('This is an example of info')">Show Info</button>
       <button class="btn success" onclick="notifier.success('This is an example of success')">Show Success</button>
       <button class="btn warning" onclick="notifier.warning('This is an example of warning')">Show Warning</button>
@@ -58,7 +60,9 @@
     </div>
     <h2>Modal Dialogs Demo</h2>
     <div class="buttons">
-      <button class="btn" onclick="notifier.confirm('This is an example of confirm action', function() {this.notifier.success('You pressed OK')}, function() {this.notifier.tip('You pressed Cancel')})">Show Confirm</button>
+      <button class="btn" onclick="notifier.confirm('You can put any valid HTML here')">Show Confirm</button>
+      <button class="btn" onclick="notifier.modal(`<h3 style='margin-top: 0;'>This is a modal window without any predefined template and styles</h3><p>Just put your html into the function and add custom styles</p><small>Click outside the modal window to close it.</small>`, 'demo')">Custom Modal</button>
+      <button class="btn" onclick="notifier.asyncBlock(asyncFunc(), 'Async event has been completed and screen was unlocked')">Show AsyncBlock</button>
     </div>
   </section>
   <footer class="site-footer">

@@ -1,5 +1,4 @@
 import defaultsDeep from "lodash.defaultsdeep"
-
 const defaults = {
   labels: {
     tip: "Tip",
@@ -18,32 +17,68 @@ const defaults = {
     alert: "warning",
     async: "cog fa-spin",
     confirm: "warning",
-    template: {
-      prefix: "<span><i class='fa fa-fw fa-",
-      suffix: "'></i></span>"
-    },
+    prefix: "<i class='fa fa-fw fa-",
+    suffix: "'></i>",
     enabled: true
   },
   replacements: {
-    tip: null,
-    info: null,
-    success: null,
-    warning: null,
-    alert: null,
-    async: null,
-    confirm: null,
+    tip: "",
+    info: "",
+    success: "",
+    warning: "",
+    alert: "",
+    async: "",
+    "async-block": "",
+    modal: "",
+    confirm: "",
     general: { "<script>": "", "</script>": "" }
   },
-  confirm: {
-    successBtnLabel: "OK",
-    cancelBtnLabel: "Cancel"
+  modal: {
+    okLabel: "OK",
+    cancelLabel: "Cancel",
+    maxWidth: "500px"
+  },
+  messages: {
+    async: "Please, wait...",
+    "async-block": "Loading"
   },
   maxNotifications: 10,
-  asyncDefaultMessage: "Please, wait...",
   animationDuration: 300,
+  asyncBlockMinDuration: 500,
   position: "bottom-right",
   duration: 5000
 }
-export default function(options) {
-  return defaultsDeep(options, defaults)
+export default class {
+  constructor(options) {
+    Object.assign(this, defaultsDeep(options, defaults))
+  }
+
+  icon(type) {
+    if (this.icons.enabled) {
+      return this.icons.prefix + this.icons[type] + this.icons.suffix
+    }
+    return ""
+  }
+  label(type) {
+    return this.labels[type]
+  }
+
+  getSecs(name) {
+    return `${this[name] / 1000}s`
+  }
+
+  applyReplacements(str, type) {
+    if (!str) {
+      return this.messages[type] || ""
+    }
+    for (const k in this.replacements.general) {
+      str = str.replace(k, this.replacements.general[k])
+    }
+    if (this.replacements[type]) {
+      for (const k in this.replacements[type]) {
+        str = str.replace(k, this.replacements[type][k])
+      }
+    }
+    return str
+  }
 }
