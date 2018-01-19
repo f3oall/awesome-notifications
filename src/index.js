@@ -119,7 +119,7 @@ export default class Notifier {
     let alertMsg = param
     switch (typeof arg) {
       case "function":
-        return func(param)
+        return arg(param)
       case "string":
         if (!success) {
           alertMsg = arg
