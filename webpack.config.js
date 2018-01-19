@@ -28,7 +28,7 @@ module.exports = [
     ]
   },
   {
-    entry: ["./src/index.js"],
+    entry: ["./src/index.var.js"],
     output: {
       path: path.resolve(__dirname, "./dist"),
       filename: "index.var.js",
