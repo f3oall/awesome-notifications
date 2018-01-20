@@ -85,7 +85,7 @@ notifier.async(Promise.reject({message: "some error")) // will throw an error, b
 notifier.async(Promise.reject("some error"), null, "custom error") // you can pass a string as `onResolve`, it will be used as message for alert toast
 
 notifier.async(Promise.reject("some error"), null, err => console.log(err)) // you can pass a function as `onResolve`, no new toast will be added
-notifier.async(Promise.reject("some error")).then(() => {},err => console.log(err)) // same as above, but alert toast will be created
+notifier.async(Promise.reject("some error")).then(() => {},err => console.log(err)) // run same function with preserving new alert toast
 ```
 
 If most of your promises returns similar objects, you can set `handleReject` function in options, to transform your objects to the strings:
