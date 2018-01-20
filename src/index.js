@@ -120,6 +120,7 @@ export default class Notifier {
 
     switch (typeof arg) {
       case "function":
+        if (oldEl) oldEl.delete()
         return arg(param)
       case "string":
         if (success) {
