@@ -11,27 +11,26 @@
   <link rel="stylesheet" href="dist/style.css"></link>
   <script>
     new Promise((resolve, reject) => {
-      var tag = document.createElement('script');
+      let tag = document.createElement('script');
       tag.src = "dist/index.var.js";
       tag.async = true;
       tag.onload = () => {
         resolve();
       };
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    }).then(function () {
-      this.notifier = new AWN({
+
+      let firstScript = document.getElementsByTagName('script')[0]
+      firstScript.parentNode.insertBefore(tag, firstScript);
+    }).then(() => {
+      notifier = new AWN({
         maxNotifications: 6
       });
-      this.asyncFunc = function () {
-        return new Promise(function (resolve, reject) {
-          console.log('Start');
-          setTimeout(() => {
-            resolve()
-          }, 2000);
-        })
-      }
     })
+
+    function asyncFunc() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => resolve("test"), 2000);
+      })
+    }
   </script>
 </head>
 
@@ -52,7 +51,7 @@
     <h2>Notifications Demo</h2>
     <div class="buttons">
       <button class="btn" onclick="notifier.tip('This is an example of tip')">Show Tip</button>
-      <button class="btn" onclick="notifier.async(asyncFunc(), 'Async event was completed successfully')">Show Async</button>
+      <button class="btn" onclick="notifier.async(asyncFunc(), 'Async event has been completed successfully')">Show Async</button>
       <button class="btn info" onclick="notifier.info('This is an example of info')">Show Info</button>
       <button class="btn success" onclick="notifier.success('This is an example of success')">Show Success</button>
       <button class="btn warning" onclick="notifier.warning('This is an example of warning')">Show Warning</button>
