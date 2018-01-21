@@ -41,7 +41,7 @@ export default class Notifier {
     let async = this.notify(html, "async")
     return promise.then(
       result => this._runFunction(true, onResolve, result, async),
-      err => this._runFunction(false, onReject, err, async)
+      err => Promise.reject(this._runFunction(false, onReject, err, async))
     )
   }
 
@@ -74,16 +74,14 @@ export default class Notifier {
     let asyncBlock = new Modal(html, "async-block", this.options)
     let start = Date.now()
     return promise.then(
-      result => {
+      result =>
         asyncBlock
           .hideAsync(start)
-          .then(() => this._runFunction(true, onResolve, result))
-      },
-      err => {
+          .then(() => this._runFunction(true, onResolve, result)),
+      err =>
         asyncBlock
           .hideAsync(start)
-          .then(() => this._runFunction(false, onReject, err))
-      }
+          .then(() => Promise.reject(this._runFunction(false, onReject, err)))
     )
   }
   modal(
@@ -115,26 +113,18 @@ export default class Notifier {
     container.insert()
     return container.el
   }
-  _runFunction(success, arg, param, oldEl) {
-    let alertMsg = null
 
+  _runFunction(success, arg, param, oldEl) {
     switch (typeof arg) {
       case "function":
         if (oldEl) oldEl.delete()
         return arg(param)
       case "string":
-        if (success) {
-          this.notify(arg, "success", oldEl)
-          return param
-        } else {
-          alertMsg = arg
-        }
+        this.notify(arg, success ? "success" : "alert", oldEl)
+        return param
     }
-
-    if (success) {
-      if (oldEl) oldEl.delete()
-    } else {
-      this.notify(alertMsg || this.options.handleReject(param), "alert", oldEl)
+    if (!success) {
+      this.notify(this.options.handleReject(param), "alert", oldEl)
     }
     return param
   }
