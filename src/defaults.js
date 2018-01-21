@@ -43,11 +43,11 @@ const defaults = {
     "async-block": "Loading"
   },
   handleReject(value) {
-    if (typeof param !== "string")
+    if (typeof value !== "string")
       throw Error(
-        `promise.reject() returning value should be a string, Given ${typeof param} ${param}`
+        `promise.reject() returning value should be a string, Given ${typeof value} ${value}`
       )
-    return param
+    return value
   },
   maxNotifications: 10,
   animationDuration: 300,
