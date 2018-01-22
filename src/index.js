@@ -123,7 +123,9 @@ export default class Notifier {
         this.notify(arg, success ? "success" : "alert", oldEl)
         return param
     }
-    if (!success) {
+    if (success) {
+      if (oldEl) oldEl.delete()
+    } else {
       this.notify(this.options.handleReject(param), "alert", oldEl)
     }
     return param
