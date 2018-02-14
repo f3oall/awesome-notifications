@@ -42,7 +42,9 @@
   padding: $awn-progress-bar-height + $awn-toast-padding 88px $awn-toast-padding
     $awn-toast-padding;
   margin-top: $awn-toast-margin;
-  border: $awn-border;
+  border-width: $awn-toast-border-width;
+  border-style: $awn-toast-border-style;
+  border-color: $awn-primary-border-color;
   color: $awn-primary-color;
   background: $awn-primary-background;
   font-size: $awn-toast-font-size;

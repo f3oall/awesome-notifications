@@ -18,8 +18,9 @@ $awn-toast-icon-size: 44px !default;
 
 // Colors
 $awn-primary-color: #999 !default;
-$awn-primary-background: lighten($awn-primary-color, 33%);
-$awn-primary-bar-background: lighten($awn-primary-color, 35%);
+$awn-primary-background: lighten($awn-primary-color, 33%) !default;
+$awn-primary-bar-background: lighten($awn-primary-color, 35%) !default;
+$awn-primary-border-color: $awn-toast-border-color !default;
 
 $awn-success-color: #609c33 !default;
 $awn-success-background: lighten($awn-success-color, 38%) !default;
