@@ -1,4 +1,7 @@
-[![npm version](https://badge.fury.io/js/awesome-notifications.svg)](https://badge.fury.io/js/awesome-notifications)
+
+[![npm](https://img.shields.io/npm/v/awesome-notifications.svg?style=for-the-badge)](https://www.npmjs.com/package/awesome-notifications)
+[![npm](https://img.shields.io/npm/dm/awesome-notifications.svg?style=for-the-badge)](https://www.npmjs.com/package/awesome-notifications)
+[![npm](https://img.shields.io/npm/l/awesome-notifications.svg?style=for-the-badge)](https://www.npmjs.com/package/awesome-notifications)
 
 # Awesome Notifications
 
