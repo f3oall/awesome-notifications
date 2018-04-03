@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 * Override global options on the toast create
 
+## [2.2.7] - 04.03.2018
+
+### Changed
+
+* Update `readme.md`
+
 ## [2.2.6] - 04.03.2018
 
 ### Added
