@@ -114,3 +114,30 @@ body {
   position: relative;
   padding-bottom: 64px;
 }
+.badges {
+  font-size: 0;
+  > * {
+    margin: 0 8px 8px 0;
+  }
+  .item {
+    text-decoration: none;
+    vertical-align: top;
+    display: inline-flex;
+    font-size: 11px;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 28px;
+    .l, b {
+      padding: 0 12px;
+    }
+    .l {
+      letter-spacing: 1px;
+      background: #565656;
+    }
+    b {
+      letter-spacing: 1px;
+      background: #94CD0F;
+
+    }
+  }
+}
