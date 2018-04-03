@@ -1,4 +1,3 @@
-
 [![npm](https://img.shields.io/npm/v/awesome-notifications.svg?style=for-the-badge)](https://www.npmjs.com/package/awesome-notifications)
 [![npm](https://img.shields.io/npm/dm/awesome-notifications.svg?style=for-the-badge)](https://www.npmjs.com/package/awesome-notifications)
 [![npm](https://img.shields.io/npm/l/awesome-notifications.svg?style=for-the-badge)](LICENSE)
@@ -197,6 +196,10 @@ Also, you can just add default `style.css` to your project and override it in yo
 ## Security notes
 
 Make sure that you pass safe HTML to `msg` param. Sending data which can be directly or indirectly edited by user (e.g. name of account), provides a possibility for **HTML Injections**. You can set up `replacements` in options to filter `msg` variable.
+
+## Browser support
+
+Last 2 versions.
 
 ## License
 
