@@ -1,4 +1,3 @@
-import defaultsDeep from "lodash.defaultsdeep"
 const defaults = {
   labels: {
     tip: "Tip",
@@ -56,15 +55,14 @@ const defaults = {
   duration: 5000
 }
 export default class {
-  constructor(options) {
-    Object.assign(this, defaultsDeep(options, defaults))
+  constructor(options = {}) {
+    Object.assign(this, defaultsDeep(defaults, options))
   }
 
   icon(type) {
-    if (this.icons.enabled) {
-      return this.icons.prefix + this.icons[type] + this.icons.suffix
-    }
-    return ""
+    return this.icons.enabled
+      ? `${this.icons.prefix}${this.icons[type]}${this.icons.suffix}`
+      : ""
   }
   label(type) {
     return this.labels[type]
@@ -88,4 +86,20 @@ export default class {
     }
     return str
   }
+}
+
+function defaultsDeep(source, value) {
+  let defaults = {}
+  for (const k in source) {
+    if (value.hasOwnProperty(k)) {
+      if (typeof source[k] === "object") {
+        defaults[k] = defaultsDeep(source[k], value[k])
+      } else {
+        defaults[k] = value[k]
+      }
+    } else {
+      defaults[k] = source[k]
+    }
+  }
+  return defaults
 }
