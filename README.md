@@ -134,7 +134,7 @@ var options = {
     tip: "Your custom tip box label"
   }
 }
-var notifier = new AWN.default(options)
+var notifier = new AWN(options)
 ```
 
 **Available options**

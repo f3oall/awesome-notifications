@@ -4,19 +4,21 @@
   "description": "Lightweight library for beautifull and smooth notifications",
   "main": "dist/index.js",
   "scripts": {
-    "build":
-      "rimraf dist/* && webpack --mode production --progress --hide-modules && rimraf dist/style.js",
-    "dev":
-      "rimraf dist/* && webpack --mode development --progress --hide-modules && rimraf dist/style.js",
-    "buildDev":
-      "rimraf dist/* &&  webpack --mode production --hide-modules && rimraf dist/style.js && rimraf docs/dist/* && cpx dist/*.{js,css} docs/dist",
+    "build": "rimraf dist/* && webpack --mode production --progress --hide-modules && rimraf dist/style.js",
+    "dev": "rimraf dist/* && webpack --mode development --progress --hide-modules && rimraf dist/style.js",
+    "buildDev": "rimraf dist/* &&  webpack --mode production --hide-modules && rimraf dist/style.js && rimraf docs/dist/* && cpx dist/*.{js,css} docs/dist",
     "test": "mocha --require babel-register --require babel-polyfill || true"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/f3oall/awesome-notifications.git"
   },
-  "keywords": ["notifications", "toast", "confirm", "modal dialogs"],
+  "keywords": [
+    "notifications",
+    "toast",
+    "confirm",
+    "modal dialogs"
+  ],
   "author": "David Yunevich",
   "license": "MIT",
   "bugs": {
