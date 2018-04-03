@@ -1,5 +1,12 @@
 {
-  "presets": [["env", { "modules": false }], "es2015"],
-  "plugins": ["transform-runtime"],
-  "comments": false
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": ["last 2 versions"]
+        }
+      }
+    ]
+  ]
 }
