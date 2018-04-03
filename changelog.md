@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 * Override global options on the toast create
 
+## [2.2.8] - 04.03.2018
+
+### Changed
+
+* Update `.npmignore` to decrease package size
+
 ## [2.2.7] - 04.03.2018
 
 ### Changed
