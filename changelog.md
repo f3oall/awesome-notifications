@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 * Override global options on the toast create
 
+## [2.2.9] - 04.27.2018
+
+### Changed
+
+* Rename `styles.css` to `style.css` to remove breaking change.
+
 ## [2.2.8] - 04.03.2018
 
 ### Changed
