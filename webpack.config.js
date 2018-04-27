@@ -49,7 +49,7 @@ var styles = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "styles.css"
+      filename: "style.css"
     })
   ]
 }
