@@ -4,9 +4,9 @@
   "description": "Lightweight library for beautifull and smooth notifications",
   "main": "dist/index.js",
   "scripts": {
-    "build": "rimraf dist/* && webpack --mode production --progress --hide-modules && rimraf dist/style.js",
-    "dev": "rimraf dist/* && webpack --mode development --progress --hide-modules && rimraf dist/style.js",
-    "buildDev": "rimraf dist/* &&  webpack --mode production --hide-modules && rimraf dist/style.js && rimraf docs/dist/* && cpx dist/*.{js,css} docs/dist",
+    "build": "rimraf dist/* && webpack --mode production --progress --hide-modules",
+    "dev": "rimraf dist/* && webpack --mode development --progress --hide-modules",
+    "build-dev": "rimraf dist/* &&  webpack --mode production --hide-modules && rimraf docs/dist/* && cpx dist/*.{js,css} docs/dist",
     "test": "mocha --require babel-register --require babel-polyfill || true"
   },
   "repository": {
@@ -26,24 +26,22 @@
   },
   "homepage": "https://github.com/f3oall/awesome-notifications#readme",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-register": "^6.26.0",
-    "chai": "^4.1.2",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "babel-loader": "^8.0.5",
+    "chai": "^4.2.0",
     "cpx": "^1.5.0",
-    "css-loader": "^0.28.8",
-    "jsdom": "11.5.1",
+    "css-loader": "^2.1.1",
+    "jsdom": "14.0.0",
     "jsdom-global": "3.0.2",
-    "mini-css-extract-plugin": "^0.4.0",
-    "mocha": "^5.0.0",
-    "node-sass": "^4.7.2",
-    "rimraf": "^2.6.2",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.19.1",
-    "webpack": "^4.4.1",
-    "webpack-cli": "^2.0.13"
-  },
-  "dependencies": {}
+    "mini-css-extract-plugin": "^0.5.0",
+    "mocha": "^6.1.1",
+    "node-sass": "^4.11.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "rimraf": "^2.6.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
 }

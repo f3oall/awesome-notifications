@@ -13,10 +13,10 @@ const defaults = {
     info: "info-circle",
     success: "check-circle",
     warning: "exclamation-circle",
-    alert: "warning",
+    alert: "exclamation-triangle",
     async: "cog fa-spin",
-    confirm: "warning",
-    prefix: "<i class='fa fa-fw fa-",
+    confirm: "exclamation-triangle",
+    prefix: "<i class='fa fas fa-fw fa-",
     suffix: "'></i>",
     enabled: true
   },
@@ -30,7 +30,10 @@ const defaults = {
     "async-block": "",
     modal: "",
     confirm: "",
-    general: { "<script>": "", "</script>": "" }
+    general: {
+      "<script>": "",
+      "</script>": ""
+    }
   },
   modal: {
     okLabel: "OK",
@@ -60,9 +63,9 @@ export default class {
   }
 
   icon(type) {
-    return this.icons.enabled
-      ? `${this.icons.prefix}${this.icons[type]}${this.icons.suffix}`
-      : ""
+    return this.icons.enabled ?
+      `${this.icons.prefix}${this.icons[type]}${this.icons.suffix}` :
+      ""
   }
   label(type) {
     return this.labels[type]

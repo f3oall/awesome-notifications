@@ -1,6 +1,30 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 var path = require("path")
 var webpack = require("webpack")
+
+module.exports = [createConfig("umd"), createConfig("var", "index.var"), {
+  entry: "./src/styles/style.scss",
+  output: {
+    path: path.resolve(__dirname, "./dist"),
+  },
+  module: {
+    rules: [{
+      test: /\.scss$/,
+      use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+    }]
+  },
+  optimization: {
+    minimizer: [
+      new OptimizeCSSAssetsPlugin({})
+    ]
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "style.css"
+    })
+  ]
+}]
 
 function createConfig(target, entry = "index") {
   return {
@@ -12,46 +36,11 @@ function createConfig(target, entry = "index") {
       libraryTarget: target
     },
     module: {
-      rules: [
-        {
-          test: /\.js$/,
-          loader: "babel-loader",
-          exclude: /node_modules/
-        }
-      ]
+      rules: [{
+        test: /\.js$/,
+        loader: "babel-loader",
+        exclude: /node_modules/
+      }]
     }
   }
 }
-var styles = {
-  entry: "./src/styles/style.scss",
-  output: {
-    path: path.resolve(__dirname, "./dist"),
-    filename: "style.js",
-    library: "AWN",
-    libraryTarget: "var"
-  },
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              minimize: true
-            }
-          },
-          "sass-loader"
-        ]
-      }
-    ]
-  },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: "style.css"
-    })
-  ]
-}
-
-module.exports = [createConfig("umd"), createConfig("var", "index.var"), styles]
