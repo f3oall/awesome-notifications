@@ -1,7 +1,10 @@
 import Elem from "./elem"
 import Timer from "./timer"
 
-import { tConsts, eConsts } from "./constants"
+import {
+  tConsts,
+  eConsts
+} from "./constants"
 
 export default class extends Elem {
   constructor(html, type, options, parent) {
@@ -9,7 +12,7 @@ export default class extends Elem {
       parent,
       `${tConsts.prefix}-${Math.floor(Date.now() - Math.random() * 100)}`,
       `${tConsts.prefix} ${tConsts.prefix}-${type}`,
-      `animation-duration: ${options.getSecs("animationDuration")};`
+      `animation-duration: ${options.getSecs(options.animationDuration)};`
     )
     this.options = options
     this.type = type
@@ -19,10 +22,12 @@ export default class extends Elem {
   setInnerHtml(html) {
     html = this.options.applyReplacements(html, this.type)
     let progressBar = ""
-    if (this.type !== "async") {
+    let duration = this.options.duration(this.type)
+    console.log(duration, this.options)
+    if (duration > 0 && this.type !== "async") {
       progressBar = `<div class='${
         tConsts.klass.progressBar
-      }' style="animation-duration:${this.options.getSecs("duration")};"></div>`
+      }' style="animation-duration:${this.options.getSecs(duration)};"></div>`
     }
     this.newNode.innerHTML = `
     ${progressBar}
@@ -42,21 +47,21 @@ export default class extends Elem {
   }
   afterInsert() {
     if (this.type == "async") return
-    this.timer = new Timer(() => this.delete(), this.options.duration)
-
     this.addEvent("click", () => this.delete())
-    this.addEvent("mouseenter", () => {
-      if (!this.isDeleted()) {
+    let duration = this.options.duration(this.type)
+    if (duration > 0) {
+      this.timer = new Timer(() => this.delete(), duration)
+      this.addEvent("mouseenter", () => {
+        if (this.isDeleted()) return
         this.addClass(tConsts.klass.progressBarPause)
-        this.timer.pause()
-      }
-    })
-    this.addEvent("mouseleave", () => {
-      if (!this.isDeleted()) {
+        if (this.timer) this.timer.pause()
+      })
+      this.addEvent("mouseleave", () => {
+        if (this.isDeleted()) return
         this.removeClass(tConsts.klass.progressBarPause)
         this.timer.resume()
-      }
-    })
+      })
+    }
   }
   isDeleted(el = this.el) {
     return el.classList.contains(eConsts.klass.hiding)

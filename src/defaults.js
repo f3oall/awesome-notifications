@@ -61,7 +61,14 @@ const defaults = {
   animationDuration: 300,
   asyncBlockMinDuration: 500,
   position: "bottom-right",
-  duration: 5000
+  durations: {
+    global: 5000,
+    success: null,
+    info: null,
+    tip: null,
+    warning: null,
+    alert: null
+  }
 }
 export default class {
   constructor(options = {}) {
@@ -72,12 +79,18 @@ export default class {
     if (this.icons.enabled) return `${this.icons.prefix}${this.icons[type]}${this.icons.suffix}`
     return ''
   }
+
   label(type) {
     return this.labels[type]
   }
 
-  getSecs(name) {
-    return `${this[name] / 1000}s`
+  duration(type) {
+    let duration = this.durations[type]
+    return duration === null ? this.durations.global : duration
+  }
+
+  getSecs(value) {
+    return `${value / 1000}s`
   }
 
   applyReplacements(str, type) {
@@ -106,7 +119,7 @@ export default class {
     let result = {}
     for (const k in defaults) {
       if (overrides.hasOwnProperty(k)) {
-        result[k] = typeof defaults[k] === "object" ? this.defaultsDeep(defaults[k], overrides[k]) : overrides[k]
+        result[k] = typeof defaults[k] === "object" && defaults[k] !== null ? this.defaultsDeep(defaults[k], overrides[k]) : overrides[k]
       } else {
         result[k] = defaults[k]
       }

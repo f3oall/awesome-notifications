@@ -9,7 +9,7 @@ export default class extends Elem {
       document.body,
       mConsts.ids.wrapper,
       null,
-      `animation-duration: ${options.getSecs("animationDuration")};`
+      `animation-duration: ${options.getSecs(options.animationDuration)};`
     )
     this.options = options
     this.type = type

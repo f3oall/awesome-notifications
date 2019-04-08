@@ -28,6 +28,10 @@
     let options = {
       icons: {
         enabled: false
+      },
+      durations: {
+        alert: 0,
+        success: 100,
       }
     }
 
@@ -106,7 +110,8 @@
       <button class="btn" onclick="notifier.async(asyncFunc(), 'Async event has been completed successfully')">Show
         Async</button>
       <button class="btn info" onclick="notifier.info('This is an example of info')">Show Info</button>
-      <button class="btn success" onclick="notifier.success('This is an example of success')">Show Success</button>
+      <button class="btn success" onclick="notifier.success('This is an example of success', options)">Show
+        Success</button>
       <button class="btn warning" onclick="notifier.warning('This is an example of warning')">Show Warning</button>
       <button class="btn alert" onclick="notifier.alert('This is an example of alert')">Show Alert</button>
       <button class="btn alert" onclick="notifier.alert('This is an example of alert', options)">Show Custom

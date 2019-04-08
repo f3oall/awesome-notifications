@@ -1,4 +1,6 @@
-import { eConsts } from "./constants"
+import {
+  eConsts
+} from "./constants"
 
 export default class {
   constructor(parent, id, klass, style, html, tag = "div") {
@@ -16,6 +18,7 @@ export default class {
   }
 
   beforeInsert() {}
+  afterInsert() {}
   insert() {
     this.beforeInsert()
     this.el = this.parent.appendChild(this.newNode)
@@ -31,7 +34,6 @@ export default class {
       this.afterInsert()
     })
   }
-  afterInsert() {}
 
   beforeDelete(el = this.el) {
     return new Promise((resolve, reject) => {
