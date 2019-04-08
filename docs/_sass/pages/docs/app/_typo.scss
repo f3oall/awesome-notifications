@@ -24,3 +24,21 @@ h3 {
 p {
   margin: 0 0 $grid * 2;
 }
+
+table {
+  width: 100%;
+  border: $border;
+  border-bottom: 0;
+  border-right: 0;
+
+  tr {
+
+    th,
+    td {
+      border-right: $border;
+      border-bottom: $border;
+      padding: $grid $grid * 2;
+
+    }
+  }
+}
