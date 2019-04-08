@@ -1,0 +1,37 @@
+#header {
+  grid-area: header;
+  border-bottom: $border;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  justify-content: space-between;
+  padding: 0 $grid * 3;
+  align-items: center;
+
+  .brand {
+    font-weight: 900;
+    font-size: 24px;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+
+    a {
+      font-weight: 700;
+
+      &:not(:last-of-type):after {
+        content: "\2022";
+        color: $font-color;
+        margin: 0 $grid;
+      }
+    }
+
+    button {
+      height: $grid * 6;
+      color: #fff;
+      background: $green;
+      border-color: transparent;
+      margin-left: $grid * 3;
+    }
+  }
+}

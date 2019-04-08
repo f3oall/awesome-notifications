@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: " en-US " }}">
+
+<head>
+  <meta charset="UTF-8"> {% seo %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ '/assets/css/docs.css?v=' | append: site.github.build_revision | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-76672461-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-76672461-2');
+  </script>
+
+</head>
+
+<body id="docs-layout">
+  <header id="header">
+    <div class="brand">Awesome Notifications</div>
+    <nav>
+      <a href="/">Demo</a>
+      <a href="https://www.npmjs.com/package/awesome-notifications" target="_blank">NPM</a>
+      <a href="/docs/changelog.html">Changelog</a>
+      <a href="/docs/contacts.html">Contacts</a>
+      <button class="btn">Tip Author</button>
+    </nav>
+  </header>
+  <aside id="sidebar">
+    <a href="#">Why AwN?</a>
+    <a href="#">Installation</a>
+    <a href="#">How to use</a>
+    <h4>Configuration</h4>
+    <a href="#">Custom Options</a>
+    <a href="#">Position</a>
+    <a href="#">Duration</a>
+    <a href="#">Labels</a>
+    <a href="#">Icons</a>
+    <a href="#">Modal</a>
+    <a href="#">Messages</a>
+    <a href="#">Replacements</a>
+    <a href="#">Formating Errors</a>
+    <a href="#">Other</a>
+    <h4>Toasts</h4>
+    <a href="#">Tip</a>
+    <a href="#">Info</a>
+    <a href="#">Success</a>
+    <a href="#">Warning</a>
+    <a href="#">Alert</a>
+    <a href="#">Async</a>
+    <h4>Popups</h4>
+    <a href="#">Modal Window</a>
+    <a href="#">Confirmation Window</a>
+    <a href="#">Async Block</a>
+    <h4>Migrating</h4>
+    <a href="#">Migrating from 2.x to 3.x</a>
+    <h4>Meta</h4>
+    <a href="#">Styles</a>
+    <a href="#">Security Notes</a>
+    <a href="#">Browser Compatibility</a>
+    <a href="#">Code of Conduct</a>
+  </aside>
+  <main id="content">
+    {{content}}
+  </main>
+  <footer id="footer">
+    <span class="year">Awesome Notifications, 2019</span>
+    {% if site.github.is_project_page %}
+    <span class="owner">
+      <a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by
+      <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>
+    </span>
+    {% endif %}
+  </footer>
+  {% if site.google_analytics %}
+
+  <script type="text/javascript">
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', '{{ site.google_analytics }}', 'auto');
+    ga('send', 'pageview');
+  </script>
+  {% endif %}
+</body>
+
+</html>

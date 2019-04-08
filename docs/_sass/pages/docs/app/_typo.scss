@@ -1,0 +1,13 @@
+a,
+a:hover,
+a:focus,
+a:visited {
+  color: $green;
+  text-decoration: none;
+  outline: none;
+  transition: color .4s ease-out;
+}
+
+a:hover {
+  color: darken($green, 10%);
+}

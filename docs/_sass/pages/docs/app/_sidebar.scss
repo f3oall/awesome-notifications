@@ -1,0 +1,20 @@
+#sidebar {
+  grid-area: sidebar;
+  background: $color-secondary;
+  border-right: $border;
+  padding: $grid * 3 $grid * 2;
+  overflow: auto;
+
+  a {
+    display: block;
+    white-space: nowrap;
+
+    &:not(:hover) {
+      color: $font-color-secondary;
+    }
+  }
+
+  h4 {
+    margin-bottom: 4px;
+  }
+}

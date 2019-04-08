@@ -1,0 +1,18 @@
+.btn,
+.btn:hover,
+.btn:focus,
+.btn:active {
+  border: $border;
+  background: $color-secondary;
+  outline: none;
+  font-weight: 700;
+  color: $font-color;
+  border-radius: 10px;
+  margin: 0;
+  padding: 0 $grid * 2;
+  display: flex;
+  height: $grid * 4;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
