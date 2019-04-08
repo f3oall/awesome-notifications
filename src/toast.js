@@ -23,7 +23,6 @@ export default class extends Elem {
     html = this.options.applyReplacements(html, this.type)
     let progressBar = ""
     let duration = this.options.duration(this.type)
-    console.log(duration, this.options)
     if (duration > 0 && this.type !== "async") {
       progressBar = `<div class='${
         tConsts.klass.progressBar
