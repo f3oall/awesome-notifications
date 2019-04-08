@@ -11,3 +11,16 @@ a:visited {
 a:hover {
   color: darken($green, 10%);
 }
+
+
+code {
+  background: #f8f8f8;
+}
+
+h3 {
+  margin: $grid * 5 0 $grid;
+}
+
+p {
+  margin: 0 0 $grid * 2;
+}

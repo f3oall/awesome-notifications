@@ -2,7 +2,7 @@
   grid-area: sidebar;
   background: $color-secondary;
   border-right: $border;
-  padding: $grid * 3 $grid * 2;
+  padding: $grid * 3 $grid * 10 $grid * 3 $grid * 6;
   overflow: auto;
 
   a {

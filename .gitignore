@@ -10,3 +10,4 @@ docs/*
 !docs/index.md
 !docs/demo.gif
 !docs/_sass
+!docs/docs
