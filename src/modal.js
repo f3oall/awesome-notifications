@@ -1,5 +1,7 @@
 import Elem from "./elem"
-import { mConsts } from "./constants"
+import {
+  mConsts
+} from "./constants"
 
 export default class extends Elem {
   constructor(html, type, options) {
@@ -50,18 +52,11 @@ export default class extends Elem {
       </div>
      `
   }
-  hideAsync(start) {
+  hide(start) {
     let takenTime = Date.now() - start
-    return new Promise((resolve, reject) => {
-      if (takenTime >= this.options.asyncBlockMinDuration) {
-        this.delete()
-        resolve()
-      } else {
-        setTimeout(() => {
-          this.delete()
-          resolve()
-        }, this.options.asyncBlockMinDuration - takenTime)
-      }
+    return new Promise(resolve => {
+      if (takenTime >= this.options.asyncBlockMinDuration) return resolve(this.delete())
+      setTimeout(() => resolve(this.delete()), this.options.asyncBlockMinDuration - takenTime)
     })
   }
 }

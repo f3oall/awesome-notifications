@@ -25,6 +25,11 @@
         maxNotifications: 6
       });
     })
+    let options = {
+      icons: {
+        enabled: false
+      }
+    }
 
     function asyncFunc() {
       return new Promise((resolve, reject) => {
@@ -104,6 +109,8 @@
       <button class="btn success" onclick="notifier.success('This is an example of success')">Show Success</button>
       <button class="btn warning" onclick="notifier.warning('This is an example of warning')">Show Warning</button>
       <button class="btn alert" onclick="notifier.alert('This is an example of alert')">Show Alert</button>
+      <button class="btn alert" onclick="notifier.alert('This is an example of alert', options)">Show Custom
+        Alert</button>
     </div>
     <h2>Modal Dialogs Demo</h2>
     <div class="buttons">
