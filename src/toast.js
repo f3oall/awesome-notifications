@@ -22,10 +22,7 @@ export default class extends Elem {
   setInnerHtml(html) {
     html = this.options.applyReplacements(html, this.type)
     if (this.type === 'async') html = this.options.formatError(html)
-    this.newNode.innerHTML = `${this.progressBar}${this.label}
-                            <div class="${tConsts.klass.content}">${html}</div>
-                            <span class="${tConsts.klass.icon}">${this.options.icon(this.type)}</span>
-                            `
+    this.newNode.innerHTML = `${this.progressBar}${this.label}<div class="${tConsts.klass.content}">${html}</div><span class="${tConsts.klass.icon}">${this.options.icon(this.type)}</span>`
   }
 
   beforeInsert() {

@@ -4,9 +4,9 @@
   "description": "Lightweight library for beautifull and smooth notifications",
   "main": "dist/index.js",
   "scripts": {
-    "build": "rimraf dist/* && webpack --mode production --progress --hide-modules",
-    "dev": "rimraf dist/* && webpack --mode development --progress --hide-modules",
-    "build-dev": "rimraf dist/* &&  webpack --mode production --hide-modules && rimraf docs/dist/* && cpx dist/*.{js,css} docs/dist",
+    "build": "rimraf dist/* && webpack --mode production --progress --hide-modules && rimraf dist/main*",
+    "dev": "rimraf dist/* && webpack --mode development --progress --hide-modules && rimraf dist/main*",
+    "build-dev": "rimraf dist/* docs/dist/* &&  webpack --mode production --hide-modules && rimraf dist/main* && cpx dist/*.{js,css} docs/dist",
     "test": "mocha --require babel-register --require babel-polyfill || true"
   },
   "repository": {
@@ -30,6 +30,7 @@
     "@babel/preset-env": "^7.4.3",
     "babel-loader": "^8.0.5",
     "chai": "^4.2.0",
+    "compression-webpack-plugin": "^2.0.0",
     "cpx": "^1.5.0",
     "css-loader": "^2.1.1",
     "jsdom": "14.0.0",
