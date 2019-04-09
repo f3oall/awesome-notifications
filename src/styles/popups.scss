@@ -1,4 +1,4 @@
-#awn-modal-wrapper {
+#awn-popup-wrapper {
   position: fixed;
   left: 0;
   right: 0;
@@ -7,39 +7,39 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: $awn-modal-wrapper-bg;
-  z-index: $awn-modal-wrapper-z-index;
+  background: $awn-popup-wrapper-bg;
+  z-index: $awn-popup-wrapper-z-index;
   opacity: 0;
-  animation-name: $awn-modal-show-animation;
-  animation-timing-function: $awn-modal-animation-timing;
+  animation-name: $awn-popup-show-animation;
+  animation-timing-function: $awn-popup-animation-timing;
   animation-fill-mode: both;
 
   &.awn-hiding {
-    animation-name: $awn-modal-hide-animation;
+    animation-name: $awn-popup-hide-animation;
   }
 
-  .awn-modal-body {
+  .awn-popup-body {
     position: relative;
 
-    background: $awn-modal-bg;
-    padding: $awn-modal-padding;
-    min-width: $awn-modal-min-width;
-    font-size: $awn-modal-font-size;
-    max-width: $awn-modal-max-width;
+    background: $awn-popup-bg;
+    padding: $awn-popup-padding;
+    min-width: $awn-popup-min-width;
+    font-size: $awn-popup-font-size;
+    max-width: $awn-popup-max-width;
 
     .fa {
-      font-size: $awn-modal-icon-size;
+      font-size: $awn-popup-icon-size;
       color: $awn-warning-color;
     }
 
-    &.awn-modal-confirm {
+    &.awn-popup-confirm {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-bottom: $awn-modal-padding+$awn-modal-btn-height+($awn-modal-btn-space * 2);
+      padding-bottom: $awn-popup-padding+$awn-popup-btn-height+($awn-popup-btn-space * 2);
     }
 
-    &.awn-modal-async-block {
+    &.awn-popup-async-block {
       background: transparent;
       font-size: 32px;
       font-weight: bold;
@@ -48,11 +48,11 @@
     }
   }
 
-  .awn-modal-title {
-    font-size: $awn-modal-font-size;
+  .awn-popup-title {
+    font-size: $awn-popup-font-size;
     font-weight: bold;
     text-transform: uppercase;
-    margin-bottom: $awn-modal-padding * 0.5;
+    margin-bottom: $awn-popup-padding * 0.5;
     margin-top: 8px;
   }
 
@@ -62,7 +62,7 @@
     left: 0;
     width: 100%;
     font-size: 0;
-    padding: $awn-modal-btn-space;
+    padding: $awn-popup-btn-space;
 
     .awn-btn {
       cursor: pointer;
@@ -70,14 +70,14 @@
       border: 0;
       font-weight: bold;
       transition: background 0.2s linear;
-      font-size: $awn-modal-font-size;
-      width: calc(50% - #{$awn-modal-btn-space / 2});
-      line-height: $awn-modal-btn-height;
-      color: $awn-modal-btn-color;
+      font-size: $awn-popup-font-size;
+      width: calc(50% - #{$awn-popup-btn-space / 2});
+      line-height: $awn-popup-btn-height;
+      color: $awn-popup-btn-color;
     }
 
     .awn-btn-success {
-      margin-right: $awn-modal-btn-space / 2;
+      margin-right: $awn-popup-btn-space / 2;
       background: $awn-success-color;
 
       &:hover {
@@ -86,7 +86,7 @@
     }
 
     .awn-btn-cancel {
-      margin-left: $awn-modal-btn-space / 2;
+      margin-left: $awn-popup-btn-space / 2;
       background: $awn-info-color;
 
       &:hover {

@@ -5,7 +5,8 @@
   right: $awn-container-padding;
   box-sizing: border-box;
 
-  &.awn-top {
+  &.awn-top-left,
+  &.awn-top-right {
     top: $awn-container-padding;
     bottom: auto;
 
@@ -14,7 +15,8 @@
     }
   }
 
-  &.awn-left {
+  &.awn-top-left,
+  &.awn-bottom-left {
     left: $awn-container-padding;
     right: auto;
 

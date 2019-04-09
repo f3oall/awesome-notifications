@@ -41,23 +41,23 @@ $awn-warning-background: lighten($awn-warning-color, 38%) !default;
 $awn-warning-bar-background: lighten($awn-warning-color, 42%) !default;
 $awn-warning-border-color: lighten($awn-warning-color, 25%) !default;
 
-// Modal Windows
-$awn-modal-wrapper-bg: rgba(0, 0, 0, 0.7) !default;
-$awn-modal-wrapper-z-index: 99999 !default;
-$awn-modal-bg: #fff !default;
-$awn-modal-min-width: 320px !default;
-$awn-modal-max-width: 500px !default;
-$awn-modal-font-size: 14px !default;
-$awn-modal-icon-size: 44px !default;
-$awn-modal-padding: 24px !default;
-$awn-modal-btn-height: 32px !default;
-$awn-modal-btn-color: #fff !default;
-$awn-modal-btn-space: 8px !default;
+// Popups
+$awn-popup-wrapper-bg: rgba(0, 0, 0, 0.7) !default;
+$awn-popup-wrapper-z-index: 99999 !default;
+$awn-popup-bg: #fff !default;
+$awn-popup-min-width: 320px !default;
+$awn-popup-max-width: 500px !default;
+$awn-popup-font-size: 14px !default;
+$awn-popup-icon-size: 44px !default;
+$awn-popup-padding: 24px !default;
+$awn-popup-btn-height: 32px !default;
+$awn-popup-btn-color: #fff !default;
+$awn-popup-btn-space: 8px !default;
 
 // Animations
-$awn-modal-show-animation: awn-fade-in;
-$awn-modal-hide-animation: awn-fade-out;
-$awn-modal-animation-timing: ease-out;
+$awn-popup-show-animation: awn-fade-in;
+$awn-popup-hide-animation: awn-fade-out;
+$awn-popup-animation-timing: ease-out;
 
 $awn-toast-left-show-animation: awn-slide-left;
 $awn-toast-right-show-animation: awn-slide-right;

@@ -1,4 +1,7 @@
 const defaults = {
+  maxNotifications: 10,
+  animationDuration: 300,
+  position: "bottom-right",
   labels: {
     tip: "Tip",
     info: "Info",
@@ -23,15 +26,15 @@ const defaults = {
     enabled: true
   },
   replacements: {
-    tip: "",
-    info: "",
-    success: "",
-    warning: "",
-    alert: "",
-    async: "",
-    "async-block": "",
-    modal: "",
-    confirm: "",
+    tip: null,
+    info: null,
+    success: null,
+    warning: null,
+    alert: null,
+    async: null,
+    "async-block": null,
+    modal: null,
+    confirm: null,
     general: {
       "<script>": "",
       "</script>": ""
@@ -43,21 +46,15 @@ const defaults = {
   },
   formatError(err) {
     if (err.response) {
-      if (err.response.data) {
-        if (err.response.data.errors) {
-          return err.response.data.errors.map(o => o.detail).join('<br>')
-        }
-        return `${err.response.status} ${err.response.statusText}: ${err.response.data}`
+      if (!err.response.data) return '500 API Server Error'
+      if (err.response.data.errors) {
+        return err.response.data.errors.map(o => o.detail).join('<br>')
       }
-      return '500 API Server Error'
+      return `${err.response.status} ${err.response.statusText}: ${err.response.data}`
     }
     if (err.message) return err.message
     return err
   },
-  maxNotifications: 10,
-  animationDuration: 300,
-  asyncBlockMinDuration: 500,
-  position: "bottom-right",
   durations: {
     global: 5000,
     success: null,
@@ -65,11 +62,15 @@ const defaults = {
     tip: null,
     warning: null,
     alert: null
-  }
+  },
+  minDurations: {
+    async: 500,
+    "async-block": 500
+  },
 }
-export default class {
-  constructor(options = {}) {
-    this.override(options, defaults)
+export default class Options {
+  constructor(options = {}, global = defaults) {
+    Object.assign(this, this.defaultsDeep(global, options))
   }
 
   icon(type) {
@@ -86,29 +87,23 @@ export default class {
     return duration === null ? this.durations.global : duration
   }
 
-  getSecs(value) {
+  toSecs(value) {
     return `${value / 1000}s`
   }
 
   applyReplacements(str, type) {
-    if (!str) {
-      return this.messages[type] || ""
-    }
-    for (const k in this.replacements.general) {
-      str = str.replace(k, this.replacements.general[k])
-    }
-    if (this.replacements[type]) {
-      for (const k in this.replacements[type]) {
-        str = str.replace(k, this.replacements[type][k])
+    if (!str) return this.messages[type] || ""
+    for (const n of ['general', type]) {
+      if (!this.replacements[n]) continue
+      for (const k in this.replacements[n]) {
+        str = str.replace(k, this.replacements[n][k])
       }
     }
     return str
   }
 
-  override(options, defaults = this) {
-    if (options) {
-      Object.assign(this, this.defaultsDeep(defaults, options))
-    }
+  override(options) {
+    if (options) return new Options(options, this)
     return this
   }
 

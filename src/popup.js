@@ -4,11 +4,13 @@ import {
 } from "./constants"
 
 export default class extends Elem {
-  constructor(html, type, options) {
-    let animationDuration = `animation-duration: ${options.getSecs(options.animationDuration)};`
+  constructor(html, type, options, onOk, onCancel) {
+    let animationDuration = `animation-duration: ${options.toSecs(options.animationDuration)};`
     super(document.body, mConsts.ids.wrapper, null, animationDuration)
     this.options = options
-    this.type = type
+    this[mConsts.ids.confirmOk] = onOk
+    this[mConsts.ids.confirmCancel] = onCancel
+    this.updateType(type)
     this.setInnerHtml(html)
     this.insert()
   }
@@ -40,11 +42,23 @@ export default class extends Elem {
                                 ${innerHTML}
                               </div>`
   }
-  hide(start) {
-    let takenTime = Date.now() - start
-    return new Promise(resolve => {
-      if (takenTime >= this.options.asyncBlockMinDuration) return resolve(this.delete())
-      setTimeout(() => resolve(this.delete()), this.options.asyncBlockMinDuration - takenTime)
-    })
+
+  afterInsert() {
+    switch (this.type) {
+      case 'async-block':
+        this.start = Date.now()
+        break
+      case 'confirm':
+        this.addEvent("click", e => {
+          if (e.target.nodeName !== "BUTTON") return false
+          this.delete()
+          if (this[e.target.id]) this[e.target.id]()
+        })
+        break
+      default:
+        this.addEvent("click", e => {
+          if (e.target.id === this.newNode.id) this.delete()
+        })
+    }
   }
 }

@@ -31,7 +31,7 @@
       },
       durations: {
         alert: 0,
-        success: 100,
+        success: 1000,
       }
     }
 
@@ -110,19 +110,19 @@
       <button class="btn" onclick="notifier.async(asyncFunc(), 'Async event has been completed successfully')">Show
         Async</button>
       <button class="btn info" onclick="notifier.info('This is an example of info')">Show Info</button>
-      <button class="btn success" onclick="notifier.success('This is an example of success', options)">Show
+      <button class="btn success" onclick="notifier.success('This is an example of success')">Show
         Success</button>
       <button class="btn warning" onclick="notifier.warning('This is an example of warning')">Show Warning</button>
       <button class="btn alert" onclick="notifier.alert('This is an example of alert')">Show Alert</button>
       <button class="btn alert" onclick="notifier.alert('This is an example of alert', options)">Show Custom
         Alert</button>
     </div>
-    <h2>Modal Dialogs Demo</h2>
+    <h2>Popups Demo</h2>
     <div class="buttons">
-      <button class="btn" onclick="notifier.confirm('You can put any valid HTML here')">Show Confirm</button>
+      <button class="btn" onclick="notifier.confirm('You can put any valid HTML here')">Show Confirmation</button>
       <button class="btn"
-        onclick="notifier.modal(`<h3 style='margin-top: 0;'>This is a modal window without any predefined template and styles</h3><p>Just put your html into the function and add custom styles</p><small>Click outside the modal window to close it.</small>`, 'demo')">Custom
-        Modal</button>
+        onclick="notifier.popup(`<h3 style='margin-top: 0;'>This is a modal window without any predefined template and styles</h3><p>Just put your html into the function and add custom styles</p><small>Click outside the modal window to close it.</small>`, 'demo')">Custom
+        Popup</button>
       <button class="btn"
         onclick="notifier.asyncBlock(asyncFunc(), 'Async event has been completed and screen was unlocked')">Show
         AsyncBlock</button>

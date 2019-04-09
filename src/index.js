@@ -1,11 +1,9 @@
-import Options from "./defaults"
+import Options from "./options"
 import Toast from "./toast"
-import Modal from "./modal"
+import Popup from "./popup"
 import Elem from "./elem"
 
 import {
-  mConsts,
-  eConsts,
   tConsts
 } from "./constants"
 
@@ -14,122 +12,84 @@ export default class Notifier {
     this.options = new Options(options)
   }
 
-  tip(html = this._required("html"), options) {
-    this.notify(html, "tip", options)
+  tip(html, options) {
+    this._addToast(html, "tip", options)
   }
 
-  info(html = this._required("html"), options) {
-    this.notify(html, "info", options)
+  info(html, options) {
+    this._addToast(html, "info", options)
   }
 
-  success(html = this._required("html"), options) {
-    this.notify(html, "success", options)
+  success(html, options) {
+    this._addToast(html, "success", options)
   }
 
-  warning(html = this._required("html"), options) {
-    this.notify(html, "warning", options)
+  warning(html, options) {
+    this._addToast(html, "warning", options)
   }
 
-  alert(html = this._required("html"), options) {
-    this.notify(html, "alert", options)
+  alert(html, options) {
+    this._addToast(html, "alert", options)
   }
 
-  async (
-    promise = this._required("promise"),
-    onResolve,
-    onReject,
-    html,
-    options
-  ) {
-    let asyncToast = this.notify(html, "async", options)
-    return promise.then(
-      result => this._runFunction(onResolve, result, options, false, asyncToast),
-      err => Promise.reject(this._runFunction(onReject, err, options, true, asyncToast))
-    )
+  async (promise, onResolve, onReject, html, options) {
+    let asyncToast = this._addToast(html, "async", options)
+    return this._afterAsync(promise, onResolve, onReject, options, asyncToast)
   }
 
-  notify(html, type, options, oldElement) {
-    options = this.options.override(options)
-    if (type === 'alert') html = options.formatError(html)
-    let newEl = new Toast(html, type, options, this._getContainer())
-    newEl.fire(oldElement)
-    return newEl
+  confirm(html, onOk, onCancel, options) {
+    return this._addPopup(html, "confirm", options, onOk, onCancel)
   }
 
-  confirm(html = this._required("html"), onOk, onCancel, options) {
-    let confirm = this.modal(html, "confirm", options)
-    confirm.addEvent("click", e => {
-      if (e.target.nodeName !== "BUTTON") return false
-      confirm.delete()
-      switch (e.target.id) {
-        case mConsts.ids.confirmOk:
-          return this._runFunction(onOk, null, options)
-        case mConsts.ids.confirmCancel:
-          return this._runFunction(onCancel, null, options, true)
-      }
-    })
+  asyncBlock(promise, onResolve, onReject, html, options) {
+    let asyncBlock = this._addPopup(html, "async-block", options)
+    return this._afterAsync(promise, onResolve, onReject, options, asyncBlock)
   }
 
-  asyncBlock(
-    promise = this._required("promise"),
-    onResolve,
-    onReject,
-    html,
-    options
-  ) {
-    let asyncBlock = new Modal(html, "async-block", options)
-    let start = Date.now()
-    return promise.then(
-      result => asyncBlock.hide(start).then(() => this._runFunction(onResolve, result, options)),
-      err => asyncBlock.hide(start).then(() => Promise.reject(this._runFunction(onReject, err, options, true)))
-    )
-  }
-
-  modal(
-    html = this._required("html"),
-    className = this._required("className"),
-    options
-  ) {
-    options = this.options.override(options)
-    let modal = new Modal(html, className, this.options)
-    modal.addEvent("click", e => {
-      if (e.target.id === modal.el.id) modal.delete()
-    })
-    return modal
+  popup(html, className, options) {
+    return this._addPopup(html, className, options)
   }
 
   // Tools
-  _required(paramName) {
-    throw Error(`'${paramName}' is mandatory parameter for this function`)
-  }
-  _getContainer() {
-    if (!this.container) {
-      this.container =
-        document.getElementById(tConsts.ids.container) ||
-        this._createContainer()
-    }
-    return this.container
-  }
-  _createContainer() {
-    let positions = this.options.position.split("-")
-    let klass = positions[0] === "top" ? `${eConsts.lib}-top` : ``
-    if (positions[1] === "left") {
-      klass = `${klass} ${eConsts.lib}-left`
-    }
-    let container = new Elem(document.body, tConsts.ids.container, klass)
-    container.insert()
-    return container.el
+  _addPopup(html, className, options, onOk, onCancel) {
+    return new Popup(html, className, this.options.override(options), onOk, onCancel)
   }
 
-  _runFunction(payload, response, options, isError, oldElement) {
-    if (typeof payload === "function") {
-      if (oldElement) oldElement.delete()
-      return payload(param)
-    } else {
-      let html = payload || response
-      let type = isError ? "alert" : "success"
-      this.notify(html, type, options, oldElement)
+  _addToast(html, type, options, old) {
+    options = this.options.override(options)
+    let newToast = new Toast(html, type, options, this.container)
+    if (old) {
+      if (old instanceof Popup) return old.delete().then(() => newToast.insert())
+      return old.replace(newToast)
     }
-    return response
+    return newToast.insert()
+  }
+
+  _afterAsync(promise, onResolve, onReject, options, oldElement) {
+    return promise.then(
+      this._responseHandler(onResolve, "success", options, oldElement),
+      this._responseHandler(onReject, "alert", options, oldElement)
+    )
+  }
+
+  _responseHandler(payload, toastName, options, oldElement) {
+    return result => {
+      if (typeof payload === "function") {
+        if (oldEleement) oldElement.delete()
+        payload(result)
+      } else {
+        this._addToast(payload || response, toastName, options, oldElement)
+      }
+      if (toastName === 'alert') return Promise.reject(result)
+      return result
+    }
+  }
+
+  _createContainer() {
+    return new Elem(document.body, tConsts.ids.container, this.options.position).insert().el
+  }
+
+  get container() {
+    return document.getElementById(tConsts.ids.container) || this._createContainer()
   }
 }
