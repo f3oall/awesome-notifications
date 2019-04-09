@@ -1,8 +1,8 @@
 #sidebar {
   grid-area: sidebar;
-  background: $color-secondary;
+  background: #fafafa;
   border-right: $border;
-  padding: $grid * 3 $grid * 10 $grid * 3 $grid * 6;
+  padding: $grid $grid * 8 $grid * 3 $grid * 6;
   overflow: auto;
 
   a {
