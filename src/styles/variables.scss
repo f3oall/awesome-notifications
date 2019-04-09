@@ -9,8 +9,7 @@ $awn-toast-margin: 16px !default;
 $awn-toast-border-width: 1px !default;
 $awn-toast-border-style: solid !default;
 $awn-toast-border-color: #e0e0e0 !default;
-$awn-border: $awn-toast-border-width $awn-toast-border-style
-  $awn-toast-border-color !default;
+$awn-border: $awn-toast-border-width $awn-toast-border-style $awn-toast-border-color !default;
 $awn-progress-bar-height: 2px !default;
 $awn-toast-font-size: 13px !default;
 $awn-toast-title-font-size: 16px !default;
@@ -47,6 +46,7 @@ $awn-modal-wrapper-bg: rgba(0, 0, 0, 0.7) !default;
 $awn-modal-wrapper-z-index: 99999 !default;
 $awn-modal-bg: #fff !default;
 $awn-modal-min-width: 320px !default;
+$awn-modal-max-width: 500px !default;
 $awn-modal-font-size: 14px !default;
 $awn-modal-icon-size: 44px !default;
 $awn-modal-padding: 24px !default;

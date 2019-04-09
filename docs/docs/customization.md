@@ -48,6 +48,8 @@ In next chapters you can find detailed info about each property of this object.
 | &nbsp;&nbsp;&nbsp;_labels.alert_            | `String`      | "Error"                                |
 | &nbsp;&nbsp;&nbsp;_labels.async_            | `String`      | "Loading"                              |
 | &nbsp;&nbsp;&nbsp;_labels.confirm_          | `String`      | "Confirmation required"                |
+| &nbsp;&nbsp;&nbsp;_labels.confirmOk_        | `String`      | "OK"                                   |
+| &nbsp;&nbsp;&nbsp;_labels.confirmCancel_    | `String`      | "Cancel"                               |
 | icons                                       | `Object`      | _See properties below_                 |
 | &nbsp;&nbsp;&nbsp;_icons.enabled_           | `Boolean`     | `true`                                 |
 | &nbsp;&nbsp;&nbsp;_icons.prefix_            | `String`      | `"<i class='fas fa fa-fw fa"`          |
@@ -59,10 +61,6 @@ In next chapters you can find detailed info about each property of this object.
 | &nbsp;&nbsp;&nbsp;_icons.alert_             | `String`      | "exclamation-triangle"                 |
 | &nbsp;&nbsp;&nbsp;_icons.async_             | `String`      | "cof fa-spin"                          |
 | &nbsp;&nbsp;&nbsp;_icons.confirm_           | `String`      | "exclamation-triangle"                 |
-| modal                                       | `Object`      | _See properties below_                 |
-| &nbsp;&nbsp;&nbsp;_modal.okLabel_           | `String`      | "OK"                                   |
-| &nbsp;&nbsp;&nbsp;_modal.cancelLabel_       | `String`      | "Cancel"                               |
-| &nbsp;&nbsp;&nbsp;_modal.maxWidth_          | `String`      | "500px"                                |
 | messages                                    | `Object`      | _See properties below_                 |
 | &nbsp;&nbsp;&nbsp;_messages.async_          | `String`      | "Please, wait..."                      |
 | &nbsp;&nbsp;&nbsp;_messages["async-block"]_ | `String`      | "Loading"                              |

@@ -92,7 +92,7 @@ options.labels = {
 **Default:** `"Confirmation required"`  
 **Valid values:** `Any string`
 
-Defines `confirm` popup's label.
+Defines confirmation window label.
 ```javascript
 options.labels = {
   confirm: "Are you sure?",
@@ -100,4 +100,30 @@ options.labels = {
 }
 ```
 
+### confirmOk
+
+**Type:**  `String`  
+**Default:** `"OK"`  
+**Valid values:** `Any string`
+
+Defines confirmation window success button label.
+```javascript
+options.modal = {
+  okLabel: "Submit",
+  ...
+}
+```
+### confirmCancel
+
+**Type:**  `String`  
+**Default:** `"Cancel"`  
+**Valid values:** `Any string`
+
+Defines confirmation window cancel button label.
+```javascript
+options.modal = {
+  cancelLabel: "Back",
+  ...
+}
+```
 

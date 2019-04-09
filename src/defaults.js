@@ -6,7 +6,9 @@ const defaults = {
     warning: "Attention",
     alert: "Error",
     async: "Loading",
-    confirm: "Confirmation required"
+    confirm: "Confirmation required",
+    confirmOk: "OK",
+    confirmCancel: "Cancel"
   },
   icons: {
     tip: "question-circle",
@@ -34,11 +36,6 @@ const defaults = {
       "<script>": "",
       "</script>": ""
     }
-  },
-  modal: {
-    okLabel: "OK",
-    cancelLabel: "Cancel",
-    maxWidth: "500px"
   },
   messages: {
     async: "Please, wait...",
