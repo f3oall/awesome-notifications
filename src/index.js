@@ -46,7 +46,7 @@ export default class Notifier {
     return this._afterAsync(promise, onResolve, onReject, options, asyncBlock)
   }
 
-  popup(html, className, options) {
+  modal(html, className, options) {
     return this._addPopup(html, className, options)
   }
 
