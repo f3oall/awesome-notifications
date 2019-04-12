@@ -10,4 +10,5 @@ docs/*
 !docs/index.md
 !docs/demo.gif
 !docs/_sass
+!docs/_includes
 !docs/docs

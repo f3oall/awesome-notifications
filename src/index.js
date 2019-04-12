@@ -13,23 +13,23 @@ export default class Notifier {
   }
 
   tip(html, options) {
-    this._addToast(html, "tip", options)
+    return this._addToast(html, "tip", options).el
   }
 
   info(html, options) {
-    this._addToast(html, "info", options)
+    return this._addToast(html, "info", options).el
   }
 
   success(html, options) {
-    this._addToast(html, "success", options)
+    return this._addToast(html, "success", options).el
   }
 
   warning(html, options) {
-    this._addToast(html, "warning", options)
+    return this._addToast(html, "warning", options).el
   }
 
   alert(html, options) {
-    this._addToast(html, "alert", options)
+    return this._addToast(html, "alert", options).el
   }
 
   async (promise, onResolve, onReject, html, options) {

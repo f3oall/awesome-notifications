@@ -12,7 +12,18 @@
   padding: 0 $grid * 2;
   display: flex;
   height: $grid * 4;
+  font-size: 13px;
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
+}
+
+.btn.success {
+  color: #fff;
+  background: $green;
+  border-color: transparent;
+
+  &:hover {
+    background: darken($green, 10%);
+  }
 }

@@ -27,10 +27,8 @@
     }
 
     button {
-      height: $grid * 6;
-      color: #fff;
-      background: $green;
-      border-color: transparent;
+      height: $grid * 5;
+      font-size: 14px;
       margin-left: $grid * 3;
     }
   }

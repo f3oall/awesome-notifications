@@ -5,11 +5,41 @@
   <meta charset="UTF-8"> {% seo %}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#157878">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="{{ '/assets/css/docs.css?v=' | append: site.github.build_revision | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <script>
+    new Promise((resolve, reject) => {
+      let tag = document.createElement('script');
+      tag.src = "/dist/index.var.js";
+      tag.async = true;
+      tag.onload = () => {
+        resolve();
+      };
+
+      let firstScript = document.getElementsByTagName('script')[0]
+      firstScript.parentNode.insertBefore(tag, firstScript);
+    }).then(() => {
+      notifier = new AWN({
+        maxNotifications: 6
+      });
+    })
+    let options = {
+      icons: {
+        enabled: false
+      },
+      durations: {
+        alert: 0,
+        success: 1000,
+      }
+    }
+
+    function asyncFunc() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => resolve("test"), 2000);
+      })
+    }
+  </script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-76672461-2"></script>
   <script>
@@ -33,7 +63,7 @@
       <a href="https://www.npmjs.com/package/awesome-notifications" target="_blank">NPM</a>
       <a href="/docs/changelog.html">Changelog</a>
       <a href="/docs/contacts.html">Contacts</a>
-      <button class="btn">Tip Author</button>
+      <button class="btn success">Tip Author</button>
     </nav>
   </header>
   <aside id="sidebar">
@@ -52,12 +82,12 @@
     <a href="/docs/customization/messages">Messages</a>
     <a href="/docs/customization/replacements">Replacements</a>
     <h4>Toasts</h4>
-    <a href="#">Tip</a>
-    <a href="#">Info</a>
-    <a href="#">Success</a>
-    <a href="#">Warning</a>
-    <a href="#">Alert</a>
-    <a href="#">Async</a>
+    <a href="/docs/toasts/tip">Tip</a>
+    <a href="/docs/toasts/info">Info</a>
+    <a href="/docs/toasts/success">Success</a>
+    <a href="/docs/toasts/warning">Warning</a>
+    <a href="/docs/toasts/alert">Alert</a>
+    <a href="/docs/toasts/async">Async</a>
     <h4>Popups</h4>
     <a href="#">Modal Window</a>
     <a href="#">Confirmation Window</a>
