@@ -7,7 +7,7 @@ import {
 } from "./constants"
 
 export default class extends Elem {
-  constructor(html, type, options, parent) {
+  constructor(msg, type, options, parent) {
     super(
       parent,
       `${tConsts.prefix}-${Math.floor(Date.now() - Math.random() * 100)}`,
@@ -16,7 +16,7 @@ export default class extends Elem {
     )
     this.options = options
     this.updateType(type)
-    this.setInnerHtml(html)
+    this.setInnerHtml(msg)
   }
 
   setInnerHtml(html) {

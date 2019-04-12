@@ -2,13 +2,13 @@
 layout: docs
 ---
 
-# Toasts: Tip
-Method `tip()` shows new `tip` toast.
+# Toasts: Warning
+Method `warning()` shows new `warning` toast.
 
 
 ## Syntax
 ```javascript
-AWN.tip([message,options])
+AWN.warning([message,options])
 ```
 ### Parameters
 {% include param-desc.md optional=true name="message" desc="
@@ -24,5 +24,5 @@ A new [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement
 
 ## Examples
 
-{% include awn-example.md js="new AWN().tip()" label="Use defaults" %}
-{% include awn-example.md js="new AWN().tip('Custom tip message', {durations: {tip: 0}})" label="Use custom" %}
+{% include awn-example.md js="new AWN().warning()" label="Use defaults" %}
+{% include awn-example.md js="new AWN().warning('Custom warning message', {durations: {warning: 0}})" label="Use custom" %}

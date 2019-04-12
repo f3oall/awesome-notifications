@@ -2,13 +2,13 @@
 layout: docs
 ---
 
-# Toasts: Tip
-Method `tip()` shows new `tip` toast.
+# Toasts: Success
+Method `success()` shows new `success` toast.
 
 
 ## Syntax
 ```javascript
-AWN.tip([message,options])
+AWN.success([message,options])
 ```
 ### Parameters
 {% include param-desc.md optional=true name="message" desc="
@@ -24,5 +24,5 @@ A new [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement
 
 ## Examples
 
-{% include awn-example.md js="new AWN().tip()" label="Use defaults" %}
-{% include awn-example.md js="new AWN().tip('Custom tip message', {durations: {tip: 0}})" label="Use custom" %}
+{% include awn-example.md js="new AWN().success()" label="Use defaults" %}
+{% include awn-example.md js="new AWN().success('Custom success message', {durations: {success: 0}})" label="Use custom" %}

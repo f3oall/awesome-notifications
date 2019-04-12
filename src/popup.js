@@ -4,14 +4,14 @@ import {
 } from "./constants"
 
 export default class extends Elem {
-  constructor(html, type, options, onOk, onCancel) {
+  constructor(msg, type, options, onOk, onCancel) {
     let animationDuration = `animation-duration: ${options.toSecs(options.animationDuration)};`
     super(document.body, mConsts.ids.wrapper, null, animationDuration)
     this.options = options
     this[mConsts.ids.confirmOk] = onOk
     this[mConsts.ids.confirmCancel] = onCancel
     this.updateType(type)
-    this.setInnerHtml(html)
+    this.setInnerHtml(msg)
     this.insert()
   }
 

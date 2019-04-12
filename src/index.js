@@ -12,52 +12,52 @@ export default class Notifier {
     this.options = new Options(options)
   }
 
-  tip(html, options) {
-    return this._addToast(html, "tip", options).el
+  tip(msg, options) {
+    return this._addToast(msg, "tip", options).el
   }
 
-  info(html, options) {
-    return this._addToast(html, "info", options).el
+  info(msg, options) {
+    return this._addToast(msg, "info", options).el
   }
 
-  success(html, options) {
-    return this._addToast(html, "success", options).el
+  success(msg, options) {
+    return this._addToast(msg, "success", options).el
   }
 
-  warning(html, options) {
-    return this._addToast(html, "warning", options).el
+  warning(msg, options) {
+    return this._addToast(msg, "warning", options).el
   }
 
-  alert(html, options) {
-    return this._addToast(html, "alert", options).el
+  alert(msg, options) {
+    return this._addToast(msg, "alert", options).el
   }
 
-  async (promise, onResolve, onReject, html, options) {
-    let asyncToast = this._addToast(html, "async", options)
+  async (promise, onResolve, onReject, msg, options) {
+    let asyncToast = this._addToast(msg, "async", options)
     return this._afterAsync(promise, onResolve, onReject, options, asyncToast)
   }
 
-  confirm(html, onOk, onCancel, options) {
-    return this._addPopup(html, "confirm", options, onOk, onCancel)
+  confirm(msg, onOk, onCancel, options) {
+    return this._addPopup(msg, "confirm", options, onOk, onCancel)
   }
 
-  asyncBlock(promise, onResolve, onReject, html, options) {
-    let asyncBlock = this._addPopup(html, "async-block", options)
+  asyncBlock(promise, onResolve, onReject, msg, options) {
+    let asyncBlock = this._addPopup(msg, "async-block", options)
     return this._afterAsync(promise, onResolve, onReject, options, asyncBlock)
   }
 
-  modal(html, className, options) {
-    return this._addPopup(html, className, options)
+  modal(msg, className, options) {
+    return this._addPopup(msg, className, options)
   }
 
   // Tools
-  _addPopup(html, className, options, onOk, onCancel) {
-    return new Popup(html, className, this.options.override(options), onOk, onCancel)
+  _addPopup(msg, className, options, onOk, onCancel) {
+    return new Popup(msg, className, this.options.override(options), onOk, onCancel)
   }
 
-  _addToast(html, type, options, old) {
+  _addToast(msg, type, options, old) {
     options = this.options.override(options)
-    let newToast = new Toast(html, type, options, this.container)
+    let newToast = new Toast(msg, type, options, this.container)
     if (old) {
       if (old instanceof Popup) return old.delete().then(() => newToast.insert())
       return old.replace(newToast)

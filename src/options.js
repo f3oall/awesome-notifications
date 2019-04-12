@@ -41,6 +41,12 @@ const defaults = {
     }
   },
   messages: {
+    tip: "",
+    info: "",
+    success: "Action has been succeeded",
+    warning: "",
+    alert: "Action has been failed",
+    confirm: "This action can't be undone. Continue?",
     async: "Please, wait...",
     "async-block": "Loading"
   },

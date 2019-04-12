@@ -1,5 +1,17 @@
-.code-example {
-  .btn {
-    margin-top: $grid * 2;
+.param-secondary {
+  padding-left: $grid * 2;
+}
+
+.param-desc {
+  padding-left: $grid * 2;
+  margin: 0 0 $grid;
+}
+
+.param-name {
+
+  &,
+  p {
+    margin: 0;
+
   }
 }

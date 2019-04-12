@@ -6,13 +6,13 @@ layout: docs
 ### tip
 
 **Type:**  `String`  
-**Default:** `"Tip"`  
-**Valid values:** `Any string`
+**Default:** `""`  
+**Valid values:** Any valid HTML or text string
 
-Defines `tip` toast's label.
+Defines default message of `tip` toast.
 ```javascript
-options.labels = {
-  tip: "Hint",
+options.messages = {
+  tip: "Ask our expert to learn more",
   ...
 }
 ```
@@ -20,13 +20,13 @@ options.labels = {
 ### info
 
 **Type:**  `String`  
-**Default:** `"Info"`  
-**Valid values:** `Any string`
+**Default:** `""`  
+**Valid values:** Any valid HTML or text string
 
-Defines `info` toast's label.
+Defines default message of `info` toast.
 ```javascript
-options.labels = {
-  info: "Information",
+options.messages = {
+  info: "You have 3 unread messages",
   ...
 }
 ```
@@ -34,13 +34,13 @@ options.labels = {
 ### success
 
 **Type:**  `String`  
-**Default:** `"Success"`  
-**Valid values:** `Any string`
+**Default:** `"Action has been succeeded"`  
+**Valid values:** Any valid HTML or text string
 
-Defines `success` toast's label.
+Defines default message  of `success` toast.
 ```javascript
-options.labels = {
-  success: "Prosperity",
+options.messages = {
+  success: "Record has been updated",
   ...
 }
 ```
@@ -48,13 +48,13 @@ options.labels = {
 ### warning
 
 **Type:**  `String`  
-**Default:** `"Attention"`  
-**Valid values:** `Any string`
+**Default:** `"Action has been succeeded partially"`  
+**Valid values:** Any valid HTML or text string
 
-Defines `warning` toast's label.
+Defines default message of `warning` toast.
 ```javascript
-options.labels = {
-  warning: "Warning",
+options.messages = {
+  warning: "Page contains unsaved changes",
   ...
 }
 ```
@@ -62,13 +62,13 @@ options.labels = {
 ### alert
 
 **Type:**  `String`  
-**Default:** `"Error"`  
-**Valid values:** `Any string`
+**Default:** `"Action has been failed"`  
+**Valid values:** Any valid HTML or text string
 
-Defines `alert` toast's label.
+Defines default message of  `alert` toast.
 ```javascript
-options.labels = {
-  alert: "Failure",
+options.messages = {
+  alert: "Oops! Something got wrong",
   ...
 }
 ```
@@ -76,54 +76,39 @@ options.labels = {
 ### async
 
 **Type:**  `String`  
-**Default:** `"Loading"`  
-**Valid values:** `Any string`
+**Default:** `"Please, wait..."`  
+**Valid values:** Any valid HTML or text string
 
-Defines `async` toast's label.
+Defines default message of  `async` toast.
 ```javascript
-options.labels = {
-  async: "Processing",
+options.messages = {
+  async: "Hold on, your data is being prepared",
   ...
 }
 ```
 ### confirm
 
 **Type:**  `String`  
-**Default:** `"Confirmation required"`  
-**Valid values:** `Any string`
+**Default:** `"This action can't be undone. Continue?"`  
+**Valid values:** Any valid HTML or text string
 
-Defines confirmation window label.
+Defines default message of confirmation window.
 ```javascript
-options.labels = {
-  confirm: "Are you sure?",
+options.messages = {
+  confirm: "Record will be deleted permanently. Proceed?",
   ...
 }
 ```
-
-### confirmOk
+### async-block
 
 **Type:**  `String`  
-**Default:** `"OK"`  
-**Valid values:** `Any string`
+**Default:** `"Loading"`  
+**Valid values:** Any valid HTML or text string
 
-Defines confirmation window success button label.
+Defines default message of  `async` toast.
 ```javascript
-options.modal = {
-  okLabel: "Submit",
+options.messages = {
+  "async-block": "Processing",
   ...
 }
 ```
-### confirmCancel
-
-**Type:**  `String`  
-**Default:** `"Cancel"`  
-**Valid values:** `Any string`
-
-Defines confirmation window cancel button label.
-```javascript
-options.modal = {
-  cancelLabel: "Back",
-  ...
-}
-```
-
