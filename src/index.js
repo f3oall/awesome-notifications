@@ -60,9 +60,7 @@ export default class Notifier {
     let newToast = new Toast(msg, type, options, this.container)
     if (old) {
       if (old instanceof Popup) return old.delete().then(() => newToast.insert())
-      console.log(1, old)
       let i = old.replace(newToast)
-      console.log(2, old)
       return i
     }
     return newToast.insert()
@@ -77,7 +75,6 @@ export default class Notifier {
 
   _responseHandler(payload, toastName, options, oldElement) {
     return result => {
-      console.log('result', result)
       switch (typeof payload) {
         case 'undefined':
         case 'string':
