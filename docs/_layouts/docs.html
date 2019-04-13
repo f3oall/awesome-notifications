@@ -61,19 +61,19 @@
     <nav>
       <a href="/">Demo</a>
       <a href="https://www.npmjs.com/package/awesome-notifications" target="_blank">NPM</a>
-      <a href="/docs/changelog.html">Changelog</a>
-      <a href="/docs/contacts.html">Contacts</a>
+      <a href="/docs/changelog">Changelog</a>
+      <a href="/docs/contacts">Contacts</a>
       <button class="btn success">Tip Author</button>
     </nav>
   </header>
   <aside id="sidebar">
     <h4>Introduction</h4>
-    <a href="#">Why such awesome?</a>
+    <a href="/docs/why-such-awesome">Why such awesome?</a>
     <a href="/docs">Installation</a>
     <a href="/docs/how-to-use.html">How to use</a>
     <h4>Customization</h4>
-    <a href="/docs/customization">Overall</a>
-    <a href="/docs/customization/basics">Basics</a>
+    <a href="/docs/customization">Usage</a>
+    <a href="/docs/customization/general">General</a>
     <a href="/docs/customization/durations">Durations</a>
     <a href="/docs/customization/min-durations">Minimum Durations</a>
     <a href="/docs/customization/labels">Labels</a>
@@ -91,13 +91,16 @@
     <a href="/docs/popups/modal-window">Modal Window</a>
     <a href="/docs/popups/confirmation-window">Confirmation Window</a>
     <a href="/docs/popups/async-block">Async Block</a>
-    <h4>Migrating</h4>
-    <a href="#">Migrating from 2.x to 3.x</a>
     <h4>Meta</h4>
-    <a href="#">Styles</a>
-    <a href="#">Security Notes</a>
-    <a href="#">Browser Compatibility</a>
-    <a href="#">Code of Conduct</a>
+    <a href="/docs/meta/styles">Styles</a>
+    <a href="/docs/meta/security-notes">Security Notes</a>
+    <a href="/docs/meta/browser-compatibility">Browser Compatibility</a>
+    <h4>Integrations</h4>
+    <a href="/docs/integrations/vue">Vue</a>
+    <a href="/docs/integrations/react">React</a>
+    <a href="/docs/integrations/react">Angular</a>
+    <h4>Migrating</h4>
+    <a href="/docs/migrations/from-2-to-3">Migrating from 2.x to 3.x</a>
   </aside>
   <main id="content">
     <div class="wrap">
@@ -107,9 +110,10 @@
   <footer id="footer">
     <div class="wrap">
       <span class="year">Awesome Notifications, 2019</span>
+      <a href="https://github.com/f3oall/awesome-notifications/blob/master/LICENSE">MIT License</a>
       {% if site.github.is_project_page %}
       <span class="owner">
-        <a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by
+        maintained by
         <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>
       </span>
       {% endif %}

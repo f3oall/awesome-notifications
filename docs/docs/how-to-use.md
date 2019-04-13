@@ -4,7 +4,7 @@ layout: docs
 
 # How to use
 
-### Node.js
+## Node.js
 
 ```javascript
 import AWN from "awesome-notifications"
@@ -19,17 +19,24 @@ let nextCallOptions = {...}
 notifier.success('Your custom message', nextCallOptions)
 ```
 
-### Browser
+## Browser
 
 ```html
 <script>
   let notifier = new AWN(globalOptions);
 </script>
-<button onclick="notifier.success('Your custom message', nextCallOptions);">Show Success</button>
+<button onclick="notifier.success('Your custom message', currentCallOptions);">Show Success</button>
 ```
 
-### Vue.js
-Inside any component:
-```javascript
-this.$awn.success('Your custom message', nextCallOptions)
-```
+## Methods Overview
+
+| Method                                             | Description    |
+| [`tip()`](/docs/toasts/tip)                                           | Show gray toast with any valid HTML you passed in   |
+| [`info()`](/docs/toasts/info)                                             | Show blue toast with any valid HTML you passed in    |
+| [`warning()`](/docs/toasts/warning)                                             | Show orange toast with any valid HTML you passed in    |
+| [`success()`](/docs/toasts/success)                                             | Show green toast with any valid HTML you passed in    |
+| [`alert()`](/docs/toasts/alert)                                             | Show red toast with any valid HTML you passed in    |
+| [`async()`](/docs/toasts/async)                                             | Show async toast, until passed Promise will be completed    |
+| [`modal()`](/docs/popups/modal-window)                                             | Show modal window   |
+| [`confirm()`](/docs/popups/confirmation-window)                                             | Show  confirmation window   |
+| [`asyncBlock()`](/docs/popups/async-block)                                             | Show popup which blocks the screen, until passed Promise will be completed   |

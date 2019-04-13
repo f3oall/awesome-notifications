@@ -1,7 +1,7 @@
 ---
 layout: docs
 ---
-# Basics
+# General
 
 ### position
 
@@ -19,7 +19,7 @@ options.position = "bottom-left"
 
 **Type:**  `Number`  
 **Default:** `10`  
-**Valid values:** `Any number > 0`
+**Valid values:** Any number > 0
 
 Defines the maximum amount of toasts at one moment on the screen. The lesser is the target screen height, the lesser should be maximum amount.
 ```javascript
@@ -30,22 +30,11 @@ options.maxNotifications = 5
 
 **Type:**  `Number`  
 **Default:** `300`  
-**Valid values:** `Any number > 0`
+**Valid values:** Any number > 0
 
 This property defines animations speed in ms. Basically it used for fade in/fade out animation both in toasts and popups.
 ```javascript
 options.animationDuration = 1000
-```
-
-### asyncBlockMinDuration
-
-**Type:**  `Number`  
-**Default:** `500`  
-**Valid values:** `Any number >= 0`
-
-Defines minimum time of asyncBlock popup showing. It's useful for avoiding blinking screen, when asynchronous requests completes too fast.
-```javascript
-options.position = 1000
 ```
 
 ### formatError
@@ -67,7 +56,7 @@ formatError(err) {
   return err
 }
 ``` 
-**Valid values:** `Any custom function which accepts any type of value and returns String`
+**Valid values:** Any custom function which accepts any type of value and returns String
 
 This callback is used in every `alert(html)` call to format passed `html`. The goal of the formating is to make it `String`. 
 Take attention, that `async()` and `asyncBlock()` functions, calls `alert()` in some cases by default. So this callback will be aplied there as well.

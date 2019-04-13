@@ -13,7 +13,7 @@ so it's not recomended to set values of this property to less than a 500 ms.
 
 **Type:**  `Number`  
 **Default:** `500`  
-**Valid values:** `Any number >= 0`
+**Valid values:** Any number >= 0
 
 Defines minimum showing time of `asyncBlock` popup. 
 ```javascript
@@ -26,7 +26,7 @@ options.minDurations = {
 
 **Type:**  `Number`  
 **Default:** `500`  
-**Valid values:** `Any number >= 0`
+**Valid values:** Any number >= 0
 
 Defines minimum showing time of `async` toast. 
 It won't be aplied to `success` or `alert` toasts which by default are being called in the end of `async` lifetime.

@@ -13,7 +13,7 @@ For exapmple, you can consider `0` if you want to disable auto hidding of errors
 
 **Type:**  `Number`  
 **Default:** `5000`  
-**Valid values:** `Any number > 0`
+**Valid values:** Any number > 0
 
 Defines the showing time in ms for all toasts. It can be overridden for each separate toast through properties bellow.
 ```javascript
@@ -28,7 +28,7 @@ options.durations = {
 
 **Type:**  `Number`, `null`  
 **Default:** `null`  
-**Valid values:** `0`, `null` or `Any number > 0`
+**Valid values:** `0`, `null` or any number > 0
 
 Defines the showing time in ms for `tip` toast. `0` means no auto hidding, `null` means taking global value.
 ```javascript
@@ -42,7 +42,7 @@ options.durations = {
 
 **Type:**  `Number`, `null`  
 **Default:** `null`  
-**Valid values:** `0`, `null` or `Any number > 0`
+**Valid values:** `0`, `null` or any number > 0
 
 Defines the showing time in ms for `info` toast. `0` means no auto hidding, `null` means taking global value.
 ```javascript
@@ -56,7 +56,7 @@ options.durations = {
 
 **Type:**  `Number`, `null`  
 **Default:** `null`  
-**Valid values:** `0`, `null` or `Any number > 0`
+**Valid values:** `0`, `null` or any number > 0
 
 Defines the showing time in ms for `success` toast. `0` means no auto hidding, `null` means taking global value.
 ```javascript
@@ -70,7 +70,7 @@ options.durations = {
 
 **Type:**  `Number`, `null`  
 **Default:** `null`  
-**Valid values:** `0`, `null` or `Any number > 0`
+**Valid values:** `0`, `null` or any number > 0
 
 Defines the showing time in ms for `warning` toast. `0` means no auto hidding, `null` means taking global value.
 ```javascript
@@ -84,7 +84,7 @@ options.durations = {
 
 **Type:**  `Number`, `null`  
 **Default:** `null`  
-**Valid values:** `0`, `null` or `Any number > 0`
+**Valid values:** `0`, `null` or any number > 0
 
 Defines the showing time in ms for `alert` toast. `0` means no auto hidding, `null` means taking global value.
 ```javascript

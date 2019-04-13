@@ -22,7 +22,7 @@ In this case globals will be overriden for current call only.
 If you think that some customization opportunity is missing, please [open an issue](https://github.com/f3oall/awesome-notifications/issues/new)
 
 
-### Options object
+## Options object
 
 In next chapters you can find detailed info about each property of this object.
 

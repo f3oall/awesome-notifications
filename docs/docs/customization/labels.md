@@ -7,7 +7,7 @@ layout: docs
 
 **Type:**  `String`  
 **Default:** `"Tip"`  
-**Valid values:** `Any string`
+**Valid values:** Any `String`
 
 Defines `tip` toast's label.
 ```javascript
@@ -21,7 +21,7 @@ options.labels = {
 
 **Type:**  `String`  
 **Default:** `"Info"`  
-**Valid values:** `Any string`
+**Valid values:** Any `String`
 
 Defines `info` toast's label.
 ```javascript
@@ -35,7 +35,7 @@ options.labels = {
 
 **Type:**  `String`  
 **Default:** `"Success"`  
-**Valid values:** `Any string`
+**Valid values:** Any `String`
 
 Defines `success` toast's label.
 ```javascript
@@ -49,7 +49,7 @@ options.labels = {
 
 **Type:**  `String`  
 **Default:** `"Attention"`  
-**Valid values:** `Any string`
+**Valid values:** Any `String`
 
 Defines `warning` toast's label.
 ```javascript
@@ -63,7 +63,7 @@ options.labels = {
 
 **Type:**  `String`  
 **Default:** `"Error"`  
-**Valid values:** `Any string`
+**Valid values:** Any `String`
 
 Defines `alert` toast's label.
 ```javascript
@@ -77,7 +77,7 @@ options.labels = {
 
 **Type:**  `String`  
 **Default:** `"Loading"`  
-**Valid values:** `Any string`
+**Valid values:** Any `String`
 
 Defines `async` toast's label.
 ```javascript
@@ -90,7 +90,7 @@ options.labels = {
 
 **Type:**  `String`  
 **Default:** `"Confirmation required"`  
-**Valid values:** `Any string`
+**Valid values:** Any `String`
 
 Defines confirmation window label.
 ```javascript
@@ -104,7 +104,7 @@ options.labels = {
 
 **Type:**  `String`  
 **Default:** `"OK"`  
-**Valid values:** `Any string`
+**Valid values:** Any `String`
 
 Defines confirmation window success button label.
 ```javascript
@@ -117,7 +117,7 @@ options.modal = {
 
 **Type:**  `String`  
 **Default:** `"Cancel"`  
-**Valid values:** `Any string`
+**Valid values:** Any `String`
 
 Defines confirmation window cancel button label.
 ```javascript
