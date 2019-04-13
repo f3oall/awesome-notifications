@@ -67,9 +67,8 @@
     </nav>
   </header>
   <aside id="sidebar">
-    <h2>Documentation</h2>
     <h4>Introduction</h4>
-    <a href="#">Why Awesome Notifications?</a>
+    <a href="#">Why such awesome?</a>
     <a href="/docs">Installation</a>
     <a href="/docs/how-to-use.html">How to use</a>
     <h4>Customization</h4>
@@ -101,16 +100,20 @@
     <a href="#">Code of Conduct</a>
   </aside>
   <main id="content">
-    {{content}}
+    <div class="wrap">
+      {{content}}
+    </div>
   </main>
   <footer id="footer">
-    <span class="year">Awesome Notifications, 2019</span>
-    {% if site.github.is_project_page %}
-    <span class="owner">
-      <a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by
-      <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>
-    </span>
-    {% endif %}
+    <div class="wrap">
+      <span class="year">Awesome Notifications, 2019</span>
+      {% if site.github.is_project_page %}
+      <span class="owner">
+        <a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by
+        <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>
+      </span>
+      {% endif %}
+    </div>
   </footer>
   {% if site.google_analytics %}
 

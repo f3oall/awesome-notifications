@@ -34,12 +34,15 @@ export default class {
   beforeDelete(el = this.el) {
     let timeLeft = 0
     if (this.start) {
-      timeLeft = this.options.asyncBlockMinDuration + this.start - Date.now()
+      timeLeft = this.options.minDurations[this.type] + this.start - Date.now()
       if (timeLeft < 0) timeLeft = 0
     }
+
     return new Promise(resolve => {
-      el.classList.add(eConsts.klass.hiding)
-      setTimeout(resolve, this.options.animationDuration + timeLeft)
+      setTimeout(() => {
+        el.classList.add(eConsts.klass.hiding)
+        setTimeout(resolve, this.options.animationDuration)
+      }, timeLeft)
     })
   }
 

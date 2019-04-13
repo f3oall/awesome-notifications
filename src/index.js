@@ -60,7 +60,10 @@ export default class Notifier {
     let newToast = new Toast(msg, type, options, this.container)
     if (old) {
       if (old instanceof Popup) return old.delete().then(() => newToast.insert())
-      return old.replace(newToast)
+      console.log(1, old)
+      let i = old.replace(newToast)
+      console.log(2, old)
+      return i
     }
     return newToast.insert()
   }
@@ -74,14 +77,19 @@ export default class Notifier {
 
   _responseHandler(payload, toastName, options, oldElement) {
     return result => {
-      if (typeof payload === "function") {
-        if (oldEleement) oldElement.delete()
-        payload(result)
-      } else {
-        this._addToast(payload || response, toastName, options, oldElement)
+      console.log('result', result)
+      switch (typeof payload) {
+        case 'undefined':
+        case 'string':
+          let msg = toastName === 'alert' ? payload || result : payload
+          this._addToast(msg, toastName, options, oldElement)
+          break
+        default:
+          oldElement.delete().then(() => {
+            if (payload) payload(result)
+          })
       }
-      if (toastName === 'alert') return Promise.reject(result)
-      return result
+      return toastName === 'alert' ? Promise.reject(result) : result
     }
   }
 

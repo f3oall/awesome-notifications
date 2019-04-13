@@ -1,11 +1,13 @@
 #footer {
   grid-area: footer;
   font-size: 12px;
-  padding: 0 30%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: $footer-height;
   font-weight: 700;
   color: $font-color-muted;
+
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $footer-height;
+  }
 }

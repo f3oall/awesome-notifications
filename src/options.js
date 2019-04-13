@@ -56,7 +56,9 @@ const defaults = {
       if (err.response.data.errors) {
         return err.response.data.errors.map(o => o.detail).join('<br>')
       }
-      return `${err.response.status} ${err.response.statusText}: ${err.response.data}`
+      if (err.response.statusText) {
+        return `${err.response.status} ${err.response.statusText}: ${err.response.data}`
+      }
     }
     if (err.message) return err.message
     return err
@@ -70,8 +72,8 @@ const defaults = {
     alert: null
   },
   minDurations: {
-    async: 500,
-    "async-block": 500
+    async: 1000,
+    "async-block": 1000
   },
 }
 export default class Options {

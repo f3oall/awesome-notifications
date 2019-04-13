@@ -20,8 +20,8 @@ export default class extends Elem {
   }
 
   setInnerHtml(html) {
+    if (this.type === 'alert') html = this.options.formatError(html)
     html = this.options.applyReplacements(html, this.type)
-    if (this.type === 'async') html = this.options.formatError(html)
     this.newNode.innerHTML = `${this.progressBar}${this.label}<div class="${tConsts.klass.content}">${html}</div><span class="${tConsts.klass.icon}">${this.options.icon(this.type)}</span>`
   }
 
@@ -32,7 +32,8 @@ export default class extends Elem {
     }
   }
   afterInsert() {
-    if (this.type == "async") return
+    if (this.type == "async") return this.start = Date.now()
+
     this.addEvent("click", () => this.delete())
 
     if (this.duration <= 0) return
