@@ -4,12 +4,14 @@ import {
 } from "./constants"
 
 export default class extends Elem {
-  constructor(msg, type, options, onOk, onCancel) {
+  constructor(msg, type = 'modal', options, onOk, onCancel) {
     let animationDuration = `animation-duration: ${options.toSecs(options.animationDuration)};`
     super(document.body, mConsts.ids.wrapper, null, animationDuration)
     this.options = options
     this[mConsts.ids.confirmOk] = onOk
     this[mConsts.ids.confirmCancel] = onCancel
+    this.className = type
+    if (!['confirm', 'async-block', 'modal'].includes(type)) type = 'modal'
     this.updateType(type)
     this.setInnerHtml(msg)
     this.insert()
@@ -24,7 +26,7 @@ export default class extends Elem {
       case "async-block":
         innerHTML = `${innerHTML}<div class="${mConsts.klass.dotAnimation}"></div>`
     }
-    this.newNode.innerHTML = `<div class="${mConsts.klass.body} ${mConsts.prefix}-${this.type}">${innerHTML}</div>`
+    this.newNode.innerHTML = `<div class="${mConsts.klass.body} ${mConsts.prefix}-${this.className}">${innerHTML}</div>`
   }
 
   afterInsert() {
