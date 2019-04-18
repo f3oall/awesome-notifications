@@ -12,9 +12,9 @@ export default class extends Elem {
       parent,
       `${tConsts.prefix}-${Math.floor(Date.now() - Math.random() * 100)}`,
       `${tConsts.prefix} ${tConsts.prefix}-${type}`,
-      `animation-duration: ${options.toSecs(options.animationDuration)};`
+      `animation-duration: ${options.toSecs(options.animationDuration)};`,
+      options
     )
-    this.options = options
     this.updateType(type)
     this.setInnerHtml(msg)
   }

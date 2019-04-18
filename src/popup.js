@@ -6,8 +6,7 @@ import {
 export default class extends Elem {
   constructor(msg, type = 'modal', options, onOk, onCancel) {
     let animationDuration = `animation-duration: ${options.toSecs(options.animationDuration)};`
-    super(document.body, mConsts.ids.wrapper, null, animationDuration)
-    this.options = options
+    super(document.body, mConsts.ids.wrapper, null, animationDuration, options)
     this[mConsts.ids.confirmOk] = onOk
     this[mConsts.ids.confirmCancel] = onCancel
     this.className = type
