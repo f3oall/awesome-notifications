@@ -7,7 +7,7 @@
     "build": "rimraf dist/* && webpack --mode production --progress --hide-modules && rimraf dist/main*",
     "dev": "rimraf dist/* && webpack --mode development --progress --hide-modules && rimraf dist/main*",
     "build-dev": "rimraf dist/* docs/dist/* &&  webpack --mode production --hide-modules && rimraf dist/main* && cpx dist/*.{js,css} docs/dist",
-    "test": "mocha --require babel-register --require babel-polyfill || true"
+    "test": "mocha test/elem.spec.js --require @babel/register --require @babel/polyfill"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,9 @@
   "homepage": "https://github.com/f3oall/awesome-notifications#readme",
   "devDependencies": {
     "@babel/core": "^7.4.3",
+    "@babel/polyfill": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
+    "@babel/register": "^7.4.0",
     "babel-loader": "^8.0.5",
     "chai": "^4.2.0",
     "compression-webpack-plugin": "^2.0.0",
@@ -36,7 +38,7 @@
     "jsdom": "14.0.0",
     "jsdom-global": "3.0.2",
     "mini-css-extract-plugin": "^0.5.0",
-    "mocha": "^6.1.1",
+    "mocha": "^6.1.3",
     "node-sass": "^4.11.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "rimraf": "^2.6.3",
