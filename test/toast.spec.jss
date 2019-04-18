@@ -1,10 +1,13 @@
 import "jsdom-global/register"
 import "chai/register-should"
 import Toast from "../src/toast"
-import Options from "../src/defaults"
-import { tConsts, eConsts } from "../src/constants"
+import Options from "../src/options"
+import {
+  tConsts,
+  eConsts
+} from "../src/constants"
 
-describe("Toast", function() {
+describe("Toast", function () {
   const toastDefaults = {
     html: "test-message",
     type: "success",
@@ -21,6 +24,7 @@ describe("Toast", function() {
       toastDefaults.parent
     )
   }
+
   function clearParent() {
     while (toastDefaults.parent.firstChild) {
       toastDefaults.parent.removeChild(toastDefaults.parent.firstChild)
