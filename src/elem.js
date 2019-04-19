@@ -48,7 +48,7 @@ export default class {
 
   delete(el = this.el) {
     if (!this.getElement(el)) return null
-    return this.beforeDelete(el).then(() => this.parent.removeChild(el))
+    return this.beforeDelete(el).then(() => el.remove())
   }
 
   getElement(el = this.el) {
