@@ -125,4 +125,13 @@ describe("Elem", () => {
       el.classList.contains("awn-test").should.be.false
     })
   })
+  describe("updateType()", () => {
+    it("should update type", () => {
+      elem.updateType('tip')
+      should.equal(elem.type, 'tip')
+    })
+    it("should set duration", () => {
+      should.equal(elem.duration, elem.options.durations.global)
+    })
+  })
 })
