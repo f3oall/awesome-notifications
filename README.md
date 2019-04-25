@@ -4,9 +4,9 @@
 
 # Awesome Notifications
 
-It's a lightweight, fully customizable JavaScript library for showing notifications.
+It's a lightweight, fully customizable JavaScript library for showing notifications.  
 
-Advantages: **3kb gzipped size** &bull; **no dependencies**  &bull; **advanced async support**  &bull; **fully customizable**  &bull; **>95% test coverage**.
+**3kb gzipped size** &bull; **no dependencies**  &bull; **advanced async support**  &bull; **fully customizable**  &bull; **>95% test coverage**.
 
 **Demo:** https://f3oall.github.io/awesome-notifications/
 
