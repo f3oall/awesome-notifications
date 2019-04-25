@@ -48,25 +48,22 @@
   overflow: hidden;
   opacity: 0;
   width: $awn-toast-width;
-  padding: $awn-progress-bar-height + $awn-toast-padding 88px $awn-toast-padding $awn-toast-padding;
-  margin-top: $awn-toast-margin;
-  border-width: $awn-toast-border-width;
-  border-style: $awn-toast-border-style;
-  border-color: $awn-primary-border-color;
-  color: $awn-primary-color;
   background: $awn-primary-background;
+  margin-top: $awn-toast-margin;
+  border-radius: $awn-toast-border-radius;
+  color: $awn-primary-color;
   font-size: $awn-toast-font-size;
   animation-timing-function: $awn-toast-animation-timing;
   animation-fill-mode: both;
 
-  .awn-toast-label {
+  &-label {
     display: block;
     text-transform: uppercase;
     color: $awn-primary-color;
     font-size: $awn-toast-title-font-size;
   }
 
-  .awn-toast-icon {
+  &-icon {
     position: absolute;
     right: $awn-toast-padding;
     top: $awn-progress-bar-height;
@@ -81,13 +78,19 @@
     }
   }
 
-  .awn-toast-progress-bar {
+  &-wrapper {
+    padding: $awn-progress-bar-height + $awn-toast-padding 88px $awn-toast-padding $awn-toast-padding;
+
+    border: $awn-border;
+    border-radius: $awn-toast-border-radius;
+  }
+
+  &-progress-bar {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: $awn-progress-bar-height;
-    background: $awn-primary-bar-background;
 
     &:after {
       content: " ";
@@ -113,78 +116,74 @@
   }
 
   &.awn-toast-success {
-    border-color: $awn-success-border-color;
     background: $awn-success-background;
     color: $awn-success-color;
+
+    .awn-toast-wrapper {
+      border-color: $awn-success-border-color;
+    }
 
     b,
     .fa {
       color: $awn-success-color;
     }
 
-    .awn-toast-progress-bar {
-      background: $awn-success-bar-background;
-
-      &:after {
-        background: $awn-success-color;
-      }
+    .awn-toast-progress-bar:after {
+      background: $awn-success-color;
     }
   }
 
   &.awn-toast-info {
-    border-color: $awn-info-border-color;
     background: $awn-info-background;
     color: $awn-info-color;
+
+    .awn-toast-wrapper {
+      border-color: $awn-info-border-color;
+    }
 
     b,
     .fa {
       color: $awn-info-color;
     }
 
-    .awn-toast-progress-bar {
-      background: $awn-info-bar-background;
-
-      &:after {
-        background: $awn-info-color;
-      }
+    .awn-toast-progress-bar:after {
+      background: $awn-info-color;
     }
   }
 
   &.awn-toast-alert {
-    border-color: $awn-alert-border-color;
     background: $awn-alert-background;
     color: $awn-alert-color;
+
+    .awn-toast-wrapper {
+      border-color: $awn-alert-border-color;
+    }
 
     b,
     .fa {
       color: $awn-alert-color;
     }
 
-    .awn-toast-progress-bar {
-      background: $awn-alert-bar-background;
-
-      &:after {
-        background: $awn-alert-color;
-      }
+    .awn-toast-progress-bar:after {
+      background: $awn-alert-color;
     }
   }
 
   &.awn-toast-warning {
-    border-color: $awn-warning-border-color;
     background: $awn-warning-background;
     color: $awn-warning-color;
+
+    .awn-toast-wrapper {
+      border-color: $awn-warning-border-color;
+    }
 
     b,
     .fa {
       color: $awn-warning-color;
     }
 
-    .awn-toast-progress-bar {
-      background: $awn-warning-bar-background;
-
-      &:after {
-        background: $awn-warning-color;
-      }
+    .awn-toast-progress-bar:after {
+      background: $awn-warning-color;
     }
   }
 }

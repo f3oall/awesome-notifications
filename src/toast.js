@@ -22,7 +22,7 @@ export default class extends Elem {
   setInnerHtml(html) {
     if (this.type === 'alert') html = this.options.formatError(html)
     html = this.options.applyReplacements(html, this.type)
-    this.newNode.innerHTML = `${this.progressBar}${this.label}<div class="${tConsts.klass.content}">${html}</div><span class="${tConsts.klass.icon}">${this.options.icon(this.type)}</span>`
+    this.newNode.innerHTML = `<div class="awn-toast-wrapper">${this.progressBar}${this.label}<div class="${tConsts.klass.content}">${html}</div><span class="${tConsts.klass.icon}">${this.options.icon(this.type)}</span></div>`
   }
 
   beforeInsert() {
