@@ -60,8 +60,8 @@
   }
 
   .examples {
-    border-radius: 40px;
-    border: 6px dashed $border-color;
+    border-top: 6px dashed $border-color;
+    border-bottom: 6px dashed $border-color;
 
     .wrap {
       align-items: center;

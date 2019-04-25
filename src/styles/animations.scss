@@ -56,8 +56,8 @@
 .awn-popup-loading-dots:before,
 .awn-popup-loading-dots:after {
   border-radius: 50%;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   animation-fill-mode: both;
   background: #fff;
   animation: awn-loading-dots 1s infinite ease-in-out;

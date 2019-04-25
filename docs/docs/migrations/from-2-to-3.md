@@ -42,5 +42,8 @@ All popups methods started to return HTMLElement which was created by them.
 
 You can consider use of new internal method named `_addPopup()`
 
+## Design
+Make sure that new design is applicable for your app. Otherwise consider using of old styles or just override new one.
+
 ### Thats all! Enjoy the update.
 If you met some issues during the migration process or found inaccuracies in this article, please open issue on GitHub.

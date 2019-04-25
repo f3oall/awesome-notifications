@@ -56,6 +56,10 @@
   animation-timing-function: $awn-toast-animation-timing;
   animation-fill-mode: both;
 
+  &-content {
+    word-break: break-word;
+  }
+
   &-label {
     display: block;
     text-transform: uppercase;

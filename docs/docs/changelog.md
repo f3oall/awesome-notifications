@@ -17,8 +17,9 @@ Massive update which changed a big part of internal logic and added some new fea
 * Minimum durations settings for each async element. It's available under `options.minDurations` property.
 * New default function which formats errors. It's available under `options.formatError` property.
 * Now all messages passed to `alert()` method will be formatted by `options.formatError`.
-* All toasts and popups methods, now return HTMLElement which was created by theme.
+* All toasts and popups methods, now return HTMLElement which was created by them.
 * New default messages. It's available under `options.messages`
+* Enhanced design for toasts and popups.
 * Brand new handsome and detailed documentation.
 * New JS bundle for modern browsers.
 * `_addToast` method

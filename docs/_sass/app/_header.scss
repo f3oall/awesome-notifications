@@ -56,14 +56,18 @@
       border-bottom: 3px dashed transparent;
       transition: all .2s ease;
 
-      &:hover {
+      &:hover,
+      &:focus {
         color: darken($green, 5%);
         border-top-color: $green;
         border-bottom-color: $green;
       }
-
     }
+  }
+}
 
-
+#docs-layout {
+  #header {
+    border-bottom: $border;
   }
 }

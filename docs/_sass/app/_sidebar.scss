@@ -9,7 +9,8 @@
     display: block;
     white-space: nowrap;
 
-    &:not(:hover) {
+    &:not(:hover),
+    &:not(:focus) {
       color: $font-color-secondary;
     }
   }

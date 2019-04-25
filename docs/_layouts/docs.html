@@ -5,6 +5,7 @@
   <meta charset="UTF-8"> {% seo %}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#157878">
+  <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -57,14 +58,22 @@
 
 <body id="docs-layout">
   <header id="header">
-    <div class="brand">Awesome Notifications</div>
-    <nav>
-      <a href="/">Demo</a>
-      <a href="https://www.npmjs.com/package/awesome-notifications" target="_blank">NPM</a>
-      <a href="/docs/changelog">Changelog</a>
-      <a href="/docs/contacts">Contacts</a>
-      <button class="btn success">Tip Author</button>
-    </nav>
+    <div class="header-brand">
+      <img src="/assets/images/awesome-notifications-logo.svg" class="header-brand-logo"
+        alt="Awesome Notifications Logo">
+      <div>
+        <div class="header-brand-name">Awesome Notifications</div>
+        <div class="header-brand-meta">v3.0.0</div>
+      </div>
+    </div>
+    <div class="header-content">
+      <nav>
+        <a href="/">Demo</a>
+        <a href="/docs">Docs</a>
+        <a href="/docs/changelog">Changelog</a>
+        <a href="https://www.npmjs.com/package/awesome-notifications" target="_blank">NPM</a>
+      </nav>
+    </div>
   </header>
   <aside id="sidebar">
     <h4>Introduction</h4>
@@ -97,8 +106,6 @@
     <a href="/docs/meta/browser-compatibility">Browser Compatibility</a>
     <h4>Integrations</h4>
     <a href="/docs/integrations/vue">Vue</a>
-    <a href="/docs/integrations/react">React</a>
-    <a href="/docs/integrations/react">Angular</a>
     <h4>Migrating</h4>
     <a href="/docs/migrations/from-2-to-3">Migrating from 2.x to 3.x</a>
   </aside>
@@ -106,19 +113,18 @@
     <div class="wrap">
       {{content}}
     </div>
+    <footer id="footer">
+      <div class="wrap">
+        <span class="year">Awesome Notifications, 2019</span>
+        <a href="https://github.com/f3oall/awesome-notifications/blob/master/LICENSE">MIT License</a>
+        {% if site.github.is_project_page %}
+        <span class="owner">
+          Designed and maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>
+        </span>
+        {% endif %}
+      </div>
+    </footer>
   </main>
-  <footer id="footer">
-    <div class="wrap">
-      <span class="year">Awesome Notifications, 2019</span>
-      <a href="https://github.com/f3oall/awesome-notifications/blob/master/LICENSE">MIT License</a>
-      {% if site.github.is_project_page %}
-      <span class="owner">
-        maintained by
-        <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>
-      </span>
-      {% endif %}
-    </div>
-  </footer>
   {% if site.google_analytics %}
 
   <script type="text/javascript">

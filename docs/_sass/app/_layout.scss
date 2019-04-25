@@ -13,8 +13,8 @@
   height: 100vh;
   overflow: hidden;
   grid-template-columns: $sidebar-width 1fr;
-  grid-template-rows: $header-height 1fr $footer-height;
-  grid-template-areas: 'header header''sidebar content''sidebar footer';
+  grid-template-rows: $header-height 1fr;
+  grid-template-areas: 'header header''sidebar content';
 
   .wrap {
     max-width: $grid * 80;
@@ -36,7 +36,7 @@
 #content {
   overflow: auto;
   grid-area: content;
-  padding: $grid * 3;
+  padding-top: $grid * 3;
 
   >h2:first-of-type {
     margin-top: $grid * 5;

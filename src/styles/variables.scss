@@ -5,23 +5,23 @@ $awn-container-padding: 24px !default;
 // Colors
 $awn-primary-color: hsl(0, 0, 50%) !default;
 $awn-primary-background: hsl(0, 0, 92%) !default;
-$awn-primary-border-color: hsl(0, 0, 78%) !default;
+$awn-primary-border-color: hsl(0, 0, 82%) !default;
 
 $awn-success-color: hsl(100, 65%, 32%) !default;
 $awn-success-background: hsl(100, 74%, 90%) !default;
-$awn-success-border-color: hsl(100, 45%, 66%) !default;
+$awn-success-border-color: hsl(100, 45%, 70%) !default;
 
 $awn-info-color: hsl(201, 71%, 38%) !default;
 $awn-info-background: hsl(201, 71%, 90%) !default;
-$awn-info-border-color: hsl(201, 71%, 74%) !default;
+$awn-info-border-color: hsl(201, 71%, 78%) !default;
 
 $awn-alert-color: hsl(3, 74%, 38%) !default;
 $awn-alert-background: hsl(3, 74%, 90%) !default;
-$awn-alert-border-color: hsl(3, 74%, 74%) !default;
+$awn-alert-border-color: hsl(3, 74%, 78%) !default;
 
 $awn-warning-color: hsl(32, 100%, 38%) !default;
-$awn-warning-background: hsl(32, 100%, 88%) !default;
-$awn-warning-border-color: hsl(32, 100%, 71%) !default;
+$awn-warning-background: hsl(32, 100%, 90%) !default;
+$awn-warning-border-color: hsl(32, 100%, 75%) !default;
 
 // Notifications
 $awn-toast-width: 320px !default;
@@ -46,9 +46,10 @@ $awn-popup-max-width: 500px !default;
 $awn-popup-font-size: 14px !default;
 $awn-popup-icon-size: 44px !default;
 $awn-popup-padding: 24px !default;
+$awn-popup-border-radius: 6px !default;
 $awn-popup-btn-height: 32px !default;
 $awn-popup-btn-color: #fff !default;
-$awn-popup-btn-space: 8px !default;
+$awn-popup-btn-border-radius: 4px !default;
 
 // Animations
 $awn-popup-show-animation: awn-fade-in;
