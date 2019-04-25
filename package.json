@@ -7,7 +7,7 @@
     "build": "rimraf dist/* && webpack --mode production --progress --hide-modules && rimraf dist/main*",
     "dev": "rimraf dist/* && webpack --mode development --progress --hide-modules && rimraf dist/main*",
     "build-dev": "rimraf dist/* docs/dist/* &&  webpack --mode production --hide-modules && rimraf dist/main* && cpx dist/*.{js,css} docs/dist",
-    "test": "mocha test/popup.spec.js --require @babel/register --require @babel/polyfill"
+    "test": "mocha --require @babel/register --require @babel/polyfill"
   },
   "repository": {
     "type": "git",

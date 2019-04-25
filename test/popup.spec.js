@@ -3,7 +3,7 @@ import "chai/register-should"
 import Modal from "../src/popup"
 import Options from "../src/options"
 
-describe("Modal", function () {
+describe("Popup", function () {
   const modalDefaults = {
     html: "test-message",
     type: "confirm",

@@ -1,7 +1,7 @@
 import "chai/register-should"
 import Options from "../src/options"
 
-describe("Defaults", () => {
+describe("Options", () => {
   function newOptions() {
     return new Options({
       durations: {
