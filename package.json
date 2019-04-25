@@ -17,7 +17,13 @@
     "notifications",
     "toast",
     "confirm",
-    "modal dialogs"
+    "popup",
+    "async",
+    "asynchronous",
+    "promise",
+    "modal",
+    "modal dialogs",
+    "modal windows"
   ],
   "author": "David Yunevich",
   "license": "MIT",
