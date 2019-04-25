@@ -1,25 +1,28 @@
 import "jsdom-global/register"
 import "chai/register-should"
 import Elem from "../src/elem"
-import { eConsts } from "../src/constants"
+import {
+  eConsts
+} from "../src/constants"
+import Options from "../src/options"
+
+const options = new Options()
 
 describe("Elem", () => {
   const defaults = {
     id: "test-elem-id",
     klass: "test-elem-class",
-    style: "text-align: left;",
-    html: "<b>test html</b>",
-    tag: "SPAN"
+    style: "text-align: left;"
   }
   defaults.parent = document.body
+
   function newElem() {
     return new Elem(
       defaults.parent,
       defaults.id,
       defaults.klass,
       defaults.style,
-      defaults.html,
-      defaults.tag
+      options
     )
   }
   let elem
@@ -43,12 +46,6 @@ describe("Elem", () => {
       it("should have style.cssText", () => {
         should.equal(elem.newNode.style.cssText, defaults.style)
       })
-      it("should have innerHTML", () => {
-        should.equal(elem.newNode.innerHTML, defaults.html)
-      })
-      it("should have proper nodeName", () => {
-        should.equal(elem.newNode.nodeName, defaults.tag)
-      })
       it("shouldn't be in the DOM", () => {
         should.not.exist(document.getElementById(elem.newNode.id))
       })
@@ -70,11 +67,18 @@ describe("Elem", () => {
       should.equal(newEl.id, elem.el.id)
     })
   })
+  describe("beforeDelete()", () => {
+    it(`should add ${eConsts.klass.hiding} to the element`, async () => {
+      elem.getElement().className.should.not.include(eConsts.klass.hiding)
+      await elem.beforeDelete()
+      elem.getElement().className.should.include(eConsts.klass.hiding)
+    })
+  })
   describe("replace()", () => {
     let elem2
     before(async () => {
       elem2 = new Elem(document.body, defaults.id + 1)
-      await elem.replace(elem2.newNode, elem2.type)
+      await elem.replace(elem2)
     })
     it("should remove old element", () => {
       should.not.exist(document.getElementById(defaults.id))
@@ -84,27 +88,10 @@ describe("Elem", () => {
     })
     after(async () => await elem.delete())
   })
-  describe("fire()", () => {
-    it("should insert new element, if old element didn't specified", async () => {
-      elem = new Elem(document.body, defaults.id)
-      await elem.fire()
-      should.equal(elem.getElement(), elem.el)
-    })
-    it("should replace old element with new element, if old element specified", async () => {
-      let elem2 = new Elem(document.body, defaults.id + 1)
-      await elem2.fire(elem)
-      should.equal(elem.getElement().id, elem2.newNode.id)
-    })
-  })
-
-  describe("beforeDelete()", () => {
-    it(`should add ${eConsts.klass.hiding} to the element`, () => {
-      elem.getElement().className.should.not.include(eConsts.klass.hiding)
-      elem.beforeDelete()
-      elem.getElement().className.should.include(eConsts.klass.hiding)
-    })
-  })
   describe("delete()", () => {
+    before(() => {
+      elem.insert()
+    })
     it(`should remove element from DOM`, async () => {
       should.exist(elem.getElement())
       await elem.delete()
@@ -127,22 +114,24 @@ describe("Elem", () => {
       )
     })
   })
-  describe("addClass()", () => {
-    it("should be an alias for classList.add()", () => {
+  describe("toggleClass()", () => {
+    it("should toggle class", () => {
       let el = document.getElementById(defaults.id)
       should.exist(el)
       el.classList.contains("awn-test").should.be.false
-      elem.addClass("awn-test")
+      elem.toggleClass("awn-test")
       el.classList.contains("awn-test").should.be.true
+      elem.toggleClass("awn-test")
+      el.classList.contains("awn-test").should.be.false
     })
   })
-  describe("removeClass()", () => {
-    it("should be an alias for classList.remove()", () => {
-      let el = document.getElementById(defaults.id)
-      should.exist(el)
-      el.classList.contains("awn-test").should.be.true
-      elem.removeClass("awn-test")
-      el.classList.contains("awn-test").should.be.false
+  describe("updateType()", () => {
+    it("should update type", () => {
+      elem.updateType('tip')
+      should.equal(elem.type, 'tip')
+    })
+    it("should set duration", () => {
+      should.equal(elem.duration, elem.options.durations.global)
     })
   })
 })

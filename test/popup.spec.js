@@ -1,9 +1,9 @@
 import "jsdom-global/register"
 import "chai/register-should"
-import Modal from "../src/modal"
-import Options from "../src/defaults"
+import Modal from "../src/popup"
+import Options from "../src/options"
 
-describe("Modal", function() {
+describe("Modal", function () {
   const modalDefaults = {
     html: "test-message",
     type: "confirm",
@@ -15,6 +15,7 @@ describe("Modal", function() {
   function newmodal() {
     return new Modal(modalDefaults.html, modalDefaults.type, defaults)
   }
+
   function clearParent() {
     while (modalDefaults.parent.firstChild) {
       modalDefaults.parent.removeChild(modalDefaults.parent.firstChild)

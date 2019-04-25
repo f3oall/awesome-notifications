@@ -3,13 +3,13 @@ import {
 } from "./constants"
 
 export default class {
-  constructor(parent, id, klass, style, html, tag = "div") {
-    this.newNode = document.createElement(tag)
+  constructor(parent, id, klass, style, options) {
+    this.newNode = document.createElement('div')
     if (id) this.newNode.id = id
     if (klass) this.newNode.className = klass
-    if (html) this.newNode.innerHTML = html
     if (style) this.newNode.style.cssText = style
     this.parent = parent
+    this.options = options
   }
   beforeInsert() {}
   afterInsert() {}
@@ -48,7 +48,7 @@ export default class {
 
   delete(el = this.el) {
     if (!this.getElement(el)) return null
-    return this.beforeDelete(el).then(() => this.parent.removeChild(el))
+    return this.beforeDelete(el).then(() => el.remove())
   }
 
   getElement(el = this.el) {
