@@ -1,0 +1,21 @@
+#sidebar {
+  grid-area: sidebar;
+  background: #fafafa;
+  border-right: $border;
+  padding: $grid $grid * 8 $grid * 3 $grid * 6;
+  overflow: auto;
+
+  a {
+    display: block;
+    white-space: nowrap;
+
+    &:not(:hover),
+    &:not(:focus) {
+      color: $font-color-secondary;
+    }
+  }
+
+  h4 {
+    margin: $grid * 2 0 $grid / 2;
+  }
+}

@@ -1,0 +1,99 @@
+#landing {
+
+  .page-header {
+    background-color: #c2e59c;
+    background-image: linear-gradient(45deg, $blue, $green);
+    margin: 0 $grid * 6;
+    border-radius: 40px;
+
+    .project-name {
+      line-height: 1;
+      text-shadow: 0 0 1px darken(#64b3f4, 20%);
+    }
+
+    .project-tagline {
+      margin: $grid 0 $grid * 4;
+      opacity: .7;
+      border: none;
+    }
+
+    .project-actions {
+      margin: 0 auto;
+      display: inline-flex;
+
+      .btn {
+        height: $grid * 5;
+      }
+    }
+  }
+
+  .features {
+
+
+    .wrap {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+
+      >div {
+        font-size: 60px;
+        text-align: center;
+        line-height: 1;
+
+        b {
+          padding-top: $grid;
+          display: block;
+          font-size: 14px;
+          text-transform: uppercase;
+          letter-spacing: 4px;
+        }
+      }
+    }
+  }
+
+  .content-header {
+    letter-spacing: 2px;
+    font-size: 80px;
+    line-height: 1;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .examples {
+    border-top: 6px dashed $border-color;
+    border-bottom: 6px dashed $border-color;
+
+    .wrap {
+      align-items: center;
+      padding: $grid * 20 0;
+    }
+
+
+    .content-desc {
+      padding-left: $grid;
+    }
+
+    .buttons {
+      display: grid;
+      grid-gap: $grid * 2;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+
+      .btn {
+        margin: 0;
+      }
+    }
+  }
+
+  .docs {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: $grid * 2;
+
+  }
+
+}

@@ -1,0 +1,20 @@
+#footer {
+  grid-area: footer;
+  font-size: 12px;
+  font-weight: 700;
+  color: $font-color-muted;
+
+
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $footer-height;
+  }
+}
+
+#default-layout {
+  #footer {
+    margin: 0 $grid * 6;
+  }
+}

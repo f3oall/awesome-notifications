@@ -1,0 +1,14 @@
+// Variables
+@import 'variables';
+
+// Global
+@import "app/layout";
+@import "app/typo";
+@import "app/buttons";
+@import "app/general";
+@import "app/header";
+@import "app/sidebar";
+@import "app/footer";
+
+// Pages
+@import "pages/landing";

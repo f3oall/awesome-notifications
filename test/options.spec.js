@@ -1,11 +1,17 @@
 import "chai/register-should"
-import Options from "../src/defaults"
+import Options from "../src/options"
 
-describe("Defaults", () => {
+describe("Options", () => {
   function newOptions() {
     return new Options({
-      duration: 1000,
-      replacements: { general: { "<script>": "2" } }
+      durations: {
+        global: 1000
+      },
+      replacements: {
+        general: {
+          "<script>": "2"
+        }
+      }
     })
   }
   let options
@@ -20,7 +26,7 @@ describe("Defaults", () => {
       should.equal(options.animationDuration, 300)
     })
     it("should override defaults", () => {
-      should.equal(options.duration, 1000)
+      should.equal(options.durations.global, 1000)
     })
     it("should override only specified defaults", () => {
       should.equal(options.replacements.general["<script>"], "2")
@@ -36,7 +42,7 @@ describe("Defaults", () => {
       options.icons.enabled = true
       should.equal(
         options.icon("tip"),
-        "<i class='fa fa-fw fa-question-circle'></i>"
+        "<i class='fa fas fa-fw fa-question-circle'></i>"
       )
     })
   })
@@ -45,9 +51,14 @@ describe("Defaults", () => {
       should.equal(options.label("async"), "Loading")
     })
   })
-  describe("getSecs()", () => {
+  describe("toSecs()", () => {
     it("should return time in seconds as string", () => {
-      should.equal(options.getSecs("animationDuration"), "0.3s")
+      should.equal(options.toSecs(options.animationDuration), "0.3s")
+    })
+  })
+  describe("duration()", () => {
+    it("should set global duration if another not chosen", () => {
+      should.equal(options.duration('tip'), options.durations.global)
     })
   })
   describe("applyReplacements()", () => {
@@ -61,7 +72,9 @@ describe("Defaults", () => {
       )
     })
     it("should apply specific type replacements", () => {
-      options.replacements["async-block"] = { "2": "" }
+      options.replacements["async-block"] = {
+        "2": ""
+      }
       should.equal(
         options.applyReplacements("<script>Bad JS</script>", "async-block"),
         "Bad JS"

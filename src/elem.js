@@ -1,48 +1,54 @@
-import { eConsts } from "./constants"
+import {
+  eConsts
+} from "./constants"
 
 export default class {
-  constructor(parent, id, klass, style, html, tag = "div") {
-    this.newNode = document.createElement(tag)
+  constructor(parent, id, klass, style, options) {
+    this.newNode = document.createElement('div')
     if (id) this.newNode.id = id
     if (klass) this.newNode.className = klass
-    if (html) this.newNode.innerHTML = html
     if (style) this.newNode.style.cssText = style
     this.parent = parent
-    this.options = {}
+    this.options = options
   }
-  fire(oldEl) {
-    if (oldEl) return oldEl.replace(this.newNode, this.type)
-    return this.insert()
-  }
-
   beforeInsert() {}
+  afterInsert() {}
   insert() {
     this.beforeInsert()
     this.el = this.parent.appendChild(this.newNode)
     this.afterInsert()
+    return this
   }
 
-  replace(node, type) {
+  replace(el) {
     if (!this.getElement()) return
     return this.beforeDelete().then(() => {
-      this.type = type
-      this.parent.replaceChild(node, this.el)
-      this.el = document.getElementById(node.id)
+      this.updateType(el.type)
+      this.parent.replaceChild(el.newNode, this.el)
+      this.el = this.getElement(el.newNode)
       this.afterInsert()
+      return this
     })
   }
-  afterInsert() {}
 
   beforeDelete(el = this.el) {
-    return new Promise((resolve, reject) => {
-      el.classList.add(eConsts.klass.hiding)
-      setTimeout(resolve, this.options.animationDuration || 300)
+    let timeLeft = 0
+    if (this.start) {
+      timeLeft = this.options.minDurations[this.type] + this.start - Date.now()
+      if (timeLeft < 0) timeLeft = 0
+    }
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        el.classList.add(eConsts.klass.hiding)
+        setTimeout(resolve, this.options.animationDuration)
+      }, timeLeft)
     })
   }
 
   delete(el = this.el) {
     if (!this.getElement(el)) return null
-    return this.beforeDelete(el).then(() => this.parent.removeChild(el))
+    return this.beforeDelete(el).then(() => el.remove())
   }
 
   getElement(el = this.el) {
@@ -53,11 +59,11 @@ export default class {
     this.el.addEventListener(name, func)
   }
 
-  addClass(klass) {
-    this.el.classList.add(klass)
+  toggleClass(klass) {
+    this.el.classList.toggle(klass)
   }
-
-  removeClass(klass) {
-    this.el.classList.remove(klass)
+  updateType(type) {
+    this.type = type
+    this.duration = this.options.duration(this.type)
   }
 }

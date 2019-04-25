@@ -1,133 +1,100 @@
-import Options from "./defaults"
+import Options from "./options"
 import Toast from "./toast"
-import Modal from "./modal"
+import Popup from "./popup"
 import Elem from "./elem"
 
-import { mConsts, eConsts, tConsts } from "./constants"
+import {
+  tConsts
+} from "./constants"
 
 export default class Notifier {
   constructor(options = {}) {
     this.options = new Options(options)
   }
-  _err(msg) {
-    throw Error(msg)
-  }
-  tip(html = this._err("missing 'html' parameter")) {
-    this.notify(html, "tip")
+
+  tip(msg, options) {
+    return this._addToast(msg, "tip", options).el
   }
 
-  info(html = this._err("missing 'html' parameter")) {
-    this.notify(html, "info")
+  info(msg, options) {
+    return this._addToast(msg, "info", options).el
   }
 
-  success(html = this._err("missing 'html' parameter")) {
-    this.notify(html, "success")
+  success(msg, options) {
+    return this._addToast(msg, "success", options).el
   }
 
-  warning(html = this._err("missing 'html' parameter")) {
-    this.notify(html, "warning")
+  warning(msg, options) {
+    return this._addToast(msg, "warning", options).el
   }
 
-  alert(html = this._err("missing 'html' parameter")) {
-    this.notify(html, "alert")
+  alert(msg, options) {
+    return this._addToast(msg, "alert", options).el
   }
 
-  async(
-    promise = this._err("missing 'promise' parameter"),
-    onResolve,
-    onReject,
-    html
-  ) {
-    let async = this.notify(html, "async")
-    return promise.then(
-      result => this._runFunction(true, onResolve, result, async),
-      err => Promise.reject(this._runFunction(false, onReject, err, async))
-    )
+  async (promise, onResolve, onReject, msg, options) {
+    let asyncToast = this._addToast(msg, "async", options)
+    return this._afterAsync(promise, onResolve, onReject, options, asyncToast)
   }
 
-  notify(html, type, oldEl) {
-    let newEl = new Toast(html, type, this.options, this._getContainer())
-    newEl.fire(oldEl)
-    return newEl
+  confirm(msg, onOk, onCancel, options) {
+    return this._addPopup(msg, "confirm", options, onOk, onCancel)
   }
 
-  confirm(html = this._err("missing 'html' parameter"), onOk, onCancel) {
-    let confirm = new Modal(html, "confirm", this.options)
-    confirm.addEvent("click", e => {
-      if (e.target.nodeName !== "BUTTON") return false
-      confirm.delete()
-      switch (e.target.id) {
-        case mConsts.ids.confirmOk:
-          return this._runFunction(true, onOk)
-        case mConsts.ids.confirmCancel:
-          return this._runFunction(true, onCancel)
-      }
-    })
+  asyncBlock(promise, onResolve, onReject, msg, options) {
+    let asyncBlock = this._addPopup(msg, "async-block", options)
+    return this._afterAsync(promise, onResolve, onReject, options, asyncBlock)
   }
 
-  asyncBlock(
-    promise = this._err("missing 'promise' parameter"),
-    onResolve,
-    onReject,
-    html
-  ) {
-    let asyncBlock = new Modal(html, "async-block", this.options)
-    let start = Date.now()
-    return promise.then(
-      result =>
-        asyncBlock
-          .hideAsync(start)
-          .then(() => this._runFunction(true, onResolve, result)),
-      err =>
-        asyncBlock
-          .hideAsync(start)
-          .then(() => Promise.reject(this._runFunction(false, onReject, err)))
-    )
-  }
-  modal(
-    html = this._err("missing 'html' parameter"),
-    className = this._err("missing className parameter")
-  ) {
-    let modal = new Modal(html, className, this.options)
-    modal.addEvent("click", e => {
-      if (e.target.id === modal.el.id) modal.delete()
-    })
+  modal(msg, className, options) {
+    return this._addPopup(msg, className, options)
   }
 
   // Tools
-  _getContainer() {
-    if (!this.container) {
-      this.container =
-        document.getElementById(tConsts.ids.container) ||
-        this._createContainer()
-    }
-    return this.container
-  }
-  _createContainer() {
-    let positions = this.options.position.split("-")
-    let klass = positions[0] === "top" ? `${eConsts.lib}-top` : ``
-    if (positions[1] === "left") {
-      klass = `${klass} ${eConsts.lib}-left`
-    }
-    let container = new Elem(document.body, tConsts.ids.container, klass)
-    container.insert()
-    return container.el
+  _addPopup(msg, className, options, onOk, onCancel) {
+    return new Popup(msg, className, this.options.override(options), onOk, onCancel)
   }
 
-  _runFunction(success, arg, param, oldEl) {
-    switch (typeof arg) {
-      case "function":
-        if (oldEl) oldEl.delete()
-        return arg(param)
-      case "string":
-        this.notify(arg, success ? "success" : "alert", oldEl)
-        return param
+  _addToast(msg, type, options, old) {
+    options = this.options.override(options)
+    let newToast = new Toast(msg, type, options, this.container)
+    if (old) {
+      if (old instanceof Popup) return old.delete().then(() => newToast.insert())
+      let i = old.replace(newToast)
+      return i
     }
-    if (success) {
-      if (oldEl) oldEl.delete()
-    } else {
-      this.notify(this.options.handleReject(param), "alert", oldEl)
+    return newToast.insert()
+  }
+
+  _afterAsync(promise, onResolve, onReject, options, oldElement) {
+    return promise.then(
+      this._responseHandler(onResolve, "success", options, oldElement),
+      this._responseHandler(onReject, "alert", options, oldElement)
+    )
+  }
+
+  _responseHandler(payload, toastName, options, oldElement) {
+    return result => {
+      switch (typeof payload) {
+        case 'undefined':
+        case 'string':
+          let msg = toastName === 'alert' ? payload || result : payload
+          this._addToast(msg, toastName, options, oldElement)
+          break
+        default:
+          oldElement.delete().then(() => {
+            if (payload) payload(result)
+          })
+      }
+      return toastName === 'alert' ? Promise.reject(result) : result
     }
-    return param
+  }
+
+  _createContainer() {
+    return new Elem(document.body, tConsts.ids.container, this.options.position).insert().el
+  }
+
+  get container() {
+    return document.getElementById(tConsts.ids.container) || this._createContainer()
   }
 }

@@ -2,62 +2,59 @@
 $awn-container-z-index: 99998 !default;
 $awn-container-padding: 24px !default;
 
+// Colors
+$awn-primary-color: hsl(0, 0, 50%) !default;
+$awn-primary-background: hsl(0, 0, 92%) !default;
+$awn-primary-border-color: hsl(0, 0, 82%) !default;
+
+$awn-success-color: hsl(100, 65%, 32%) !default;
+$awn-success-background: hsl(100, 74%, 90%) !default;
+$awn-success-border-color: hsl(100, 45%, 70%) !default;
+
+$awn-info-color: hsl(201, 71%, 38%) !default;
+$awn-info-background: hsl(201, 71%, 90%) !default;
+$awn-info-border-color: hsl(201, 71%, 78%) !default;
+
+$awn-alert-color: hsl(3, 74%, 38%) !default;
+$awn-alert-background: hsl(3, 74%, 90%) !default;
+$awn-alert-border-color: hsl(3, 74%, 78%) !default;
+
+$awn-warning-color: hsl(32, 100%, 38%) !default;
+$awn-warning-background: hsl(32, 100%, 90%) !default;
+$awn-warning-border-color: hsl(32, 100%, 75%) !default;
+
 // Notifications
 $awn-toast-width: 320px !default;
 $awn-toast-padding: 16px !default;
 $awn-toast-margin: 16px !default;
-$awn-toast-border-width: 1px !default;
+$awn-toast-border-width: 2px !default;
 $awn-toast-border-style: solid !default;
-$awn-toast-border-color: #e0e0e0 !default;
-$awn-border: $awn-toast-border-width $awn-toast-border-style
-  $awn-toast-border-color !default;
-$awn-progress-bar-height: 2px !default;
-$awn-toast-font-size: 13px !default;
-$awn-toast-title-font-size: 16px !default;
+$awn-toast-border-color: $awn-primary-border-color !default;
+$awn-toast-border-radius: 6px !default;
+$awn-border: $awn-toast-border-width $awn-toast-border-style $awn-toast-border-color !default;
+$awn-progress-bar-height: 6px !default;
+$awn-toast-font-size: 14px !default;
+$awn-toast-title-font-size: 18px !default;
 $awn-toast-icon-size: 44px !default;
 
-// Colors
-$awn-primary-color: #999 !default;
-$awn-primary-background: lighten($awn-primary-color, 33%) !default;
-$awn-primary-bar-background: lighten($awn-primary-color, 35%) !default;
-$awn-primary-border-color: $awn-toast-border-color !default;
-
-$awn-success-color: #609c33 !default;
-$awn-success-background: lighten($awn-success-color, 38%) !default;
-$awn-success-bar-background: lighten($awn-success-color, 42%) !default;
-$awn-success-border-color: lighten($awn-success-color, 20%) !default;
-
-$awn-info-color: #0a96e2 !default;
-$awn-info-background: lighten($awn-info-color, 38%) !default;
-$awn-info-bar-background: lighten($awn-info-color, 42%) !default;
-$awn-info-border-color: lighten($awn-info-color, 20%) !default;
-
-$awn-alert-color: #9d2c27 !default;
-$awn-alert-background: lighten($awn-alert-color, 38%) !default;
-$awn-alert-bar-background: lighten($awn-alert-color, 42%) !default;
-$awn-alert-border-color: lighten($awn-alert-color, 25%) !default;
-
-$awn-warning-color: #e66c0e !default;
-$awn-warning-background: lighten($awn-warning-color, 38%) !default;
-$awn-warning-bar-background: lighten($awn-warning-color, 42%) !default;
-$awn-warning-border-color: lighten($awn-warning-color, 25%) !default;
-
-// Modal Windows
-$awn-modal-wrapper-bg: rgba(0, 0, 0, 0.7) !default;
-$awn-modal-wrapper-z-index: 99999 !default;
-$awn-modal-bg: #fff !default;
-$awn-modal-min-width: 320px !default;
-$awn-modal-font-size: 14px !default;
-$awn-modal-icon-size: 44px !default;
-$awn-modal-padding: 24px !default;
-$awn-modal-btn-height: 32px !default;
-$awn-modal-btn-color: #fff !default;
-$awn-modal-btn-space: 8px !default;
+// Popups
+$awn-popup-wrapper-bg: rgba(0, 0, 0, 0.7) !default;
+$awn-popup-wrapper-z-index: 99999 !default;
+$awn-popup-bg: #fff !default;
+$awn-popup-min-width: 320px !default;
+$awn-popup-max-width: 500px !default;
+$awn-popup-font-size: 14px !default;
+$awn-popup-icon-size: 44px !default;
+$awn-popup-padding: 24px !default;
+$awn-popup-border-radius: 6px !default;
+$awn-popup-btn-height: 32px !default;
+$awn-popup-btn-color: #fff !default;
+$awn-popup-btn-border-radius: 4px !default;
 
 // Animations
-$awn-modal-show-animation: awn-fade-in;
-$awn-modal-hide-animation: awn-fade-out;
-$awn-modal-animation-timing: ease-out;
+$awn-popup-show-animation: awn-fade-in;
+$awn-popup-hide-animation: awn-fade-out;
+$awn-popup-animation-timing: ease-out;
 
 $awn-toast-left-show-animation: awn-slide-left;
 $awn-toast-right-show-animation: awn-slide-right;

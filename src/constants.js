@@ -1,6 +1,6 @@
 const libName = "awn"
 const prefix = {
-  modal: `${libName}-modal`,
+  popup: `${libName}-popup`,
   toast: `${libName}-toast`,
   btn: `${libName}-btn`,
   confirm: `${libName}-confirm`
@@ -16,28 +16,34 @@ export const tConsts = {
     progressBar: `${prefix.toast}-progress-bar`,
     progressBarPause: `${prefix.toast}-progress-bar-paused`
   },
-  ids: { container: `${prefix.toast}-container` }
+  ids: {
+    container: `${prefix.toast}-container`
+  }
 }
 
-// Constants for modals
-
+// Constants for popups
 export const mConsts = {
-  prefix: prefix.modal,
+  prefix: prefix.popup,
   klass: {
     buttons: `${libName}-buttons`,
     button: prefix.btn,
     successBtn: `${prefix.btn}-success`,
     cancelBtn: `${prefix.btn}-cancel`,
-    title: `${prefix.modal}-title`,
-    body: `${prefix.modal}-body`,
-    content: `${prefix.modal}-content`,
-    dotAnimation: `${prefix.modal}-loading-dots`
+    title: `${prefix.popup}-title`,
+    body: `${prefix.popup}-body`,
+    content: `${prefix.popup}-content`,
+    dotAnimation: `${prefix.popup}-loading-dots`
   },
   ids: {
-    wrapper: `${prefix.modal}-wrapper`,
+    wrapper: `${prefix.popup}-wrapper`,
     confirmOk: `${prefix.confirm}-ok`,
     confirmCancel: `${prefix.confirm}-cancel`
   }
 }
 
-export const eConsts = { klass: { hiding: `${libName}-hiding` }, lib: libName }
+export const eConsts = {
+  klass: {
+    hiding: `${libName}-hiding`
+  },
+  lib: libName
+}

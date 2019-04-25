@@ -1,0 +1,68 @@
+a,
+a:hover,
+a:focus,
+a:visited {
+  color: $green;
+  text-decoration: none;
+  outline: none;
+  transition: color .4s ease-out;
+}
+
+a:hover {
+  color: darken($green, 10%);
+}
+
+#docs-layout {
+  h2 {
+    padding-bottom: $grid;
+    margin: $grid * 7 0 $grid;
+    border-bottom: $border;
+  }
+
+  h2+h4 {
+    margin-top: 0;
+  }
+
+  h3,
+  h4 {
+    margin: $grid * 5 0 $grid;
+  }
+
+  p {
+    margin: 0 0 $grid * 2;
+  }
+
+  table {
+    width: 100%;
+    border: $border;
+    border-bottom: 0;
+    border-right: 0;
+
+    tr {
+
+      th,
+      td {
+        border-right: $border;
+        border-bottom: $border;
+        padding: $grid $grid * 2;
+
+      }
+    }
+  }
+}
+
+code {
+  background: #f8f8f8;
+}
+
+
+h1 {
+  margin-bottom: 0;
+}
+
+
+
+// Colors
+.red {
+  color: $red;
+}

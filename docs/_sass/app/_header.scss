@@ -1,0 +1,73 @@
+#header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  justify-content: space-between;
+  padding: 0 $grid * 6;
+  align-items: center;
+
+  .header-brand {
+    font-weight: 900;
+    font-size: 24px;
+    display: flex;
+    line-height: 1;
+
+    >div {
+      padding-left: $grid * 2;
+    }
+
+    &-logo {
+      height: $header-height - $grid * 5;
+    }
+
+
+
+    &-meta {
+      display: flex;
+      justify-content: space-between;
+      padding-top: $grid / 2;
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: darken($green, 3%);
+    }
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+
+    >button {
+      height: $grid * 5;
+      font-size: 14px;
+      margin-left: $grid * 4;
+    }
+  }
+
+  nav {
+    display: flex;
+
+    a {
+      font-weight: 700;
+      line-height: $grid * 5 - 6px;
+      text-align: center;
+      padding: 0 $grid * 3;
+      color: #666;
+      border-top: 3px dashed transparent;
+      border-bottom: 3px dashed transparent;
+      transition: all .2s ease;
+
+      &:hover,
+      &:focus {
+        color: darken($green, 5%);
+        border-top-color: $green;
+        border-bottom-color: $green;
+      }
+    }
+  }
+}
+
+#docs-layout {
+  #header {
+    border-bottom: $border;
+  }
+}

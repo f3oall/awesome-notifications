@@ -1,6 +1,5 @@
 docs
 test
-dist/index.var.js
 .prettierrc
 yarn.lock
 *.md
