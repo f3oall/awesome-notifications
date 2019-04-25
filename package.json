@@ -1,6 +1,6 @@
 {
   "name": "awesome-notifications",
-  "version": "2.2.9",
+  "version": "3.0.0",
   "description": "Lightweight library for beautifull and smooth notifications",
   "main": "dist/index.js",
   "scripts": {
