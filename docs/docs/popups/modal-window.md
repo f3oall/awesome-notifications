@@ -18,7 +18,7 @@ AWN.modal(message[,className,options])
   Defines modal window DOM element class name, it will be concatenated with default prefix 'awn-popup-'
 "%}
 {% include param-desc.md optional=true name="options" desc="
-  [Instance of Options](/docs/customization/), which will override globals for this call
+  [Instance of Options](/awesome-notifications/docs/customization/), which will override globals for this call
 "%}
 
 ### Return value

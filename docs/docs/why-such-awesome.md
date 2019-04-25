@@ -27,4 +27,4 @@ Library documentation is such awesome as library itself.
 ## 7. Frameworks integrations
 Library is integrated with Vue.js. React and Angular integrations are coming soon  
 <br><br>
-Ready to use? [Get started](/docs/)
+Ready to use? [Get started](/awesome-notifications/docs/)

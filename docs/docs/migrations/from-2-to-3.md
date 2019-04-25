@@ -4,7 +4,7 @@ layout: docs
 
 # Migrating from 2.x to 3.x
 
-Before you start it's recomended to read [Changelog](/docs/changelog). It describes new features, which can ease your life and code.
+Before you start it's recomended to read [Changelog](/awesome-notifications/docs/changelog). It describes new features, which can ease your life and code.
 
 ## Options
 The most part of changes in 3.x version is related with options object.

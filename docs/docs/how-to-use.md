@@ -31,12 +31,12 @@ notifier.success('Your custom message', nextCallOptions)
 ## Methods Overview
 
 | Method                                             | Description    |
-| [`tip()`](/docs/toasts/tip)                                           | Show gray toast with any valid HTML you passed in   |
-| [`info()`](/docs/toasts/info)                                             | Show blue toast with any valid HTML you passed in    |
-| [`warning()`](/docs/toasts/warning)                                             | Show orange toast with any valid HTML you passed in    |
-| [`success()`](/docs/toasts/success)                                             | Show green toast with any valid HTML you passed in    |
-| [`alert()`](/docs/toasts/alert)                                             | Show red toast with any valid HTML you passed in    |
-| [`async()`](/docs/toasts/async)                                             | Show async toast, until passed Promise will be completed    |
-| [`modal()`](/docs/popups/modal-window)                                             | Show modal window   |
-| [`confirm()`](/docs/popups/confirmation-window)                                             | Show  confirmation window   |
-| [`asyncBlock()`](/docs/popups/async-block)                                             | Show popup which blocks the screen, until passed Promise will be completed   |
+| [`tip()`](/awesome-notifications/docs/toasts/tip)                                           | Show gray toast with any valid HTML you passed in   |
+| [`info()`](/awesome-notifications/docs/toasts/info)                                             | Show blue toast with any valid HTML you passed in    |
+| [`warning()`](/awesome-notifications/docs/toasts/warning)                                             | Show orange toast with any valid HTML you passed in    |
+| [`success()`](/awesome-notifications/docs/toasts/success)                                             | Show green toast with any valid HTML you passed in    |
+| [`alert()`](/awesome-notifications/docs/toasts/alert)                                             | Show red toast with any valid HTML you passed in    |
+| [`async()`](/awesome-notifications/docs/toasts/async)                                             | Show async toast, until passed Promise will be completed    |
+| [`modal()`](/awesome-notifications/docs/popups/modal-window)                                             | Show modal window   |
+| [`confirm()`](/awesome-notifications/docs/popups/confirmation-window)                                             | Show  confirmation window   |
+| [`asyncBlock()`](/awesome-notifications/docs/popups/async-block)                                             | Show popup which blocks the screen, until passed Promise will be completed   |

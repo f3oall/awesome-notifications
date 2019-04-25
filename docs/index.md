@@ -63,7 +63,7 @@ layout: default
         </div>
         <div class="docs">
           <b>Ready to start?</b>  
-          <a href="/docs">Read our detailed documentation</a>
+          <a href="/awesome-notifications/docs">Read our detailed documentation</a>
         </div>
       </div>
     </div> 
