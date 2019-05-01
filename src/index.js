@@ -91,7 +91,7 @@ export default class Notifier {
   }
 
   _createContainer() {
-    return new Elem(document.body, tConsts.ids.container, this.options.position).insert().el
+    return new Elem(document.body, tConsts.ids.container, `awn-${this.options.position}`).insert().el
   }
 
   get container() {

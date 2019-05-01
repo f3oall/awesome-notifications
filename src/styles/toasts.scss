@@ -30,7 +30,8 @@
     }
   }
 
-  &:not(.awn-left) {
+  &.awn-top-right,
+  &.awn-bottom-right {
     .awn-toast {
       left: 100%;
       animation-name: $awn-toast-right-show-animation;
