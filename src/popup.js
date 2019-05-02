@@ -39,6 +39,12 @@ export default class extends Elem {
           this.delete()
           if (this[e.target.id]) this[e.target.id]()
         })
+        this.addEvent("keyup", e => {
+          if (["Escape", "Enter"].includes(e.key)) {
+            this.delete()
+            if (e.key === "Enter") // TODO: Trigger a click on the submit button/method here
+          }
+        })
         break
       default:
         this.addEvent("click", e => {
