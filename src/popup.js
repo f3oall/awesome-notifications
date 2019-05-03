@@ -42,7 +42,10 @@ export default class extends Elem {
         this.addEvent("keyup", e => {
           if (["Escape", "Enter"].includes(e.key)) {
             this.delete()
-            if (e.key === "Enter") // TODO: Trigger a click on the submit button/method here
+            if (e.key === "Enter") {
+              const confirmBtn = e.target.closest(`${mConsts.klass.content}`).getElementById(`${mConsts.ids.confirmOk}`)
+              confirmBtn.click()
+            }
           }
         })
         break
