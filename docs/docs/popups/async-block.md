@@ -41,6 +41,9 @@ AWN.asyncBlock(promise[,onResolve,onReject,message,options])
 A [JavaScript Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 
+### Behavior
+No mouse or keyboard events trigger during the showing of  `async-block`.
+
 ## Examples
 
 {% include awn-example.md js="

@@ -28,7 +28,11 @@ AWN.confirm([message,onOk,onCancel,options])
 A new [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) instance
 
 ### Behaviour
-Confirmation window can be closed only by clicking to one of two buttons.
+Confirmation window can be closed by clicking on one of two buttons.
+
+Also you can use `Esc` key to close it. Focus will be set on `OK` button on opening by default.
+
+Focus will be trapped inside window, so user can use `Tab` (`Shift+Tab`) key only to switch between one of two buttons.
 
 ## Examples
 

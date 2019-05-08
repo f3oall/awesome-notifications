@@ -25,7 +25,10 @@ AWN.modal(message[,className,options])
 A new [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) instance
 
 ### Behaviour
-Modal window can be closed by clicking on darkened wrapper area
+Modal window can be closed by clicking on darkened wrapper area.   
+Also you can use `Esc` key to close it.  
+
+Any combination of keys with `Tab` won't work to keep focus trapped.
 
 ## Examples
 

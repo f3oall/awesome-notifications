@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.0.2] - 05.08.2019
+
+### Added
+* Keyup listeners for popups
+* `async-block` now rejects all keydowns
+* `popup` now removes focus on open. `Tab` key and its combination keydowns are being omitted to keep focus trapped. `Esc` key closes the window.
+* `confirm` now set focus to `OK` button on open. `Tab` key and its combination keydowns are handled to keep focus inside the window.`Esc` key closes the window.
+* Updated docs sections regarding this update
+* New GIF in Readme 
+* `afterDelete` method to `elem` class 
+
+### Fixed
+* `demo` link in docs
+  
+
 ## [3.0.1] - 05.01.2019
 
 ### Fixed
