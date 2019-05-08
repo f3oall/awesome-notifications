@@ -4,11 +4,13 @@
 
 # Awesome Notifications
 
-Lightweight, fully customizable JavaScript notifications library with enhanced async support.  
+Lightweight, fully customizable JavaScript notifications library with enhanced async support.
 
-**3kb gzipped** &bull; **no dependencies**  &bull; **advanced async support**  &bull; **fully customizable**  &bull; **>95% test coverage**.
+**3kb gzipped** &bull; **no dependencies** &bull; **advanced async support** &bull; **fully customizable** &bull; **>95% test coverage**.
 
 **Demo:** https://f3oall.github.io/awesome-notifications/
+
+![demo](https://f3oall.github.io/awesome-notifications/docs/demo.gif)
 
 **Changelog:** [changelog.md](changelog.md)
 
