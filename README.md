@@ -10,7 +10,7 @@ Lightweight, fully customizable JavaScript notifications library with enhanced a
 
 **Demo:** https://f3oall.github.io/awesome-notifications/
 
-![demo](https://raw.githubusercontent.com/f3oall/awesome-notifications/master/docs/demo.gif)
+![demo](/docs/demo.gif)
 
 **Changelog:** [changelog.md](changelog.md)
 
