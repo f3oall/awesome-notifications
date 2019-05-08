@@ -48,8 +48,12 @@ export default class {
 
   delete(el = this.el) {
     if (!this.getElement(el)) return null
-    return this.beforeDelete(el).then(() => el.remove())
+    return this.beforeDelete(el).then(() => {
+      el.remove()
+      this.afterDelete()
+    })
   }
+  afterDelete() {}
 
   getElement(el = this.el) {
     return document.getElementById(el.id)

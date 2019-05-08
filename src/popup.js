@@ -28,12 +28,31 @@ export default class extends Elem {
     this.newNode.innerHTML = `<div class="${mConsts.klass.body} ${mConsts.prefix}-${this.className}">${innerHTML}</div>`
   }
 
+  keyupListener(e) {
+    if (this.type === 'async-block') return e.preventDefault()
+    switch (e.code) {
+      case 'Escape':
+        e.preventDefault()
+        this.delete()
+      case 'Tab':
+        e.preventDefault()
+        if (this.type !== 'confirm') return true
+        let next = this.okBtn
+        if (e.shiftKey) {
+          if (document.activeElement.id == mConsts.ids.confirmOk) next = this.cancelBtn
+        } else if (document.activeElement.id !== mConsts.ids.confirmCancel) next = this.cancelBtn
+        next.focus()
+    }
+  }
   afterInsert() {
+    this.listener = e => this.keyupListener(e)
+    window.addEventListener("keydown", this.listener)
     switch (this.type) {
       case 'async-block':
         this.start = Date.now()
         break
       case 'confirm':
+        this.okBtn.focus()
         this.addEvent("click", e => {
           if (e.target.nodeName !== "BUTTON") return false
           this.delete()
@@ -41,9 +60,22 @@ export default class extends Elem {
         })
         break
       default:
+        document.activeElement.blur()
         this.addEvent("click", e => {
           if (e.target.id === this.newNode.id) this.delete()
         })
     }
+  }
+
+  afterDelete() {
+    window.removeEventListener("keydown", this.listener)
+  }
+
+  get okBtn() {
+    return document.getElementById(mConsts.ids.confirmOk)
+  }
+
+  get cancelBtn() {
+    return document.getElementById(mConsts.ids.confirmCancel)
   }
 }
