@@ -18,7 +18,8 @@ AWN.confirm([message,onOk,onCancel,options])
   Defines `Function`, which will be executed on click to 'OK' button.
 "%}
 {% include param-desc.md optional=true name="onCancel" desc="
-  Defines `Function`, which will be executed on click to 'Cancel' button.
+  Defines `Function`, which will be executed on click to 'Cancel' button.  
+  If `false` was passed, 'Cancel' button will be hidden.
 "%}
 {% include param-desc.md optional=true name="options" desc="
   [Instance of Options](/awesome-notifications/docs/customization/), which will override globals for this call
@@ -52,3 +53,17 @@ Focus will be trapped inside window, so user can use `Tab` (`Shift+Tab`) key onl
     }
   )
 " label="Use custom" %}
+{% include awn-example.md js="
+  let notifier = new AWN();
+  let onOk = () => {notifier.info('You pressed OK')};
+  notifier.confirm(
+    'Your notification message',
+    onOk,
+    false,
+    {
+      labels: {
+        confirm: 'Simple notification'
+      }
+    }
+  )
+" label="No cancel button" %}

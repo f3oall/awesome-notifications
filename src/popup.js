@@ -9,7 +9,7 @@ export default class extends Elem {
     super(document.body, mConsts.ids.wrapper, null, animationDuration, options)
     this[mConsts.ids.confirmOk] = onOk
     this[mConsts.ids.confirmCancel] = onCancel
-    this.className = type
+    this.className = `${mConsts.prefix}-${type}`
     if (!['confirm', 'async-block', 'modal'].includes(type)) type = 'modal'
     this.updateType(type)
     this.setInnerHtml(msg)
@@ -20,12 +20,16 @@ export default class extends Elem {
     let innerHTML = this.options.applyReplacements(html, this.type)
     switch (this.type) {
       case "confirm":
-        innerHTML = `${this.options.icon(this.type)}<div class='${mConsts.klass.title}'>${this.options.label(this.type)}</div><div class="${mConsts.klass.content}">${innerHTML}</div><div class='${mConsts.klass.buttons}'><button class='${mConsts.klass.button} ${mConsts.klass.successBtn}'id='${mConsts.ids.confirmOk}'>${this.options.labels.confirmOk}</button><button class='${mConsts.klass.button} ${mConsts.klass.cancelBtn}'id='${mConsts.ids.confirmCancel}'>${this.options.labels.confirmCancel}</button></div>`
+        let buttons = [`<button class='${mConsts.klass.button} ${mConsts.klass.successBtn}'id='${mConsts.ids.confirmOk}'>${this.options.labels.confirmOk}</button>`]
+        if (this[mConsts.ids.confirmCancel] !== false) {
+          buttons.push(`<button class='${mConsts.klass.button} ${mConsts.klass.cancelBtn}'id='${mConsts.ids.confirmCancel}'>${this.options.labels.confirmCancel}</button>`)
+        }
+        innerHTML = `${this.options.icon(this.type)}<div class='${mConsts.klass.title}'>${this.options.label(this.type)}</div><div class="${mConsts.klass.content}">${innerHTML}</div><div class='${mConsts.klass.buttons} ${mConsts.klass.buttons}-${buttons.length}'>${buttons.join()}</div>`
         break
       case "async-block":
         innerHTML = `${innerHTML}<div class="${mConsts.klass.dotAnimation}"></div>`
     }
-    this.newNode.innerHTML = `<div class="${mConsts.klass.body} ${mConsts.prefix}-${this.className}">${innerHTML}</div>`
+    this.newNode.innerHTML = `<div class="${mConsts.klass.body} ${this.className}">${innerHTML}</div>`
   }
 
   keyupListener(e) {
@@ -36,7 +40,7 @@ export default class extends Elem {
         this.delete()
       case 'Tab':
         e.preventDefault()
-        if (this.type !== 'confirm') return true
+        if (this.type !== 'confirm' || this[mConsts.ids.confirmCancel] === false) return true
         let next = this.okBtn
         if (e.shiftKey) {
           if (document.activeElement.id == mConsts.ids.confirmOk) next = this.cancelBtn
