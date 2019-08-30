@@ -15,6 +15,7 @@ Then add it to your `main.js`:
 ```javascript
 import Vue from "vue"
 import VueAWN from "vue-awesome-notifications"
+import "vue-awesome-notifications/dist/styles/style.css"
 
 // Your custom options
 let options = {...}
