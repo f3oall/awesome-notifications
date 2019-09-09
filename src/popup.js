@@ -24,7 +24,7 @@ export default class extends Elem {
         if (this[mConsts.ids.confirmCancel] !== false) {
           buttons.push(`<button class='${mConsts.klass.button} ${mConsts.klass.cancelBtn}'id='${mConsts.ids.confirmCancel}'>${this.options.labels.confirmCancel}</button>`)
         }
-        innerHTML = `${this.options.icon(this.type)}<div class='${mConsts.klass.title}'>${this.options.label(this.type)}</div><div class="${mConsts.klass.content}">${innerHTML}</div><div class='${mConsts.klass.buttons} ${mConsts.klass.buttons}-${buttons.length}'>${buttons.join()}</div>`
+        innerHTML = `${this.options.icon(this.type)}<div class='${mConsts.klass.title}'>${this.options.label(this.type)}</div><div class="${mConsts.klass.content}">${innerHTML}</div><div class='${mConsts.klass.buttons} ${mConsts.klass.buttons}-${buttons.length}'>${buttons.join('')}</div>`
         break
       case "async-block":
         innerHTML = `${innerHTML}<div class="${mConsts.klass.dotAnimation}"></div>`
