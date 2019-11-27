@@ -12,3 +12,5 @@ docs/*
 !docs/_sass
 !docs/_includes
 !docs/docs
+!docs/Gemfile
+!docs/.gitignore
