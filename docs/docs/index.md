@@ -22,7 +22,7 @@ npm i awesome-notifications
 
 ## Browser
 
-Download [index.var.js](/dist/index.var.js) and [style.css](/dist/style.css), then add its path to your html:
+Download [index.var.js](https://github.com/f3oall/awesome-notifications/raw/master/dist/index.var.js) and [style.css](https://github.com/f3oall/awesome-notifications/raw/master/dist/style.css), then add its path to your html:
 
 ```html
 <head>
