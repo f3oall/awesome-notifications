@@ -21,6 +21,12 @@ let options = {...}
 
 Vue.use(VueAWN, options)
 ```
+Import css file to your `style.css`:
+
+```css
+@import '~vue-awesome-notifications/dist/styles/style.css';
+```
+
 Visit Vue.js [repository](https://github.com/f3oall/vue-awesome-notifications) to learn more
 
 
