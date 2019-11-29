@@ -86,7 +86,6 @@ export default class Notifier {
             if (payload) payload(result)
           })
       }
-      return toastName === 'alert' ? Promise.reject(result) : result
     }
   }
 
