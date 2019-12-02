@@ -45,8 +45,9 @@
 
   nav {
     display: flex;
+    align-items: center;
 
-    a {
+    a:not(.btn) {
       font-weight: 700;
       line-height: $grid * 5 - 6px;
       text-align: center;
@@ -56,12 +57,16 @@
       border-bottom: 3px dashed transparent;
       transition: all .2s ease;
 
-      &:hover,
-      &:focus {
+      &:not(.btn):hover,
+      &:not(.btn):focus {
         color: darken($green, 5%);
         border-top-color: $green;
         border-bottom-color: $green;
       }
+    }
+
+    .btn {
+      margin-left: 20px;
     }
   }
 }

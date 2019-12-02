@@ -14,7 +14,7 @@ Lightweight, fully customizable JavaScript notifications library with enhanced a
 
 **Changelog:** [changelog.md](changelog.md)
 
-## Patreon
+## Donate
 
 If you like this library you can become a patron [here](https://www.patreon.com/f3oall).
 
