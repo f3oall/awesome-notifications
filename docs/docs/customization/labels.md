@@ -108,8 +108,8 @@ options.labels = {
 
 Defines confirmation window success button label.
 ```javascript
-options.modal = {
-  okLabel: "Submit",
+options.labels = {
+  confirmOk: "Submit",
   ...
 }
 ```
@@ -121,8 +121,8 @@ options.modal = {
 
 Defines confirmation window cancel button label.
 ```javascript
-options.modal = {
-  cancelLabel: "Back",
+options.labels = {
+  confirmCancel: "Back",
   ...
 }
 ```
