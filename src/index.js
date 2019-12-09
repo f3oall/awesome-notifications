@@ -50,6 +50,13 @@ export default class Notifier {
     return this._addPopup(msg, className, options)
   }
 
+  closeToasts() {
+    let c = this.container
+    while (c.firstChild) {
+      c.removeChild(c.firstChild)
+    }
+  }
+
   // Tools
   _addPopup(msg, className, options, onOk, onCancel) {
     return new Popup(msg, className, this.options.override(options), onOk, onCancel)
