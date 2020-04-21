@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.1.1] - 04.21.2020
+
+### Fixed
+
+* Removed error which was displayed when you create new toast at the end of old toast's animation.
+
 ## [3.1.0] - 12.09.2019
 
 ### Added
