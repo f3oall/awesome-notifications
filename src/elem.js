@@ -51,6 +51,8 @@ export default class {
         return this.beforeDelete(el).then(() => {
             el.remove()
             this.afterDelete()
+            const event = new Event('deleted', { "bubbles": true, "cancelable": false })
+            this.el.dispatchEvent(event)
         })
     }
     afterDelete() {}

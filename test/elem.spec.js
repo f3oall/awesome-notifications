@@ -89,10 +89,11 @@ describe("Elem", () => {
     after(async () => await elem.delete())
   })
   describe("delete()", () => {
-    before(() => {
-      elem.insert()
-    })
+    // before(() => {
+    //   elem.insert()
+    // })
     it(`should remove element from DOM`, async () => {
+      elem.insert()
       should.exist(elem.getElement())
       await elem.delete()
       should.not.exist(elem.getElement())
@@ -100,6 +101,18 @@ describe("Elem", () => {
     it(`shouldn't try to remove element if it's not in the DOM`, () => {
       should.not.exist(elem.getElement())
       should.equal(elem.delete(), null)
+    })
+    it(`should dispatch deleted event`, async () => {
+      elem.insert()
+      should.exist(elem.getElement())
+      let closeEvent;
+      elem.addEvent('deleted', function(event){
+        console.log('deleted event fired')
+        closeEvent = event
+      })
+      await elem.delete()
+      should.not.exist(elem.getElement())
+      should.exist(closeEvent)
     })
   })
   describe("getElement()", () => {
