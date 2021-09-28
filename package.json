@@ -7,7 +7,9 @@
     "build": "rimraf dist/* && webpack --mode production --progress && rimraf dist/main*",
     "dev": "rimraf dist/* && webpack --mode development --progress && rimraf dist/main*",
     "build-dev": "rimraf dist/* docs/dist/* &&  webpack --mode production && rimraf dist/main* && cpx dist/*.{js,css} docs/dist",
-    "test": "mocha --require @babel/register --require @babel/polyfill"
+    "test": "mocha --require @babel/register --require @babel/polyfill",
+    "postversion": "npm run release",
+    "release": "npm publish"
   },
   "repository": {
     "type": "git",
