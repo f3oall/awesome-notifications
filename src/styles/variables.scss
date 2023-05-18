@@ -3,9 +3,9 @@ $awn-container-z-index: 99998 !default;
 $awn-container-padding: 24px !default;
 
 // Colors
-$awn-primary-color: hsl(0, 0, 50%) !default;
-$awn-primary-background: hsl(0, 0, 92%) !default;
-$awn-primary-border-color: hsl(0, 0, 82%) !default;
+$awn-primary-color: hsl(0, 0%, 50%) !default;
+$awn-primary-background: hsl(0, 0%, 92%) !default;
+$awn-primary-border-color: hsl(0, 0%, 82%) !default;
 
 $awn-success-color: hsl(100, 65%, 32%) !default;
 $awn-success-background: hsl(100, 74%, 90%) !default;
@@ -31,7 +31,8 @@ $awn-toast-border-width: 2px !default;
 $awn-toast-border-style: solid !default;
 $awn-toast-border-color: $awn-primary-border-color !default;
 $awn-toast-border-radius: 6px !default;
-$awn-border: $awn-toast-border-width $awn-toast-border-style $awn-toast-border-color !default;
+$awn-border: $awn-toast-border-width $awn-toast-border-style
+  $awn-toast-border-color !default;
 $awn-progress-bar-height: 6px !default;
 $awn-toast-font-size: 14px !default;
 $awn-toast-title-font-size: 18px !default;
