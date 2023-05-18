@@ -89,30 +89,34 @@ describe("Elem", () => {
     after(async () => await elem.delete())
   })
   describe("delete()", () => {
-    // before(() => {
-    //   elem.insert()
-    // })
-    it(`should remove element from DOM`, async () => {
-      elem.insert()
-      should.exist(elem.getElement())
-      await elem.delete()
-      should.not.exist(elem.getElement())
-    })
-    it(`shouldn't try to remove element if it's not in the DOM`, () => {
+    it(`shouldn't try to remove element if it's not in the DOM`, async () => {
       should.not.exist(elem.getElement())
       should.equal(elem.delete(), null)
     })
-    it(`should dispatch deleted event`, async () => {
-      elem.insert()
-      should.exist(elem.getElement())
-      let closeEvent;
-      elem.addEvent('deleted', function(event){
-        console.log('deleted event fired')
-        closeEvent = event
+    describe('elememt in the DOM', ()=>{
+      beforeEach(() => {
+        elem.insert()
       })
-      await elem.delete()
-      should.not.exist(elem.getElement())
-      should.exist(closeEvent)
+      it(`should remove element from DOM`, async () => {
+        should.exist(elem.getElement())
+        await elem.delete()
+        should.not.exist(elem.getElement())
+        should.equal(elem.delete(), null)
+      })
+      it(`should dispatch deleted event`, async () => {
+        should.exist(elem.getElement())
+        let closeEvent;
+        elem.addEvent('deleted', function(event){
+          should.not.exist(elem.getElement())
+          closeEvent = event
+        })
+        await elem.delete()
+        should.not.exist(elem.getElement())
+        should.exist(closeEvent)
+        closeEvent.should.be.an.instanceOf(Event)
+        closeEvent.cancelable.should.be.false
+        closeEvent.bubbles.should.be.true
+      })
     })
   })
   describe("getElement()", () => {
